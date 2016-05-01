@@ -58,7 +58,7 @@ $(document).ready(function() {
     let $possible = possibleRunewords(availableRunes).map(runeword => {
       let $name = $('<td>')
         .append( $('<b>').text(runeword.name) ).append('<br>')
-        .append( $('<span>').text(runeword.runes.join(', ')) ).append('<br>')
+        .append( $('<span>').text(runeword.runes.join(' + ')) ).append('<br>')
         .append( $('<span>').text(runeword.itemType) ).append('<br>')
         .append( $('<span>').text('Character Level: ' + runeword.level) )
 

@@ -41,6 +41,10 @@ h1, h2 {
   text-align: center;
 }
 
+#results td:nth-of-type(2) {
+  max-width: 28em;
+}
+
 #results ul {
   margin: 0em;
 }
