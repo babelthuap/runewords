@@ -1,0 +1,54 @@
+body {
+  background-color: beige;
+}
+
+.header {
+  text-align: center;
+}
+
+h1, h2 {
+  font-variant: small-caps;
+}
+
+.container {
+  margin: auto;
+}
+
+.container td {
+  vertical-align: top;
+}
+
+.container h2 {
+  margin-top: 0em;
+}
+
+#available, #possible {
+  margin: 1em;
+  padding: 1em;
+}
+
+#available {
+  background-color: rgba(0, 0, 0, 0.15);
+  border-radius: 0.25em;
+}
+
+#inputs input {
+  margin-left: 0.5em;
+  width: 3em;
+}
+
+#results td:nth-of-type(1) {
+  text-align: center;
+}
+
+#results ul {
+  margin: 0em;
+}
+
+#results h3 {
+  margin: 0em;
+}
+
+#results p {
+  margin: 0.5em;
+}
