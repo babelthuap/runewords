@@ -6,6 +6,21 @@ body {
   text-align: center;
 }
 
+.header a {
+  font-style: italic;
+  position: absolute;
+  right: 1em;
+  top: 0.25em;
+}
+
+a {
+  color: rgb(204, 51, 0);
+}
+
+a:visited {
+  color: rgb(153, 51, 0);
+}
+
 h1, h2 {
   font-variant: small-caps;
 }
@@ -38,6 +53,7 @@ h1, h2 {
 }
 
 #results td:nth-of-type(1) {
+  min-width: 8em;
   text-align: center;
 }
 
