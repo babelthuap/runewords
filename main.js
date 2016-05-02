@@ -28,26 +28,40 @@ $(document).ready(function() {
   runewords.forEach(runeword =>
     runeword.runes.forEach(rune => allRunes.add(rune))
   );
+  allRunes = [...allRunes].sort();
 
-  $('#inputs').append([...allRunes].sort().map(rune => {
-    let $input = $('<input>')
-      .attr('type', 'number')
-      .attr('min', '0')
-      .attr('value', availableRunes[rune] || 0);
+  function initializeInputs(availableRunes) {
+    $('#inputs').empty().append(allRunes.map(rune => {
+      let $input = $('<input>')
+        .attr('type', 'number')
+        .attr('min', '0')
+        .attr('value', availableRunes[rune] || 0);
 
-    return $('<tr>')
-      .append( $('<td>').text(rune) )
-      .append( $('<td>').append($input) );
-  }));
+      return $('<tr>')
+        .append( $('<td>').text(rune) )
+        .append( $('<td>').append($input) );
+    }));
+    updateResults(availableRunes);
+  }
 
-  updateResults(availableRunes);
+  initializeInputs(availableRunes);
+
+  $('#clear').click(function() {
+    availableRunes = {};
+    initializeInputs(availableRunes);
+    delete localStorage.availableRunes;
+  });
 
 
   // listeners on inputs
   $('#available').on('input', 'input', function() {
     let rune = $(this).closest('td').prev().text();
     let num = Number($(this).val()) || 0;
-    availableRunes[rune] = num;
+    if (num == 0) {
+      delete availableRunes[rune];
+    } else {
+      availableRunes[rune] = num;
+    }
 
     localStorage.availableRunes = JSON.stringify(availableRunes);
 

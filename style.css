@@ -52,6 +52,10 @@ h1, h2 {
   width: 3em;
 }
 
+#clear {
+  margin-top: 0.25em;
+}
+
 #results td:nth-of-type(1) {
   min-width: 8em;
   text-align: center;
