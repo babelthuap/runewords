@@ -76,11 +76,18 @@ $(document).ready(function() {
         .append( $('<span>').text(runeword.itemType) ).append('<br>')
         .append( $('<span>').text('Character Level: ' + runeword.level) )
 
+      if (runeword.ladderOnly) {
+        $name.prepend('<br>').prepend('<br>').prepend( $('<em>').text('LADDER ONLY') );
+      }
+
       let $attributes = $('<td>').append( $('<ul>')
         .append(runeword.attributes.map(attr => $('<li>').text(attr)))
       );
 
-      return $('<tr>').append($name).append($attributes);
+      return $('<tr>')
+        .append($name)
+        .append($attributes)
+        .addClass(runeword.ladderOnly ? 'ladder-only' : '');
     });
 
     if ($possible.length === 0) {
