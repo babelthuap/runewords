@@ -21,11 +21,12 @@ body {
 }
 
 a {
-  color: rgb(204, 51, 0);
+  color: rgb(153, 51, 0);
+  text-decoration: none;
 }
 
-a:visited {
-  color: rgb(153, 51, 0);
+a:hover {
+  text-decoration: underline;
 }
 
 h1, h2 {
