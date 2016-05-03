@@ -17,6 +17,6 @@ gulp.task('build', function() {
     .pipe(concat('bundle.js'))
     .pipe(babel({ presets: ['es2015'] }))
     .pipe(uglify())
-    .pipe(gulp.dest(''))
+    .pipe(gulp.dest('public'))
     .on('error', gutil.log);
 });
