@@ -9,8 +9,15 @@ body {
 .header a {
   font-style: italic;
   position: absolute;
-  right: 1em;
   top: 0.25em;
+}
+
+.header a:nth-of-type(1) {
+  left: 1em;
+}
+
+.header a:nth-of-type(2) {
+  right: 1em;
 }
 
 a {
