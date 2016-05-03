@@ -56,17 +56,21 @@ h1, h2 {
   margin-top: 0.25em;
 }
 
+#possible {
+  max-width: 44em;
+}
+
 .ladder-only {
-  color: rgba(0, 0, 0, 0.25);
+  opacity: 0.25;
+}
+
+.missing {
+  color: red;
 }
 
 #results td:nth-of-type(1) {
   min-width: 8em;
   text-align: center;
-}
-
-#results td:nth-of-type(2) {
-  max-width: 28em;
 }
 
 #results ul {
@@ -79,4 +83,8 @@ h1, h2 {
 
 #results p {
   margin: 0.5em;
+}
+
+#red-note {
+  max-width: 32em;
 }

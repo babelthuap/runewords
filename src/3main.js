@@ -3,6 +3,8 @@ $(document).ready(function() {
 
   let availableRunes = JSON.parse(localStorage.availableRunes || '{}');
 
+  let horadricCube = new HoradricCube();
+
   /*
    * canMakeRuneword: Returns true iff the runeword can be made with the
    * runes available, otherwise false.
@@ -15,7 +17,8 @@ $(document).ready(function() {
       counts[rune] = counts[rune] ? counts[rune] + 1 : 1
     );
 
-    return Object.keys(counts).every(rune => this[rune] >= counts[rune]);
+    return Object.keys(counts).every(rune => this[rune] >= counts[rune]) ||
+           horadricCube.canUpgradeToMakeWord(this, counts);
   }
 
   function possibleRunewords(available) {
@@ -69,10 +72,21 @@ $(document).ready(function() {
   });
 
   function updateResults(availableRunes) {
+    let missingSome = false;
+
     let $possible = possibleRunewords(availableRunes).map(runeword => {
+      let $runes = runeword.runes.map(rune => {
+        let $rune = $('<span>').text(rune + ' ');
+        if (!availableRunes[rune]) {
+          missingSome = true;
+          $rune.addClass('missing');
+        }
+        return $rune;
+      });
+
       let $name = $('<td>')
         .append( $('<b>').text(runeword.name) ).append('<br>')
-        .append( $('<span>').text(runeword.runes.join(' + ')) ).append('<br>')
+        .append( $('<span>').append($runes) ).append('<br>')
         .append( $('<span>').text(runeword.itemType) ).append('<br>')
         .append( $('<span>').text('Character Level: ' + runeword.level) )
 
@@ -95,6 +109,12 @@ $(document).ready(function() {
     }
 
     $('#results').empty().append($possible);
+
+    if (missingSome) {
+      $('#red-note').show();
+    } else {
+      $('#red-note').hide();
+    }
   }
 
 });
