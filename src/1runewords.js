@@ -112,8 +112,8 @@ var runewords = [{
   ladderOnly: true
 }, {
   name: "Chains of Honor",
-  runes: ["Dol", "Um", "Ber", "Ist", "Dol", "Um", "Ber", "Ist"],
-  itemType: "Clvl Required: 63",
+  runes: ["Dol", "Um", "Ber", "Ist"],
+  itemType: "Armor",
   level: 63,
   attributes: ["+2 To All Skills", "+200% Damage To Demons", "+100% Damage To Undead", "8% Life Stolen Per Hit", "+70% Enhanced Defense", "+20 To StrengthReplenish Life +7", "All Resistances +65", "Damage Reduced By 8%", "25% Better Chance of Getting Magic Items"],
   ladderOnly: false
@@ -273,8 +273,8 @@ var runewords = [{
   ladderOnly: false
 }, {
   name: "Bone",
-  runes: ["Sol", "Um", "Um", "Sol", "Um", "Um"],
-  itemType: "Clvl Required: 47",
+  runes: ["Sol", "Um", "Um"],
+  itemType: "Armor",
   level: 47,
   attributes: ["15% Chance To Cast level 10 Bone Armor When Struck", "15% Chance To Cast level 10 Bone Spear On Striking", "+2 To Necromancer Skill Levels", "+100-150 To Mana (varies)", "All Resistances +30", "Damage Reduced By 7"],
   ladderOnly: false
@@ -406,8 +406,8 @@ var runewords = [{
   ladderOnly: false
 }, {
   name: "Black",
-  runes: ["Thul", "Io", "Nef", "Thul", "Io", "Nef"],
-  itemType: "Clvl Required: 35",
+  runes: ["Thul", "Io", "Nef"],
+  itemType: "Clubs, Hammers, Maces",
   level: 35,
   attributes: ["+15% Increased Attack Speed", "+120% Enhanced Damage", "+200 to Attack Rating", "Adds 3-14 Cold Damage (3 sec)", "40% Chance of Crushing Blow", "Knockback", "+10 to Vitality", "Magic Damage Reduced By 2", "Level 4 Corpse Explosion (12 Charges)"],
   ladderOnly: false
@@ -469,8 +469,8 @@ var runewords = [{
   ladderOnly: true
 }, {
   name: "King's Grace",
-  runes: ["Amn", "Ral", "Thul", "Amn", "Ral", "Thul"],
-  itemType: "Clvl Required: 25",
+  runes: ["Amn", "Ral", "Thul"],
+  itemType: "Swords & Scepters",
   level: 25,
   attributes: ["+100% Enhanced Damage", "+150 to Attack Rating", "+100% Damage to Demons", "+100 to Attack Rating against Demons", "+50% Damage to Undead", "+100 to Attack Rating against Undead", "Adds 5-30 Fire Damage", "Adds 3-14 Cold damage", "7% Life stolen per hit"],
   ladderOnly: false
