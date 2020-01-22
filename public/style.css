@@ -1,5 +1,11 @@
+@font-face {
+  font-family: "Exocet";
+  src: url(https://vignette.wikia.nocookie.net/diablo/images/9/9e/EXOCET.ttf);
+}
+
 body {
   background-color: beige;
+  font-family: "Exocet", sans-serif;
 }
 
 .header {
@@ -56,6 +62,7 @@ h1, h2 {
 }
 
 #inputs input {
+  font-family: "Exocet", sans-serif;
   margin-left: 0.5em;
   width: 3em;
 }
