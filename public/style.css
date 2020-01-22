@@ -5,7 +5,7 @@
 
 body {
   background-color: beige;
-  font-family: "Exocet", sans-serif;
+  font-family: "Exocet", serif;
 }
 
 .header {
@@ -62,12 +62,13 @@ h1, h2 {
 }
 
 #inputs input {
-  font-family: "Exocet", sans-serif;
+  font-family: "Exocet", serif;
   margin-left: 0.5em;
   width: 3em;
 }
 
 #clear {
+  font-family: "Exocet", serif;
   margin-top: 0.25em;
 }
 
