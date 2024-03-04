@@ -544,4 +544,109 @@ var runewords = [{
   level: 13,
   attributes: ["+25% Increased Attack Speed", "+20% Enhanced Damage", "+3 to Minimum Damage", "+3 to Maximum Damage", "+50 to Attack Rating", "50% Chance of Open Wounds", "+2 to Mana after each Kill", "+1 to Light Radius"],
   ladderOnly: false
+}, {
+  name: "Pattern",
+  runes: ["Tal", "Ort", "Thul"],
+  itemType: "Claws",
+  level: 23,
+  attributes: ["+30% Faster Block Rate", "+40-80% Enchanced Damage (varies)", "10% Bonus to Attack Rating", "Adds 17-62 Fire Damage", "Adds 1-50 Lightning Damage", "Adds 3-14 Cold Damage", "+75 Poison Damage Over 5 Seconds", "+6 to Strength", "+6 to Dexterity", "All Resistances +15"],
+  ladderOnly: false
+}, {
+  name: "Bulwark",
+  runes: ["Shael", "Io", "Sol"],
+  itemType: "Helms",
+  level: 35,
+  attributes: ["+20% Faster Hit Recovery", "+4-6% Life Stolen Per Hit", "+75-100% Enhanced Defense", "+10 to Vitality", "Increase Maximum Life 5%", "Replenish Life +30", "Damage Reduced by 7", "Physical Damage Received Reduced by 10-15%"],
+  ladderOnly: true
+}, {
+  name: "Cure",
+  runes: ["Shael", "Io", "Tal"],
+  itemType: "Helms",
+  level: 35,
+  attributes: ["Level 1 Cleansing Aura when Equipped", "+20% Faster Hit Recovery", "+75-100% Enhanced Defense", "+10 to Vitality", "Increase Maximum Life 5%", "Posion Resist +40-60%", "Poison Length Reduced by 50%"],
+  ladderOnly: true
+}, {
+  name: "Ground",
+  runes: ["Shael", "Io", "Ort"],
+  itemType: "Helms",
+  level: 35,
+  attributes: ["+20% Faster Hit Recovery", "+75-100% Enhanced Defense", "+10 to Vitality", "Increase Maximum Life 5%", "Lightning Resist +40-60%", "Lightning Absorb +10-15%"],
+  ladderOnly: true
+}, {
+  name: "Hearth",
+  runes: ["Shael", "Io", "Thul"],
+  itemType: "Helms",
+  level: 35,
+  attributes: ["+20% Faster Hit Recovery", "+75-100% Enhanced Defense", "+10 to Vitality", "Increase Maximum Life 5%", "Cold Resist +40-60%", "Cold Absorb +10-15%", "Cannot be Frozen"],
+  ladderOnly: true
+}, {
+  name: "Temper",
+  runes: ["Shael", "Io", "Ral"],
+  itemType: "Helms",
+  level: 35,
+  attributes: ["+20% Faster Hit Recovery", "+75-100% Enhanced Defense", "+10 to Vitality", "Increase Maximum Life 5%", "Fire Resist +40-60%", "Fire Absorb +10-15%"],
+  ladderOnly: true
+}, {
+  name: "Hustle",
+  runes: ["Shael", "Ko", "Eld"],
+  itemType: "Weapons & Body Armors",
+  level: 39,
+  attributes: ["BOTH:", "+10 to Dexterity", "WEAPONS:", "5% Chance to Cast Level 1 Burst of Speed on Striking", "Level 1 Fanaticism Aura", "+30% Increased Attack Speed", "+180-200% Enhanced Damage", "+75% Damage to Undead", "+50 to Attack Rating against Undead", "BODY ARMORS:", "+65% Faster Run/Walk", "+40% Increased Attack Speed", "+20% Faster Hit Recovery", "+6 to Evade", "50% Slower Stamina Drain", "+All Resistances +10"],
+  ladderOnly: true
+}, {
+  name: "Unbending Will",
+  runes: ["Fal", "Io", "Ith", "Eld", "El", "Hel"],
+  itemType: "Swords",
+  level: 41,
+  attributes: ["18% Chance to Cast Level 18 Taunt On Striking", "+3 to Combat Skills (Barbarian Only)", "+20-30% Increased Attack Speed", "+300-350% Enhanced Damage", "+9 to Maximum Damage", "+50 to Attack Rating", "+75% Damage To Undead", "+50 Attack Rating Against Undead", "8-10% Life Stolen Per Hit", "Prevent Monster Heal", "+10 To Strength", "+10 To Vitality", "Damage Reduced by 8", "+1 To Light Radius", "Requirements -20%"],
+  ladderOnly: false
+}, {
+  name: "Wisdom",
+  runes: ["Pul", "Ith", "Eld"],
+  itemType: "Helms",
+  level: 45,
+  attributes: ["+33% Piercing Attack", "+15-25% Bonus to Attack Rating", "4-8% Mana Stolen Per Hit", "+30% Enhanced Defense", "+10 Energy", "15% Slower Stamina Drain", "Cannot Be Frozen", "+5 Mana After Each Kill", "15% Damage Taken Goes to Mana"],
+  ladderOnly: false
+}, {
+  name: "Mosaic",
+  runes: ["Mal", "Gul", "Amn"],
+  itemType: "Claws",
+  level: 53,
+  attributes: ["+50% chance for finishing moves to not consume charges", "When a finisher is executed this way, it now refreshes the expiration timer of the stack", "+2 to Martial Arts (Assassin only)", "+20% Increased Attack Speed", "+200-250% Enhanced Damage", "+20% Bonus to Attack Rating", "7% Life Steal", "+8-15% to Cold Skill Damage", "+8-15% to Lightning Skill Damage", "+8-15% to Fire Skill Damage", "Prevent Monster Heal"],
+  ladderOnly: true
+}, {
+  name: "Flickering Flame",
+  runes: ["Nef", "Pul", "Vex"],
+  itemType: "Helms",
+  level: 55,
+  attributes: [ "Level 4-8 Resist Fire Aura When Equipped", "+3 To Fire Skills", "-10-15% To Enemy Fire Resistance", "+30% Enhanced Defense", "+30 Defense vs. Missile", "+50-75 To Mana", "Half Freeze Duration", "+5% To Maximum Fire Resist", "Poison Length Reduced by 50%"],
+  ladderOnly: false
+}, {
+  name: "Plague",
+  runes: ["Cham", "Shael", "Um"],
+  itemType: "Swords & Claws & Daggers",
+  level: 67,
+  attributes: ["20% Chance To Cast Level 12 Lower Resist When Struck", "25% Chance to Cast Level 15 Poison Nova On Striking", "Level 13-17 Cleansing Aura When Equipped +1-2 To All Skills", "+20% Increased Attack Speed", "+220-320% Enhanced Damage", "-23% To Enemy Poison Resistance", "+0.3% (0-29.7) Deadly Strike (Based on Character Level)", "+25% Chance of Open Wounds", "Freezes Target +3"],
+  ladderOnly: false
+}, {
+  name: "Mist",
+  runes: ["Cham", "Shael", "Gul", "Thul", "Ith"],
+  itemType: "Missile Weapons",
+  level: 67,
+  attributes: ["Level 8-12 Concentration Aura When Equipped", "+3 To All Skills", "+20% Increased Attack Speed", "+100% Piercing Attack", "+325-375% Enhanced Damage", "+9 To Maximum Damage", "20% Bonus to Attack Rating", "Adds 3-14 Cold Damage", "Freezes Target +3", "+24 to Vitality", "All Resistances +40"],
+  ladderOnly: false
+}, {
+  name: "Metamorphosis",
+  runes: ["Io", "Cham", "Fal"],
+  itemType: "Helms",
+  level: 67,
+  attributes: ["Werewolf strikes grant Mark for 180 seconds", "Mark of the Wolf:", "+30% Bonus to Attack Rating", "Increase Maximum Life 40%", " -- ", "Werebear strikes grant Mark for 180 seconds", "Mark of the Bear:", "+25% Attack Speed", "Physical Damage Received Reduced by 20%", " -- ", "+5 to Shape Shifting Skills (Druid only)", "+25% Chance of Crushing Blow", "+50-80% Enhanced Defense", "+10 to Strength", "+10 to Vitality", "All Resistances +10", "Cannot be Frozen"],
+  ladderOnly: true
+}, {
+  name: "Obsession",
+  runes: ["Zod", "Ist", "Lem", "Lum", "Io", "Nef"],
+  itemType: "Staves",
+  level: 69,
+  attributes: ["Indestructible", "24% Chance to cast level 10 Weaken when struck", "+4 To All Skills", "+65% Faster Cast Rate", "+60% Faster Hit Recovery", "Knockback", "+10 To Vitality", "+10 To Energy", "Increase Maximum Life 15-25%", "Regenerate Mana 15-30%", "All Resistances +60-70", "75% Extra Gold from Monsters", "30% Better Chance of Getting Magic Items"],
+  ladderOnly: false
 }];
