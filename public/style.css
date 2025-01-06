@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Exocet";
-  src: url(https://vignette.wikia.nocookie.net/diablo/images/9/9e/EXOCET.ttf);
+  src: url(EXOCET.ttf);
 }
 
 body {
@@ -76,8 +76,8 @@ h1, h2 {
   max-width: 44em;
 }
 
-.ladder-only {
-  opacity: 0.25;
+.ladder-only td:first-of-type em:last-of-type {
+  color: blue;
 }
 
 .missing {
@@ -99,8 +99,4 @@ h1, h2 {
 
 #results p {
   margin: 0.5em;
-}
-
-#red-note {
-  max-width: 32em;
 }
