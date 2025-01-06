@@ -27,14 +27,8 @@ $(document).ready(function() {
 
 
   // create inputs and initialize values
-  let allRunes = new Set();
-  runewords.forEach(runeword =>
-    runeword.runes.forEach(rune => allRunes.add(rune))
-  );
-  allRunes = [...allRunes].sort();
-
   function initializeInputs(availableRunes) {
-    $('#inputs').empty().append(allRunes.map(rune => {
+    $('#inputs').empty().append(runes.map(rune => {
       let $input = $('<input>')
         .attr('type', 'number')
         .attr('min', '0')
@@ -91,7 +85,7 @@ $(document).ready(function() {
         .append( $('<span>').text('Character Level: ' + runeword.level) )
 
       if (runeword.ladderOnly) {
-        $name.prepend('<br>').prepend('<br>').prepend( $('<em>').text('LADDER ONLY') );
+        $name.append('<br>').append('<br>').append( $('<em>').text('LADDER ONLY') );
       }
 
       let $attributes = $('<td>').append( $('<ul>')

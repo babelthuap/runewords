@@ -1,4 +1,4 @@
-var runewords = [{
+const runewords = [{
   name: "Breath of the Dying",
   runes: ["Vex", "Hel", "El", "Eld", "Zod", "Eth"],
   itemType: "All Weapons",
@@ -649,4 +649,4 @@ var runewords = [{
   level: 69,
   attributes: ["Indestructible", "24% Chance to cast level 10 Weaken when struck", "+4 To All Skills", "+65% Faster Cast Rate", "+60% Faster Hit Recovery", "Knockback", "+10 To Vitality", "+10 To Energy", "Increase Maximum Life 15-25%", "Regenerate Mana 15-30%", "All Resistances +60-70", "75% Extra Gold from Monsters", "30% Better Chance of Getting Magic Items"],
   ladderOnly: false
-}];
+}].sort((a, b) => (b.level - a.level) || (a.name > b.name ? 1 : -1));
