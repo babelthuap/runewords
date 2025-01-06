@@ -17,25 +17,18 @@
   </div>
   <hr>
 
-  <table class="container">
-    <tr>
-      <td>
-        <div id="available">
-          <h2 class="header">Available Runes</h2>
-          <table id="inputs"></table>
-          <button id="clear">CLEAR</button>
-        </div>
-      </td>
-
-      <td>
-        <div id="possible">
-          <h2 class="header">Possible Runewords</h2>
-          <p id="red-note"><em><b>NOTE:</b> <span class="missing">Red</span> runes are runes you don't currently have, but which you can make using the <a href="http://diablo2.diablowiki.net/Horadric_Cube_Recipes#Runes">Horadric Cube</a>. If a runeword appears above, it's guaranteed that you can make all of the necessary runes using your current runes. This doesn't take into account the gems you need to upgrade higher-level runes.</em></p>
-          <table id="results" border="4" cellspacing="3" cellpadding="8"></table>
-        </div>
-      </td>
-    </tr>
-  </table>
+  <div class="container">
+    <div id="available">
+      <h2 class="header">Available Runes</h2>
+      <table id="inputs"></table>
+      <button id="clear">CLEAR</button>
+    </div>
+    <div id="possible">
+      <h2 class="header">Possible Runewords</h2>
+      <p id="red-note"><em><b>NOTE:</b> <span class="missing">Red</span> runes are runes you don't currently have, but which you can make using the <a href="http://diablo2.diablowiki.net/Horadric_Cube_Recipes#Runes">Horadric Cube</a>. If a runeword appears above, it's guaranteed that you can make all of the necessary runes using your current runes. This doesn't take into account the gems you need to upgrade higher-level runes.</em></p>
+      <table id="results" border="4" cellspacing="3" cellpadding="8"></table>
+    </div>
+  </div>
 
   <script src="public/jquery.min.js"></script>
   <script src="src/1runewords.js"></script>

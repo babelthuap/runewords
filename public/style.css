@@ -18,6 +18,12 @@ body {
   top: 0.25em;
 }
 
+@media (max-width: 640px) {
+  .header a {
+    display: none;
+  }
+}
+
 .header a:nth-of-type(1) {
   left: 1em;
 }
@@ -40,7 +46,14 @@ h1, h2 {
 }
 
 .container {
-  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 640px) {
+  .container {
+    flex-direction: column;
+  }
 }
 
 .container td {
