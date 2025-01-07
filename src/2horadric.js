@@ -1,10 +1,10 @@
 'use strict';
 
-const runes = ['El', 'Eld', 'Tir', 'Nef', 'Eth', 'Ith', 'Tal', 'Ral', 'Ort', 'Thul', 'Amn', 'Sol', 'Shael', 'Dol', 'Hel', 'Io', 'Lum', 'Ko', 'Fal', 'Lem', 'Pul', 'Um', 'Mal', 'Ist', 'Gul', 'Vex', 'Ohm', 'Lo', 'Sur', 'Ber', 'Jah', 'Cham', 'Zod'];
+const RUNES = ['El', 'Eld', 'Tir', 'Nef', 'Eth', 'Ith', 'Tal', 'Ral', 'Ort', 'Thul', 'Amn', 'Sol', 'Shael', 'Dol', 'Hel', 'Io', 'Lum', 'Ko', 'Fal', 'Lem', 'Pul', 'Um', 'Mal', 'Ist', 'Gul', 'Vex', 'Ohm', 'Lo', 'Sur', 'Ber', 'Jah', 'Cham', 'Zod'];
 
 function HoradricCube() {
   let rank = {};
-  runes.forEach((rune, i) => rank[rune] = i);
+  RUNES.forEach((rune, i) => rank[rune] = i);
 
   function runesToArray(runeObj) {
     let runeArr = Array(33).fill(0);
@@ -16,7 +16,7 @@ function HoradricCube() {
 
   function arrayToRunes(runeArr) {
     let runeObj = {};
-    runeArr.forEach((n, i) => n && (runeObj[runes[i]] = n));
+    runeArr.forEach((n, i) => n && (runeObj[RUNES[i]] = n));
     return runeObj;
   }
 
@@ -46,6 +46,20 @@ function HoradricCube() {
     runeArr = upgradeAll(runeArr);
     return Object.keys(wordObj).every(rune => runeArr[rank[rune]] >= 0);
   }
+
+  this.serializeRunes = runeObj => {
+    const arr = runesToArray(runeObj);
+    const allZerosAfter = arr.findLastIndex(x => x !== 0);
+    return arr.slice(0, allZerosAfter + 1).map(x => x ? x.toString() : '').join('-');
+  };
+
+  this.deserializeRunes = str => {
+    if (/[^\d-]/.test(str)) {
+      return {};
+    }
+    const arr = str.split('-').map(x => parseInt(x)).map(x => x || 0);
+    return arrayToRunes(arr);
+  };
 }
 
 // FOR FUN:

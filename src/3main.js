@@ -1,9 +1,16 @@
 $(document).ready(function() {
   'use strict';
 
-  let availableRunes = JSON.parse(localStorage.availableRunes || '{}');
-
   let horadricCube = new HoradricCube();
+
+  let availableRunes;
+  if (localStorage.availableRunes) {
+    availableRunes = JSON.parse(localStorage.availableRunes);
+    replaceRunesParam(horadricCube.serializeRunes(availableRunes));
+  } else {
+    availableRunes =
+      horadricCube.deserializeRunes(new URLSearchParams(location.search).get('runes'));
+  }
 
   /*
    * canMakeRuneword: Returns true iff the runeword can be made with the
@@ -28,7 +35,7 @@ $(document).ready(function() {
 
   // create inputs and initialize values
   function initializeInputs(availableRunes) {
-    $('#inputs').empty().append(runes.map(rune => {
+    $('#inputs').empty().append(RUNES.map(rune => {
       let $input = $('<input>')
         .attr('type', 'number')
         .attr('min', '0')
@@ -47,8 +54,18 @@ $(document).ready(function() {
     availableRunes = {};
     initializeInputs(availableRunes);
     delete localStorage.availableRunes;
+    replaceRunesParam('');
   });
 
+  function replaceRunesParam(value) {
+    const url = new URL(window.location.href);
+    if (value) {
+      url.searchParams.set('runes', value);
+    } else {
+      url.searchParams.delete('runes');
+    }
+    window.history.replaceState(null, '', url.toString());
+  }
 
   // listeners on inputs
   $('#available').on('input', 'input', function() {
@@ -61,6 +78,7 @@ $(document).ready(function() {
     }
 
     localStorage.availableRunes = JSON.stringify(availableRunes);
+    replaceRunesParam(horadricCube.serializeRunes(availableRunes));
 
     updateResults(availableRunes);
   });
