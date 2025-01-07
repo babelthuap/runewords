@@ -72,6 +72,7 @@ h1, h2 {
 #available {
   background-color: rgba(0, 0, 0, 0.15);
   border-radius: 0.25em;
+  height: fit-content;
 }
 
 #inputs input {
