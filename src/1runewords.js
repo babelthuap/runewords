@@ -649,4 +649,39 @@ const runewords = [{
   level: 69,
   attributes: ["Indestructible", "24% Chance to cast level 10 Weaken when struck", "+4 To All Skills", "+65% Faster Cast Rate", "+60% Faster Hit Recovery", "Knockback", "+10 To Vitality", "+10 To Energy", "Increase Maximum Life 15-25%", "Regenerate Mana 15-30%", "All Resistances +60-70", "75% Extra Gold from Monsters", "30% Better Chance of Getting Magic Items"],
   ladderOnly: false
+}, {
+  name: "Authority [requires Warlock expansion]",
+  runes: ["Hel", "Shael", "Ral"],
+  itemType: "Armor",
+  level: 29,
+  attributes: ["10% Chance to cast level 15 Miasma Chain on striking", "2% Chance to cast level 10 Psychic Ward when struck", "+2 to Warlock Skills", "+20% Faster Hit Recovery", "+57% Enhanced Damage (varies)", "Fire Resist +30%", "Requirements -15%"],
+  ladderOnly: false
+}, {
+  name: "Coven [requires Warlock expansion]",
+  runes: ["Ist", "Ral", "Io"],
+  itemType: "Helms",
+  level: 63,
+  attributes: ["5% Chance to cast level 10 Sigil: Lethargy when struck", "+1 to All Skills", "+20% Faster Cast Rate", "+39% Enhanced Defense (varies)", "+10 to Vitality", "Fire Resist +30%", "+4 Life after each kill", "31% Better Chance Of Getting Magic Items (varies)"],
+  ladderOnly: false
+}, {
+  name: "Void [requires Warlock expansion]",
+  runes: ["Thul", "Zod", "Ist"],
+  itemType: "Daggers",
+  level: 69,
+  attributes: ["Indestructible", "+2 to All Skills", "+40% Faster Cast Rate", "Adds 3-14 cold damage", "+11% to Magic Skill Damage", "+3 to Flame Wave (Warlock Only)", "+1 to Echoing Strike (Warlock Only)", "+1 to Engorge (Warlock Only)", "+2 to Abyss", "+9 to all Attributes", "30% Better Chance Of Getting Magic Items", "Level 4 Decrepify (35 Charges)"],
+  ladderOnly: false
+}, {
+  name: "Vigilance [requires Warlock expansion]",
+  runes: ["Dol", "Gul"],
+  itemType: "Warlock Shields",
+  level: 53,
+  attributes: ["5% Chance to cast level 10 Ring of Fire when struck", "+10% Faster Run/Walk", "+30% Faster Block Rate", "+88% Enhanced Defense (varies)", "+34 to Life (varies)", "Replenish Life +7", "+35 to Mana (varies)", "+5% to Maximum Poison Resist", "All Resistances +34 (varies)"],
+  ladderOnly: false
+}, {
+  name: "Ritual [requires Warlock expansion]",
+  runes: ["Amn", "Shael", "Ohm"],
+  itemType: "Daggers",
+  level: 57,
+  attributes: ["13% Chance to cast level 1 Sigil: Death when struck", "+40% Enhanced Damage", "+304% Bonus to Attack Rating (varies)", "+226% Damage to Demons (varies)", "7% Life stolen per hit", "+1 to Blade Warp (Warlock Only)", "Slain Monsters Rest in Peace", "+3 Life after each Kill"],
+  ladderOnly: false
 }].sort((a, b) => (b.level - a.level) || (a.name > b.name ? 1 : -1));
