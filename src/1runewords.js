@@ -650,39 +650,38 @@ const runewords = [{
   attributes: ["Indestructible", "24% Chance to cast level 10 Weaken when struck", "+4 To All Skills", "+65% Faster Cast Rate", "+60% Faster Hit Recovery", "Knockback", "+10 To Vitality", "+10 To Energy", "Increase Maximum Life 15-25%", "Regenerate Mana 15-30%", "All Resistances +60-70", "75% Extra Gold from Monsters", "30% Better Chance of Getting Magic Items"],
   ladderOnly: true
 }, {
-
-  name: "Authority [requires Warlock expansion]",
+  name: "Authority [Warlock expansion]",
   runes: ["Hel", "Shael", "Ral"],
   itemType: "Armor",
   level: 29,
-  attributes: ["10% Chance to cast level 15 Miasma Chain on striking", "2% Chance to cast level 10 Psychic Ward when struck", "+2 to Warlock Skills", "+20% Faster Hit Recovery", "+57% Enhanced Damage (varies)", "Fire Resist +30%", "Requirements -15%"],
+  attributes: ["2% Chance to cast level 10 Psychic Ward when struck", "10% Chance to cast level 15 Miasma Chains on striking", "+2 to Warlock Skill Levels", "+40-60% Enhanced Damage"],
   ladderOnly: false
 }, {
-  name: "Coven [requires Warlock expansion]",
+  name: "Coven [Warlock expansion]",
   runes: ["Ist", "Ral", "Io"],
   itemType: "Helms",
   level: 63,
-  attributes: ["5% Chance to cast level 10 Sigil: Lethargy when struck", "+1 to All Skills", "+20% Faster Cast Rate", "+39% Enhanced Defense (varies)", "+10 to Vitality", "Fire Resist +30%", "+4 Life after each kill", "31% Better Chance Of Getting Magic Items (varies)"],
+  attributes: ["5% Chance to cast level 10 Sigil Lethargy when struck", "+1 to All Skills", "+20% Faster Cast Rate", "+30-50% Enhanced Defense", "+1-15 Magic Absorb", "+1-5 Life after each Kill"],
   ladderOnly: false
 }, {
-  name: "Void [requires Warlock expansion]",
+  name: "Void [Warlock expansion]",
   runes: ["Thul", "Zod", "Ist"],
   itemType: "Daggers",
   level: 69,
-  attributes: ["Indestructible", "+2 to All Skills", "+40% Faster Cast Rate", "Adds 3-14 cold damage", "+11% to Magic Skill Damage", "+3 to Flame Wave (Warlock Only)", "+1 to Echoing Strike (Warlock Only)", "+1 to Engorge (Warlock Only)", "+2 to Abyss", "+9 to all Attributes", "30% Better Chance Of Getting Magic Items", "Level 4 Decrepify (35 Charges)"],
+  attributes: ["+2 to All Skills", "+40% Faster Cast Rate", "+10-15% to Magic Skill Damage", "+1-3 to Abyss", "+8-12 to all Attributes", "Level 4 Decrepify (35/35 Charges)"],
   ladderOnly: false
 }, {
-  name: "Vigilance [requires Warlock expansion]",
+  name: "Vigilance [Warlock expansion]",
   runes: ["Dol", "Gul"],
   itemType: "Shields",
   level: 53,
-  attributes: ["5% Chance to cast level 10 Ring of Fire when struck", "+10% Faster Run/Walk", "+30% Faster Block Rate", "+88% Enhanced Defense (varies)", "+34 to Life (varies)", "Replenish Life +7", "+35 to Mana (varies)", "+5% to Maximum Poison Resist", "All Resistances +34 (varies)"],
+  attributes: ["5% Chance to cast level 10 Ring of Fire when struck", "+10% Faster Run/Walk", "+30% Faster Block Rate", "+20-40 to Life", "+20-40 to Mana", "All Resistances +25-35", "+75-100% Enhanced Defense"],
   ladderOnly: false
 }, {
-  name: "Ritual [requires Warlock expansion]",
+  name: "Ritual [Warlock expansion]",
   runes: ["Amn", "Shael", "Ohm"],
   itemType: "Daggers",
   level: 57,
-  attributes: ["13% Chance to cast level 1 Sigil: Death when struck", "+40% Enhanced Damage", "+304% Bonus to Attack Rating (varies)", "+226% Damage to Demons (varies)", "7% Life stolen per hit", "+1 to Blade Warp (Warlock Only)", "Slain Monsters Rest in Peace", "+3 Life after each Kill"],
+  attributes: ["13% Chance to cast level 1 Sigil Lethargy when struck", "+20% Increased Attack Speed", "Damage Reduced by 200-270%", "+150-250% Damage to Demons", "100-260% Bonus to Attack Rating", "+3-5 Life after each Kill", "Slain Monsters Rest in Peace"],
   ladderOnly: false
 }].sort((a, b) => (b.level - a.level) || (a.name > b.name ? 1 : -1));
