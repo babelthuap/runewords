@@ -21,7 +21,8 @@ body {
 
 .title h1 {
   margin: 0;
-  padding: 13px 0;
+  padding-top: 21px;
+  padding-bottom: 13px;
 }
 
 .header {
@@ -31,7 +32,7 @@ body {
 .header a {
   font-style: italic;
   position: absolute;
-  top: 0;
+  top: 8px;
 }
 
 @media (max-width: 640px) {
@@ -89,6 +90,15 @@ h1, h2 {
   background-color: rgba(0, 0, 0, 0.15);
   border-radius: 0.25em;
   height: fit-content;
+  position: sticky;
+  top: 104px;
+}
+
+@media (max-width: 640px) {
+  .available {
+    position: unset;
+    top: unset;
+  }
 }
 
 #inputs input {
