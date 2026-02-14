@@ -205,7 +205,7 @@ const runewords = [{
   name: "Heart of the Oak",
   runes: ["Ko", "Vex", "Pul", "Thul"],
   itemType: "Staves & Maces",
-  level: 5,
+  level: 55,
   attributes: ["+3 To All Skills", "+40% Faster Cast Rate", "+75% Damage To Demons", "+100 To Attack Rating Against Demons", "Adds 3-14 Cold Damage", "7% Mana Stolen Per Hit", "+10 To Dexterity", "Replenish Life +20", "Increase Maximum Mana 15%", "All Resistances +30-40 (varies)", "Level 4 Oak Sage (25 Charges)", "Level 14 Raven (60 Charges)"],
   ladderOnly: false
 }, {
@@ -682,6 +682,6 @@ const runewords = [{
   runes: ["Amn", "Shael", "Ohm"],
   itemType: "Daggers",
   level: 57,
-  attributes: ["13% Chance to cast level 1 Sigil Lethargy when struck", "+20% Increased Attack Speed", "Damage Reduced by 200-270%", "+150-250% Damage to Demons", "100-260% Bonus to Attack Rating", "+3-5 Life after each Kill", "Slain Monsters Rest in Peace", "7% Life stolen per hit", "+20% Increased Attack Speed", "+50% Enhanced Damage"],
+  attributes: ["13% Chance to cast level 1 Sigil Lethargy when struck", "+20% Increased Attack Speed", "+150-250% Damage to Demons", "100-260% Bonus to Attack Rating", "+3-5 Life after each Kill", "Slain Monsters Rest in Peace", "7% Life stolen per hit", "+20% Increased Attack Speed", "+250-320% Enhanced Damage"],
   ladderOnly: false
 }].sort((a, b) => (b.level - a.level) || (a.name > b.name ? 1 : -1));
