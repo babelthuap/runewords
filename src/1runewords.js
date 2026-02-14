@@ -650,35 +650,35 @@ const runewords = [{
   attributes: ["Indestructible", "24% Chance to cast level 10 Weaken when struck", "+4 To All Skills", "+65% Faster Cast Rate", "+60% Faster Hit Recovery", "Knockback", "+10 To Vitality", "+10 To Energy", "Increase Maximum Life 15-25%", "Regenerate Mana 15-30%", "All Resistances +60-70", "75% Extra Gold from Monsters", "30% Better Chance of Getting Magic Items"],
   ladderOnly: true
 }, {
-  name: "Authority [Warlock expansion]",
+  name: "Authority [RotW]",
   runes: ["Hel", "Shael", "Ral"],
   itemType: "Armor",
   level: 29,
   attributes: ["2% Chance to cast level 10 Psychic Ward when struck", "10% Chance to cast level 15 Miasma Chains on striking", "+2 to Warlock Skill Levels", "+40-60% Enhanced Damage", "Requirements -15%", "+20% Faster Hit Recovery", "Fire Resist +30%"],
   ladderOnly: false
 }, {
-  name: "Coven [Warlock expansion]",
+  name: "Coven [RotW]",
   runes: ["Ist", "Ral", "Io"],
   itemType: "Helms",
   level: 51,
   attributes: ["5% Chance to cast level 10 Sigil Lethargy when struck", "+1 to All Skills", "+20% Faster Cast Rate", "+30-50% Enhanced Defense", "+1-15 Magic Absorb", "+1-5 Life after each Kill", "26-40% Better Chance of Getting Magic Items", "Fire Resist +30%", "+10 to Vitality"],
   ladderOnly: false
 }, {
-  name: "Void [Warlock expansion]",
+  name: "Void [RotW]",
   runes: ["Thul", "Zod", "Ist"],
   itemType: "Daggers",
   level: 69,
   attributes: ["+2 to All Skills", "+40% Faster Cast Rate", "+10-15% to Magic Skill Damage", "+1-3 to Abyss", "+8-12 to all Attributes", "Level 4 Decrepify (35/35 Charges)", "Adds 3-14 Cold Damage", "Indestructible", "30% Better Chance of Getting Magic Items"],
   ladderOnly: false
 }, {
-  name: "Vigilance [Warlock expansion]",
+  name: "Vigilance [RotW]",
   runes: ["Dol", "Gul"],
   itemType: "Shields",
   level: 53,
   attributes: ["5% Chance to cast level 10 Ring of Fire when struck", "+10% Faster Run/Walk", "+30% Faster Block Rate", "+20-40 to Life", "+20-40 to Mana", "All Resistances +25-35", "+75-100% Enhanced Defense", "Replenish Life +7", "+5% to Maximum Poison Resist"],
   ladderOnly: false
 }, {
-  name: "Ritual [Warlock expansion]",
+  name: "Ritual [RotW]",
   runes: ["Amn", "Shael", "Ohm"],
   itemType: "Daggers",
   level: 57,
