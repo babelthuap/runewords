@@ -3,42 +3,42 @@ const runewords = [{
   runes: ["Vex", "Hel", "El", "Eld", "Zod", "Eth"],
   itemType: "All Weapons",
   level: 69,
-  attributes: ["50% Chance To Cast Level 20 Poison Nova When You Kill An Enemy", "Indestructible", "+60% Increased Attack Speed", "+350-400% Enhanced Damage (varies)", "-25% Target Defense", "+50 To Attack Rating", "+200% Damage To Undead", "+50 To Attack Rating Against Undead", "7% Mana Stolen Per Hit", "12-15% Life Stolen Per Hit (varies)", "Prevent Monster Heal", "+30 To All Attributes", "+1 To Light Radius", "Requirements -20%"],
+  attributes: ["50% Chance To Cast Level 20 Poison Nova When You Kill An Enemy", "Indestructible", "+60% Increased Attack Speed", "+(350-400)% Enhanced Damage", "-25% Target Defense", "+50 To Attack Rating", "+200% Damage To Undead", "+50 To Attack Rating Against Undead", "7% Mana Stolen Per Hit", "(12-15)% Life Stolen Per Hit", "Prevent Monster Heal", "+30 To All Attributes", "+1 To Light Radius", "Requirements -20%"],
   ladderOnly: false
 }, {
   name: "Pride",
   runes: ["Cham", "Sur", "Io", "Lo"],
   itemType: "Polearms",
   level: 67,
-  attributes: ["25% Chance To Cast Level 17 Fire Wall When Struck", "Level 16-20 Concentration Aura When Equipped (varies)", "260-300% Bonus To Attack Rating (varies)", "+(1*Clvl)% Damage To Demons (Based on Character Level)", "Adds 50-280 Lightning Damage", "20% Deadly Strike", "Hit Blinds Target", "Freezes Target +3", "+10 To Vitality", "Replenish Life +8", "(1.875*Clvl)% Extra Gold From Monsters (Based on Character Level)"],
+  attributes: ["25% Chance To Cast Level 17 Fire Wall When Struck", "Level (16-20) Concentration Aura When Equipped", "(260-300)% Bonus To Attack Rating", "+(1*Clvl)% Damage To Demons (Based on Character Level)", "Adds 50-280 Lightning Damage", "20% Deadly Strike", "Hit Blinds Target", "Freezes Target +3", "+10 To Vitality", "Replenish Life +8", "(1.875*Clvl)% Extra Gold From Monsters (Based on Character Level)"],
   ladderOnly: false
 }, {
   name: "Hand of Justice",
   runes: ["Sur", "Cham", "Amn", "Lo"],
   itemType: "All Weapons",
   level: 67,
-  attributes: ["100% Chance To Cast Level 36 Blaze When You Level-Up", "100% Chance To Cast Level 48 Meteor When You Die", "Level 16 Holy Fire Aura When Equipped", "+33% Increased Attack Speed", "+280-330% Enhanced Damage (varies)", "Ignore Target's Defense", "-20% To Enemy Fire Resistance", "7% Life Stolen Per Hit", "20% Deadly Strike", "Hit Blinds Target", "Freezes Target +3"],
+  attributes: ["100% Chance To Cast Level 36 Blaze When You Level-Up", "100% Chance To Cast Level 48 Meteor When You Die", "Level 16 Holy Fire Aura When Equipped", "+33% Increased Attack Speed", "+(280-330)% Enhanced Damage", "Ignore Target's Defense", "-20% To Enemy Fire Resistance", "7% Life Stolen Per Hit", "20% Deadly Strike", "Hit Blinds Target", "Freezes Target +3"],
   ladderOnly: false
 }, {
   name: "Eternity",
   runes: ["Amn", "Ber", "Ist", "Sol", "Sur"],
   itemType: "All Melee Weapons",
   level: 63,
-  attributes: ["Indestructible", "+260-310% Enhanced Damage (varies)", "+9 To Minimum Damage", "7% Life Stolen Per Hit", "20% Chance of Crushing Blow", "Hit Blinds Target", "Slows Target By 33%", "Replenish Mana 16%", "Cannot Be Frozen", "30% Better Chance Of Getting Magic Items", "Level 8 Revive (88 Charges)"],
+  attributes: ["Indestructible", "+(260-310)% Enhanced Damage", "+9 To Minimum Damage", "7% Life Stolen Per Hit", "20% Chance of Crushing Blow", "Hit Blinds Target", "Slows Target By 33%", "Replenish Mana 16%", "Cannot Be Frozen", "30% Better Chance Of Getting Magic Items", "Level 8 Revive (88 Charges)"],
   ladderOnly: false
 }, {
   name: "Doom",
   runes: ["Hel", "Ohm", "Um", "Lo", "Cham"],
   itemType: "Axes, Hammers & Polearms",
   level: 67,
-  attributes: ["5% Chance To Cast Level 18 Volcano On Striking", "Level 12 Holy Freeze Aura When Equipped", "+2 To All Skills", "+45% Increased Attack Speed", "+330-370% Enhanced Damage (varies)", "-40-60% To Enemy Cold Resistance (varies)", "20% Deadly Strike", "25% Chance of Open Wounds", "Prevent Monster Heal", "Freezes Target +3", "Requirements -20%"],
+  attributes: ["5% Chance To Cast Level 18 Volcano On Striking", "Level 12 Holy Freeze Aura When Equipped", "+2 To All Skills", "+45% Increased Attack Speed", "+(330-370)% Enhanced Damage", "-(40-60)% To Enemy Cold Resistance", "20% Deadly Strike", "25% Chance of Open Wounds", "Prevent Monster Heal", "Freezes Target +3", "Requirements -20%"],
   ladderOnly: false
 }, {
   name: "Last Wish",
   runes: ["Jah", "Mal", "Jah", "Sur", "Jah", "Ber"],
   itemType: "Axes, Hammers & Swords",
   level: 65,
-  attributes: ["6% Chance To Cast Level 11 Fade When Struck", "10% Chance To Cast Level 18 Life Tap On Striking", "20% Chance To Cast Level 20 Charged Bolt On Attack", "Level 17 Might Aura When Equipped", "+330-375% Enhanced Damage (varies)", "Ignore Target's Defense", "60-70% Chance of Crushing Blow (varies)", "Prevent Monster Heal", "Hit Blinds Target", "(0.5*Clvl)% Chance of Getting Magic Items (Based on Character Level)"],
+  attributes: ["6% Chance To Cast Level 11 Fade When Struck", "10% Chance To Cast Level 18 Life Tap On Striking", "20% Chance To Cast Level 20 Charged Bolt On Attack", "Level 17 Might Aura When Equipped", "+(330-375)% Enhanced Damage", "Ignore Target's Defense", "(60-70)% Chance of Crushing Blow", "Prevent Monster Heal", "Hit Blinds Target", "(0.5*Clvl)% Chance of Getting Magic Items (Based on Character Level)"],
   ladderOnly: false
 }, {
   name: "Destruction",
@@ -52,35 +52,35 @@ const runewords = [{
   runes: ["Jah", "Ith", "Ber"],
   itemType: "Armor",
   level: 65,
-  attributes: ["+2 To All Skills", "+45% Faster Run/Walk", "+1 To Teleport", "+750-775 Defense (Varies)", "+(0.75*Clvl) To Strength (Based On Character Level)", "Increase Maximum Life 5%", "Damage Reduced By 8%", "+14 Life After Each Kill", "15% Damage Taken Goes To Mana", "(1*Clvl)% Better Chance of Getting Magic Items (Based On Character Level)"],
+  attributes: ["+2 To All Skills", "+45% Faster Run/Walk", "+1 To Teleport", "+(750-775) Defense", "+(0.75*Clvl) To Strength (Based On Character Level)", "Increase Maximum Life 5%", "Damage Reduced By 8%", "+14 Life After Each Kill", "15% Damage Taken Goes To Mana", "(1*Clvl)% Better Chance of Getting Magic Items (Based On Character Level)"],
   ladderOnly: false
 }, {
   name: "Phoenix",
   runes: ["Vex", "Vex", "Lo", "Jah"],
   itemType: "Weapons & Shields",
   level: 65,
-  attributes: ["BOTH:", "100% Chance To Cast level 40 Blaze When You Level-up", "40% Chance To Cast Level 22 Firestorm On Striking", "Level 10-15 Redemption Aura When Equipped (varies)", "+350-400% Enhanced Damage (varies)", "-28% To Enemy Fire Resistance", "+350-400 Defense Vs. Missile (varies)", "+15-21 Fire Absorb (varies)", "WEAPONS:", "Ignores Target's Defense", "14% Mana Stolen Per Hit", "20% Deadly Strike", "SHIELDS:", "+50 To Life", "+5% To Maximum Lightning Resist", "+10% To Maximum Fire Resist"],
+  attributes: ["BOTH:", "100% Chance To Cast level 40 Blaze When You Level-up", "40% Chance To Cast Level 22 Firestorm On Striking", "Level (10-15) Redemption Aura When Equipped", "+(350-400)% Enhanced Damage", "-28% To Enemy Fire Resistance", "+(350-400) Defense Vs. Missile", "+(15-21) Fire Absorb", "WEAPONS:", "Ignores Target's Defense", "14% Mana Stolen Per Hit", "20% Deadly Strike", "SHIELDS:", "+50 To Life", "+5% To Maximum Lightning Resist", "+10% To Maximum Fire Resist"],
   ladderOnly: false
 }, {
   name: "Brand",
   runes: ["Jah", "Lo", "Mal", "Gul"],
   itemType: "Missile Weapons",
   level: 65,
-  attributes: ["35% Chance To Cast Level 14 Amplify Damage When Struck", "100% Chance To Cast Level 18 Bone Spear On Striking", "Fires Explosive Arrows or Bolts (15)", "+260-340% Enhanced Damage (varies)", "Ignore Target's Defense", "20% Bonus to Attack Rating", "+280-330% Damage To Demons (varies)", "20% Deadly Strike", "Prevent Monster Heal", "Knockback"],
+  attributes: ["35% Chance To Cast Level 14 Amplify Damage When Struck", "100% Chance To Cast Level 18 Bone Spear On Striking", "Fires Explosive Arrows or Bolts (15)", "+(260-340)% Enhanced Damage", "Ignore Target's Defense", "20% Bonus to Attack Rating", "+(280-330)% Damage To Demons", "20% Deadly Strike", "Prevent Monster Heal", "Knockback"],
   ladderOnly: false
 }, {
   name: "Faith",
   runes: ["Ohm", "Jah", "Lem", "Eld"],
   itemType: "Missile Weapons",
   level: 65,
-  attributes: ["Level 12-15 Fanaticism Aura When Equipped (varies)", "+1-2 To All Skills (varies)", "+330% Enhanced Damage", "Ignore Target's Defense", "300% Bonus To Attack Rating", "+75% Damage To Undead", "+50 To Attack Rating Against Undead", "+120 Fire Damage", "All Resistances +15", "10% Reanimate As: Returned", "75% Extra Gold From Monsters"],
+  attributes: ["Level (12-15) Fanaticism Aura When Equipped", "+(1-2) To All Skills", "+330% Enhanced Damage", "Ignore Target's Defense", "300% Bonus To Attack Rating", "+75% Damage To Undead", "+50 To Attack Rating Against Undead", "+120 Fire Damage", "All Resistances +15", "10% Reanimate As: Returned", "75% Extra Gold From Monsters"],
   ladderOnly: false
 }, {
   name: "Famine",
   runes: ["Fal", "Ohm", "Ort", "Jah"],
   itemType: "Axes & Hammers",
   level: 65,
-  attributes: ["+30% Increased Attack Speed", "+320-370% Enhanced Damage (varies)", "Ignore Target's Defense", "Adds 180-200 Magic Damage", "Adds 50-200 Fire Damage", "Adds 51-250 Lightning Damage", "Adds 50-200 Cold Damage", "12% Life Stolen Per Hit", "Prevent Monster Heal", "+10 To Strength"],
+  attributes: ["+30% Increased Attack Speed", "+(320-370)% Enhanced Damage", "Ignore Target's Defense", "Adds 180-200 Magic Damage", "Adds 50-200 Fire Damage", "Adds 51-250 Lightning Damage", "Adds 50-200 Cold Damage", "12% Life Stolen Per Hit", "Prevent Monster Heal", "+10 To Strength"],
   ladderOnly: false
 }, {
   name: "Fury",
@@ -94,21 +94,21 @@ const runewords = [{
   runes: ["Io", "Jah", "Pul"],
   itemType: "Headgear, Shields",
   level: 65,
-  attributes: ["BOTH:", "10% Chance To Cast Level 15 Confuse When Struck", "Level 15 Holy Shock Aura When Equipped", "+20-30% Faster Hit Recovery (varies)", "+30% Enhanced Defense", "+150-220 Defense (varies)", "+10 To Vitality", "+(0.625*Clvl) To Mana (Based On Character Level)", "All Resistances +5-20 (varies)", "12-25% Better Chance of Getting Magic Items (varies)", "HEADGEAR:", "Increase Maximum Life 5%", "SHIELDS:", "+50 To Life"],
+  attributes: ["BOTH:", "10% Chance To Cast Level 15 Confuse When Struck", "Level 15 Holy Shock Aura When Equipped", "+(20-30)% Faster Hit Recovery", "+30% Enhanced Defense", "+(150-220) Defense", "+10 To Vitality", "+(0.625*Clvl) To Mana (Based On Character Level)", "All Resistances +(5-20)", "(12-25)% Better Chance of Getting Magic Items", "HEADGEAR:", "Increase Maximum Life 5%", "SHIELDS:", "+50 To Life"],
   ladderOnly: false
 }, {
   name: "Ice",
   runes: ["Amn", "Shael", "Jah", "Lo"],
   itemType: "Missile Weapons",
   level: 65,
-  attributes: ["100% Chance To Cast Level 40 Blizzard When You Level-up", "25% Chance To Cast Level 22 Frost Nova On Striking", "Level 18 Holy Freeze Aura When Equipped", "+20% Increased Attack Speed", "+140-210% Enhanced Damage (varies)", "Ignore Target's Defense", "+25-30% To Cold Skill Damage (varies)", "7% Life Stolen Per Hit", "-20% To Enemy Cold Resistance", "20% Deadly Strike", "(3.125*Clvl)% Extra Gold From Monsters (Based on Character Level)"],
+  attributes: ["100% Chance To Cast Level 40 Blizzard When You Level-up", "25% Chance To Cast Level 22 Frost Nova On Striking", "Level 18 Holy Freeze Aura When Equipped", "+20% Increased Attack Speed", "+(140-210)% Enhanced Damage", "Ignore Target's Defense", "+(25-30)% To Cold Skill Damage", "7% Life Stolen Per Hit", "-20% To Enemy Cold Resistance", "20% Deadly Strike", "(3.125*Clvl)% Extra Gold From Monsters (Based on Character Level)"],
   ladderOnly: false
 }, {
   name: "Infinity",
   runes: ["Ber", "Mal", "Ber", "Ist"],
   itemType: "Polearms",
   level: 63,
-  attributes: ["50% Chance To Cast Level 20 Chain Lightning When You Kill An Enemy", "Level 12 Conviction Aura When Equipped", "+35% Faster Run/Walk", "+255-325% Enhanced Damage (varies)", "-(45-55)% To Enemy Lightning Resistance (varies)", "40% Chance of Crushing Blow", "Prevent Monster Heal", "+(0.5*Clvl) To Vitality (Based on Character Level)", "30% Better Chance of Getting Magic Items", "Level 21 Cyclone Armor (30 Charges)"],
+  attributes: ["50% Chance To Cast Level 20 Chain Lightning When You Kill An Enemy", "Level 12 Conviction Aura When Equipped", "+35% Faster Run/Walk", "+(255-325)% Enhanced Damage", "-(45-55)% To Enemy Lightning Resistance", "40% Chance of Crushing Blow", "Prevent Monster Heal", "+(0.5*Clvl) To Vitality (Based on Character Level)", "30% Better Chance of Getting Magic Items", "Level 21 Cyclone Armor (30 Charges)"],
   ladderOnly: false
 }, {
   name: "Chains of Honor",
@@ -122,77 +122,77 @@ const runewords = [{
   runes: ["Ber", "Tir", "Um", "Mal", "Lum"],
   itemType: "Axes, Hammers & Scepters",
   level: 63,
-  attributes: ["Level 9 Fanaticism Aura When Equipped", "+40% Increased Attack Speed", "+240-270% Enhanced Damage (varies)", "20% Chance of Crushing Blow", "25% Chance of Open Wounds", "+3 To Werebear", "+3 To Lycanthropy", "Prevent Monster Heal", "+25-40 To Strength (varies)", "+10 To Energy", "+2 To Mana After Each Kill", "Level 13 Summon Grizzly (5 Charges)"],
+  attributes: ["Level 9 Fanaticism Aura When Equipped", "+40% Increased Attack Speed", "+(240-270)% Enhanced Damage", "20% Chance of Crushing Blow", "25% Chance of Open Wounds", "+3 To Werebear", "+3 To Lycanthropy", "Prevent Monster Heal", "+(25-40) To Strength", "+10 To Energy", "+2 To Mana After Each Kill", "Level 13 Summon Grizzly (5 Charges)"],
   ladderOnly: false
 }, {
   name: "Wrath",
   runes: ["Pul", "Lum", "Ber", "Mal"],
   itemType: "Missile Weapons",
   level: 63,
-  attributes: ["30% Chance To Cast Level 1 Decrepify On Striking", "5% Chance To Cast Level 10 Life Tap On Striking", "+375% Damage To Demons", "+100 To Attack Rating Against Demons", "+250-300% Damage To Undead (varies)", "Adds 85-120 Magic Damage", "Adds 41-240 Lightning Damage", "20% Chance of Crushing Blow", "Prevent Monster Heal", "+10 To Energy", "Cannot Be Frozen"],
+  attributes: ["30% Chance To Cast Level 1 Decrepify On Striking", "5% Chance To Cast Level 10 Life Tap On Striking", "+375% Damage To Demons", "+100 To Attack Rating Against Demons", "+(250-300)% Damage To Undead", "Adds 85-120 Magic Damage", "Adds 41-240 Lightning Damage", "20% Chance of Crushing Blow", "Prevent Monster Heal", "+10 To Energy", "Cannot Be Frozen"],
   ladderOnly: false
 }, {
   name: "Dragon",
   runes: ["Sur", "Lo", "Sol"],
   itemType: "Armor, Shields",
   level: 61,
-  attributes: ["BOTH:", "20% Chance to Cast Level 18 Venom When Struck", "12% Chance To Cast Level 15 Hydra On Striking", "Level 14 Holy Fire Aura When Equipped", "+360 Defense", "+230 Defense Vs. Missile", "+3-5 To All Attributes (varies)", "+(0.375*Clvl) To Strength (Based on Character Level)", "+5% To Maximum Lightning Resist", "Damage Reduced by 7", "ARMOR:", "Increase Maximum Mana 5%", "SHIELDS:", "+50 To Mana"],
+  attributes: ["BOTH:", "20% Chance to Cast Level 18 Venom When Struck", "12% Chance To Cast Level 15 Hydra On Striking", "Level 14 Holy Fire Aura When Equipped", "+360 Defense", "+230 Defense Vs. Missile", "+(3-5) To All Attributes", "+(0.375*Clvl) To Strength (Based on Character Level)", "+5% To Maximum Lightning Resist", "Damage Reduced by 7", "ARMOR:", "Increase Maximum Mana 5%", "SHIELDS:", "+50 To Mana"],
   ladderOnly: false
 }, {
   name: "Bramble",
   runes: ["Ral", "Ohm", "Sur", "Eth"],
   itemType: "Armor",
   level: 61,
-  attributes: ["Level 15-21 Thorns Aura When Equipped (varies)", "+50% Faster Hit Recovery", "+25-50% To Poison Skill Damage (varies)", "+300 Defense", "Increase Maximum Mana 5%", "Regenerate Mana 15%", "+5% To Maximum Cold Resist", "Fire Resist +30%", "Poison Resist +100%", "+13 Life After Each Kill", "Level 13 Spirit of Barbs (33 Charges)"],
+  attributes: ["Level (15-21) Thorns Aura When Equipped", "+50% Faster Hit Recovery", "+(25-50)% To Poison Skill Damage", "+300 Defense", "Increase Maximum Mana 5%", "Regenerate Mana 15%", "+5% To Maximum Cold Resist", "Fire Resist +30%", "Poison Resist +100%", "+13 Life After Each Kill", "Level 13 Spirit of Barbs (33 Charges)"],
   ladderOnly: false
 }, {
   name: "Wind",
   runes: ["Sur", "El"],
   itemType: "Melee Weapons",
   level: 61,
-  attributes: ["10% Chance To Cast Level 9 Tornado On Striking", "+20% Faster Run/Walk", "+40% Increased Attack Speed", "+15% Faster Hit Recovery", "+120-160% Enhanced Damage (varies)", "-50% Target Defense", "+50 To Attack Rating", "Hit Blinds Target", "+1 To Light Radius", "Level 13 Twister (127 Charges)"],
+  attributes: ["10% Chance To Cast Level 9 Tornado On Striking", "+20% Faster Run/Walk", "+40% Increased Attack Speed", "+15% Faster Hit Recovery", "+(120-160)% Enhanced Damage", "-50% Target Defense", "+50 To Attack Rating", "Hit Blinds Target", "+1 To Light Radius", "Level 13 Twister (127 Charges)"],
   ladderOnly: false
 }, {
   name: "Grief",
   runes: ["Eth", "Tir", "Lo", "Mal", "Ral"],
   itemType: "Swords & Axes",
   level: 59,
-  attributes: ["35% Chance To Cast Level 15 Venom On Striking", "+30-40% Increased Attack Speed (varies)", "Damage +340-400 (varies)", "Ignore Target's Defense", "-25% Target Defense", "+(1.875*Clvl)% Damage To Demons (Based on Character Level)", "Adds 5-30 Fire Damage", "-20-25% To Enemy Poison Resistance (varies)", "20% Deadly Strike", "Prevent Monster Heal", "+2 To Mana After Each Kill", "+10-15 Life After Each Kill (varies)"],
+  attributes: ["35% Chance To Cast Level 15 Venom On Striking", "+(30-40)% Increased Attack Speed", "Damage +(340-400)", "Ignore Target's Defense", "-25% Target Defense", "+(1.875*Clvl)% Damage To Demons (Based on Character Level)", "Adds 5-30 Fire Damage", "-(20-25)% To Enemy Poison Resistance", "20% Deadly Strike", "Prevent Monster Heal", "+2 To Mana After Each Kill", "+(10-15) Life After Each Kill"],
   ladderOnly: true
 }, {
   name: "Fortitude",
   runes: ["El", "Sol", "Dol", "Lo"],
   itemType: "Weapons & Armor",
   level: 59,
-  attributes: ["BOTH:", "20% Chance To Cast Level 15 Chilling Armor when Struck", "+25% Faster Cast Rate", "+300% Enhanced Damage", "+200% Enhanced Defense", "+((8-12)*0.125*Clvl) To Life (Based on Character Level) (varies)", "All Resistances +25-30 (varies)", "12% Damage Taken Goes To Mana", "+1 To Light Radius", "WEAPONS:", "+9 To Minimum Damage", "+50 To Attack Rating", "20% Deadly Strike", "Hit Causes Monster To Flee 25%", "ARMOR:", "+15 Defense", "Replenish Life +7", "+5% To Maximum Lightning Resist", "Damage Reduced By 7"],
+  attributes: ["BOTH:", "20% Chance To Cast Level 15 Chilling Armor when Struck", "+25% Faster Cast Rate", "+300% Enhanced Damage", "+200% Enhanced Defense", "+((8-12)*0.125*Clvl) To Life (Based on Character Level)", "All Resistances +(25-30)", "12% Damage Taken Goes To Mana", "+1 To Light Radius", "WEAPONS:", "+9 To Minimum Damage", "+50 To Attack Rating", "20% Deadly Strike", "Hit Causes Monster To Flee 25%", "ARMOR:", "+15 Defense", "Replenish Life +7", "+5% To Maximum Lightning Resist", "Damage Reduced By 7"],
   ladderOnly: false
 }, {
   name: "Exile",
   runes: ["Vex", "Ohm", "Ist", "Dol"],
   itemType: "Shields",
   level: 57,
-  attributes: ["15% Chance To Cast Level 5 Life Tap On Striking", "Level 13-16 Defiance Aura When Equipped (varies)", "+2 To Offensive Auras (Paladin Only)", "+30% Faster Block Rate", "Freezes Target", "+220-260% Enhanced Defense (varies)", "Replenish Life +7", "+5% To Maximum Cold Resist", "+5% To Maximum Fire Resist", "25% Better Chance Of Getting Magic Items", "Repairs 1 Durability every 4 seconds"],
+  attributes: ["15% Chance To Cast Level 5 Life Tap On Striking", "Level (13-16) Defiance Aura When Equipped", "+2 To Offensive Auras (Paladin Only)", "+30% Faster Block Rate", "Freezes Target", "+(220-260)% Enhanced Defense", "Replenish Life +7", "+5% To Maximum Cold Resist", "+5% To Maximum Fire Resist", "25% Better Chance Of Getting Magic Items", "Repairs 1 Durability every 4 seconds"],
   ladderOnly: false
 }, {
   name: "Call to Arms",
   runes: ["Amn", "Ral", "Mal", "Ist", "Ohm"],
   itemType: "Weapons",
   level: 57,
-  attributes: ["+1 To All Skills", "+40% Increased Attack Speed", "+240-290% Enhanced Damage (varies)", "Adds 5-30 Fire Damage", "7% Life Stolen Per Hit", "+2-6 To Battle Command (varies)", "+1-6 To Battle Orders (varies)", "+1-4 To Battle Cry (varies)", "Prevent Monster Heal", "Replenish Life +12", "30% Better Chance of Getting Magic Items"],
+  attributes: ["+1 To All Skills", "+40% Increased Attack Speed", "+(240-290)% Enhanced Damage", "Adds 5-30 Fire Damage", "7% Life Stolen Per Hit", "+(2-6) To Battle Command", "+(1-6) To Battle Orders", "+(1-4) To Battle Cry", "Prevent Monster Heal", "Replenish Life +12", "30% Better Chance of Getting Magic Items"],
   ladderOnly: false
 }, {
   name: "Chaos",
   runes: ["Fal", "Ohm", "Um"],
   itemType: "Claws",
   level: 57,
-  attributes: ["9% Chance To Cast Level 11 Frozen Orb On Striking", "11% Chance To Cast Level 9 Charged Bolt On Striking", "+35% Increased Attacked Speed", "+240-290% Enhanced Damage (varies)", "Adds 216-471 Magic Damage", "25% Chance of Open Wounds", "+1 To Whirlwind", "+10 To Strength", "+15 Life After Each Demon Kill"],
+  attributes: ["9% Chance To Cast Level 11 Frozen Orb On Striking", "11% Chance To Cast Level 9 Charged Bolt On Striking", "+35% Increased Attacked Speed", "+(240-290)% Enhanced Damage", "Adds 216-471 Magic Damage", "25% Chance of Open Wounds", "+1 To Whirlwind", "+10 To Strength", "+15 Life After Each Demon Kill"],
   ladderOnly: false
 }, {
   name: "Death",
   runes: ["Hel", "El", "Vex", "Ort", "Gul"],
   itemType: "Swords & Axes",
   level: 55,
-  attributes: ["Indestructible", "100% Chance To Cast Level 44 Chain Lightning When You Die", "25% Chance To Cast Level 18 Glacial Spike On Attack", "+300-385% Enhanced Damage (varies)", "20% Bonus To Attack Rating", "+50 To Attack Rating", "Adds 1-50 Lightning Damage", "7% Mana Stolen Per Hit", "50% Chance of Crushing Blow", "(0.5*Clvl)% Deadly Strike (Based on Character Level)", "+1 To Light Radius", "Level 22 Blood Golem (15 Charges)", "Requirements -20%"],
+  attributes: ["Indestructible", "100% Chance To Cast Level 44 Chain Lightning When You Die", "25% Chance To Cast Level 18 Glacial Spike On Attack", "+(300-385)% Enhanced Damage", "20% Bonus To Attack Rating", "+50 To Attack Rating", "Adds 1-50 Lightning Damage", "7% Mana Stolen Per Hit", "50% Chance of Crushing Blow", "(0.5*Clvl)% Deadly Strike (Based on Character Level)", "+1 To Light Radius", "Level 22 Blood Golem (15 Charges)", "Requirements -20%"],
   ladderOnly: false
 }, {
   name: "Silence",
@@ -206,28 +206,28 @@ const runewords = [{
   runes: ["Ko", "Vex", "Pul", "Thul"],
   itemType: "Staves & Maces",
   level: 55,
-  attributes: ["+3 To All Skills", "+40% Faster Cast Rate", "+75% Damage To Demons", "+100 To Attack Rating Against Demons", "Adds 3-14 Cold Damage", "7% Mana Stolen Per Hit", "+10 To Dexterity", "Replenish Life +20", "Increase Maximum Mana 15%", "All Resistances +30-40 (varies)", "Level 4 Oak Sage (25 Charges)", "Level 14 Raven (60 Charges)"],
+  attributes: ["+3 To All Skills", "+40% Faster Cast Rate", "+75% Damage To Demons", "+100 To Attack Rating Against Demons", "Adds 3-14 Cold Damage", "7% Mana Stolen Per Hit", "+10 To Dexterity", "Replenish Life +20", "Increase Maximum Mana 15%", "All Resistances +(30-40)", "Level 4 Oak Sage (25 Charges)", "Level 14 Raven (60 Charges)"],
   ladderOnly: false
 }, {
   name: "Kingslayer",
   runes: ["Mal", "Um", "Gul", "Fal"],
   itemType: "Swords & Axes",
   level: 53,
-  attributes: ["+30% Increased Attack Speed", "+230-270% Enhanced Damage (varies)", "-25% Target Defense", "20% Bonus To Attack Rating", "33% Chance of Crushing Blow", "50% Chance of Open Wounds", "+1 To Vengeance", "Prevent Monster Heal", "+10 To Strength", "40% Extra Gold From Monsters"],
+  attributes: ["+30% Increased Attack Speed", "+(230-270)% Enhanced Damage", "-25% Target Defense", "20% Bonus To Attack Rating", "33% Chance of Crushing Blow", "50% Chance of Open Wounds", "+1 To Vengeance", "Prevent Monster Heal", "+10 To Strength", "40% Extra Gold From Monsters"],
   ladderOnly: false
 }, {
   name: "Rift",
   runes: ["Hel", "Ko", "Lem", "Gul"],
   itemType: "Polearms & Scepters",
   level: 53,
-  attributes: ["20% Chance To Cast Level 16 Tornado On Striking", "16% Chance To Cast Level 21 Frozen Orb On Attack", "20% Bonus To Attack Rating", "Adds 160-250 Magic Damage", "Adds 60-180 Fire Damage", "+5-10 To All Attributes (varies)", "+10 To Dexterity", "38% Damage Taken Goes To Mana", "75% Extra Gold From Monsters", "Level 15 Iron Maiden (40 Charges)", "Requirements -20%"],
+  attributes: ["20% Chance To Cast Level 16 Tornado On Striking", "16% Chance To Cast Level 21 Frozen Orb On Attack", "20% Bonus To Attack Rating", "Adds 160-250 Magic Damage", "Adds 60-180 Fire Damage", "+(5-10) To All Attributes", "+10 To Dexterity", "38% Damage Taken Goes To Mana", "75% Extra Gold From Monsters", "Level 15 Iron Maiden (40 Charges)", "Requirements -20%"],
   ladderOnly: false
 }, {
   name: "Principle (Paladin)",
   runes: ["Ral", "Gul", "Eld"],
   itemType: "Armor",
   level: 55,
-  attributes: ["100% Chance To Cast Level 5 Holy Bolt On Striking", "+2 To Paladin Skill Levels", "+50% Damage to Undead", "+100-150 to Life (varies)", "15% Slower Stamina Drain", "+5% To Maximum Poison Resist", "Fire Resist +30%"],
+  attributes: ["100% Chance To Cast Level 5 Holy Bolt On Striking", "+2 To Paladin Skill Levels", "+50% Damage to Undead", "+(100-150) to Life", "15% Slower Stamina Drain", "+5% To Maximum Poison Resist", "Fire Resist +30%"],
   ladderOnly: false
 }, {
   name: "Delirium",
@@ -241,14 +241,14 @@ const runewords = [{
   runes: ["Shael", "Pul", "Mal", "Lum"],
   itemType: "Axes, Maces & Swords",
   level: 59,
-  attributes: ["Indestructible", "30% Chance To Cast Level 20 Bone Spirit On Striking", "+50% Increased Attack Speed", "+210-340% Enhanced Damage (varies)", "+75% Damage To Demons", "+100 To Attack Rating Against Demons", "Prevent Monster Heal", "+10 To Energy", "+10-15 Magic Absorb (varies)", "Level 16 Heart of Wolverine (20 Charges)", "Level 17 Iron Golem (14 Charges)"],
+  attributes: ["Indestructible", "30% Chance To Cast Level 20 Bone Spirit On Striking", "+50% Increased Attack Speed", "+(210-340)% Enhanced Damage", "+75% Damage To Demons", "+100 To Attack Rating Against Demons", "Prevent Monster Heal", "+10 To Energy", "+(10-15) Magic Absorb", "Level 16 Heart of Wolverine (20 Charges)", "Level 17 Iron Golem (14 Charges)"],
   ladderOnly: false
 }, {
   name: "Sanctuary",
   runes: ["Ko", "Ko", "Mal"],
   itemType: "Shields",
   level: 49,
-  attributes: ["+20% Faster Hit Recovery", "+20% Faster Block Rate", "20% Increased Chance of Blocking", "+130-160% Enhanced Defense (varies)", "+250 Defense vs. Missile", "+20 To Dexterity", "All Resistances +50-70 (varies)", "Magic Damage Reduced By 7", "Level 12 Slow Missiles (60 Charges)"],
+  attributes: ["+20% Faster Hit Recovery", "+20% Faster Block Rate", "20% Increased Chance of Blocking", "+(130-160)% Enhanced Defense", "+250 Defense vs. Missile", "+20 To Dexterity", "All Resistances +(50-70)", "Magic Damage Reduced By 7", "Level 12 Slow Missiles (60 Charges)"],
   ladderOnly: false
 }, {
   name: "Venom",
@@ -262,49 +262,49 @@ const runewords = [{
   runes: ["Ort", "Mal", "Ith"],
   itemType: "Armor",
   level: 49,
-  attributes: ["5% Chance To Cast Level 15 Cyclone Armor When Struck", "5% Chance To Cast Level 15 Twister On Striking", "+2 To Druid Skills", "+100-150 To Mana (varies)", "Lightning Resist +30%", "Magic Damage Reduced By 7", "15% Damage Taken Goes to Mana"],
+  attributes: ["5% Chance To Cast Level 15 Cyclone Armor When Struck", "5% Chance To Cast Level 15 Twister On Striking", "+2 To Druid Skills", "+(100-150) To Mana", "Lightning Resist +30%", "Magic Damage Reduced By 7", "15% Damage Taken Goes to Mana"],
   ladderOnly: false
 }, {
   name: "Prudence",
   runes: ["Mal", "Tir"],
   itemType: "Armor",
   level: 49,
-  attributes: ["+25% Faster Hit Recovery", "+140-170% Enhanced Defense (varies)", "All Resistances +25-35 (varies)", "Damage Reduced by 3", "Magic Damage Reduced by 17", "+2 To Mana After Each Kill", "+1 To Light Radius", "Repairs Durability 1 In 4 Seconds"],
+  attributes: ["+25% Faster Hit Recovery", "+(140-170)% Enhanced Defense", "All Resistances +(25-35)", "Damage Reduced by 3", "Magic Damage Reduced by 17", "+2 To Mana After Each Kill", "+1 To Light Radius", "Repairs Durability 1 In 4 Seconds"],
   ladderOnly: false
 }, {
   name: "Bone",
   runes: ["Sol", "Um", "Um"],
   itemType: "Armor",
   level: 47,
-  attributes: ["15% Chance To Cast level 10 Bone Armor When Struck", "15% Chance To Cast level 10 Bone Spear On Striking", "+2 To Necromancer Skill Levels", "+100-150 To Mana (varies)", "All Resistances +30", "Damage Reduced By 7"],
+  attributes: ["15% Chance To Cast level 10 Bone Armor When Struck", "15% Chance To Cast level 10 Bone Spear On Striking", "+2 To Necromancer Skill Levels", "+(100-150) To Mana", "All Resistances +30", "Damage Reduced By 7"],
   ladderOnly: false
 }, {
   name: "Gloom",
   runes: ["Fal", "Um", "Pul"],
   itemType: "Armor",
   level: 47,
-  attributes: ["15% Chance To Cast Level 3 Dim Vision When Struck", "+10% Faster Hit Recovery", "+200-260% Enhanced Defense (varies)", "+10 To Strength", "All Resistances +45", "Half Freeze Duration", "5% Damage Taken Goes To Mana", "-3 To Light Radius"],
+  attributes: ["15% Chance To Cast Level 3 Dim Vision When Struck", "+10% Faster Hit Recovery", "+(200-260)% Enhanced Defense", "+10 To Strength", "All Resistances +45", "Half Freeze Duration", "5% Damage Taken Goes To Mana", "-3 To Light Radius"],
   ladderOnly: false
 }, {
   name: "Stone",
   runes: ["Shael", "Um", "Pul", "Lum"],
   itemType: "Armor",
   level: 47,
-  attributes: ["+60% Faster Hit Recovery", "+250-290% Enhanced Defense (varies)", "+300 Defense Vs. Missile", "+16 To Strength", "+16 To Vitality", "+10 To Energy", "All Resistances +15", "Level 16 Molten Boulder (80 Charges)", "Level 16 Clay Golem (16 Charges)"],
+  attributes: ["+60% Faster Hit Recovery", "+(250-290)% Enhanced Defense", "+300 Defense Vs. Missile", "+16 To Strength", "+16 To Vitality", "+10 To Energy", "All Resistances +15", "Level 16 Molten Boulder (80 Charges)", "Level 16 Clay Golem (16 Charges)"],
   ladderOnly: false
 }, {
   name: "Duress",
   runes: ["Shael", "Um", "Thul"],
   itemType: "Armor",
   level: 47,
-  attributes: ["40% faster hit Recovery", "+10-20% Enhanced Damage (varies)", "Adds 37-133 Cold Damage", "15% Crushing Blow", "33% Open Wounds", "+150-200% Enhanced Defense (varies)", "-20% Slower Stamina Drain", "Cold Resist +45%", "Lightning Resist +15%", "Fire Resist +15%", "Poison Resist +15%"],
+  attributes: ["40% faster hit Recovery", "+(10-20)% Enhanced Damage", "Adds 37-133 Cold Damage", "15% Crushing Blow", "33% Open Wounds", "+(150-200)% Enhanced Defense", "-20% Slower Stamina Drain", "Cold Resist +45%", "Lightning Resist +15%", "Fire Resist +15%", "Poison Resist +15%"],
   ladderOnly: false
 }, {
   name: "Crescent Moon",
   runes: ["Shael", "Um", "Tir"],
   itemType: "Axes, Polearms & Swords",
   level: 47,
-  attributes: ["10% Chance To Cast Level 17 Chain Lightning On Striking", "7% Chance To Cast Level 13 Static Field On Striking", "+20% Increased Attack Speed", "+180-220% Enhanced Damage (varies)", "Ignore Target's Defense", "-35% To Enemy Lightning Resistance", "25% Chance of Open Wounds", "+9-11 Magic Absorb (varies)", "+2 To Mana After Each Kill", "Level 18 Summon Spirit Wolf (30 Charges)"],
+  attributes: ["10% Chance To Cast Level 17 Chain Lightning On Striking", "7% Chance To Cast Level 13 Static Field On Striking", "+20% Increased Attack Speed", "+(180-220)% Enhanced Damage", "Ignore Target's Defense", "-35% To Enemy Lightning Resistance", "25% Chance of Open Wounds", "+(9-11) Magic Absorb", "+2 To Mana After Each Kill", "Level 18 Summon Spirit Wolf (30 Charges)"],
   ladderOnly: false
 }, {
   name: "Enlightenment (Sorceress)",
@@ -318,7 +318,7 @@ const runewords = [{
   runes: ["Amn", "Lem", "Ko"],
   itemType: "Hammers, Scepters & Swords",
   level: 43,
-  attributes: ["20% Chance To Cast Level 15 Decrepify On Striking", "Level 16-18 Sanctuary Aura When Equipped (varies)", "-50% Target Defense", "Adds 150-210 Fire Damage", "Adds 130-180 Cold Damage", "7% Life Stolen Per Hit", "Slain Monsters Rest In Peace", "+200-250 Defense Vs. Missile (varies)", "+10 To Dexterity", "75% Extra Gold From Monsters"],
+  attributes: ["20% Chance To Cast Level 15 Decrepify On Striking", "Level (16-18) Sanctuary Aura When Equipped", "-50% Target Defense", "Adds 150-210 Fire Damage", "Adds 130-180 Cold Damage", "7% Life Stolen Per Hit", "Slain Monsters Rest In Peace", "+(200-250) Defense Vs. Missile", "+10 To Dexterity", "75% Extra Gold From Monsters"],
   ladderOnly: false
 }, {
   name: "Wealth",
@@ -332,14 +332,14 @@ const runewords = [{
   runes: ["Lem", "Ko", "El", "Eld"],
   itemType: "Maces & Swords",
   level: 43,
-  attributes: ["15% Chance To Cast Level 13 Frozen Orb On Striking", "18% Chance To Cast Level 20 Ice Blast On Striking", "+50 To Attack Rating", "+220-350% Damage To Demons (varies)", "+355-375% Damage To Undead (varies)", "+50 To Attack Rating Against Undead", "Adds 100-220 Cold Damage", "-24% To Enemy Cold Resistance", "+10 To Dexterity", "Cannot Be Frozen", "75% Extra Gold From Monsters", "+1 To Light Radius"],
+  attributes: ["15% Chance To Cast Level 13 Frozen Orb On Striking", "18% Chance To Cast Level 20 Ice Blast On Striking", "+50 To Attack Rating", "+(220-350)% Damage To Demons", "+(355-375)% Damage To Undead", "+50 To Attack Rating Against Undead", "Adds 100-220 Cold Damage", "-24% To Enemy Cold Resistance", "+10 To Dexterity", "Cannot Be Frozen", "75% Extra Gold From Monsters", "+1 To Light Radius"],
   ladderOnly: false
 }, {
   name: "Passion",
   runes: ["Dol", "Ort", "Eld", "Lem"],
   itemType: "All Weapons",
   level: 43,
-  attributes: ["+25% Increased Attack Speed", "+160-210% Enhanced Damage (varies)", "50-80% Bonus To Attack Rating (varies)", "+75% Damage To Undead", "+50 To Attack Rating Against Undead", "Adds 1-50 Lightning Damage", "+1 To Berserk", "+1 To Zeal", "Hit Blinds Target +10", "Hit Causes Monster To Flee 25%", "75% Extra Gold From Monsters", "Level 3 Heart of Wolverine (12 Charges)"],
+  attributes: ["+25% Increased Attack Speed", "+(160-210)% Enhanced Damage", "(50-80)% Bonus To Attack Rating", "+75% Damage To Undead", "+50 To Attack Rating Against Undead", "Adds 1-50 Lightning Damage", "+1 To Berserk", "+1 To Zeal", "Hit Blinds Target +10", "Hit Causes Monster To Flee 25%", "75% Extra Gold From Monsters", "Level 3 Heart of Wolverine (12 Charges)"],
   ladderOnly: false
 }, {
   name: "Treachery (Assassin)",
@@ -353,7 +353,7 @@ const runewords = [{
   runes: ["Hel", "Ko", "Thul", "Eth", "Fal"],
   itemType: "Polearms",
   level: 41,
-  attributes: ["30% Chance To Cast Level 21 Enchant When You Kill An Enemy", "+40% Faster Hit Recovery", "+370% Enhanced Damage", "-25% Target Defense", "Adds 3-14 Cold Damage (3 Seconds Duration,Normal)", "-25% To Enemy Fire Resistance", "40% Chance of Crushing Blow", "+200-300 Defense (varies)", "+10 To Strength", "+10 To Dexterity", "All Resistances +20-30 (varies)", "Requirements -20%"],
+  attributes: ["30% Chance To Cast Level 21 Enchant When You Kill An Enemy", "+40% Faster Hit Recovery", "+370% Enhanced Damage", "-25% Target Defense", "Adds 3-14 Cold Damage (3 Seconds Duration,Normal)", "-25% To Enemy Fire Resistance", "40% Chance of Crushing Blow", "+(200-300) Defense", "+10 To Strength", "+10 To Dexterity", "All Resistances +(20-30)", "Requirements -20%"],
   ladderOnly: false
 }, {
   name: "Lionheart",
@@ -374,7 +374,7 @@ const runewords = [{
   runes: ["Tir", "Ith", "Sol", "Ko"],
   itemType: "Missile Weapons",
   level: 39,
-  attributes: ["Level 10 Vigor Aura When Equipped", "+200-275% Enhanced Damage (varies)", "+9 To Minimum Damage", "+9 To Maximum Damage", "Adds 55-160 Fire Damage", "Adds 55-160 Lightning Damage", "Adds 55-160 Cold Damage", "+2-6 To Valkyrie (varies)", "+10 To Dexterity", "Regenerate Mana 20%", "+2 To Mana After Each Kill", "+2 To Light Radius", "Level 20 Revive (25 Charges)"],
+  attributes: ["Level 10 Vigor Aura When Equipped", "+(200-275)% Enhanced Damage", "+9 To Minimum Damage", "+9 To Maximum Damage", "Adds 55-160 Fire Damage", "Adds 55-160 Lightning Damage", "Adds 55-160 Cold Damage", "+(2-6) To Valkyrie", "+10 To Dexterity", "Regenerate Mana 20%", "+2 To Mana After Each Kill", "+2 To Light Radius", "Level 20 Revive (25 Charges)"],
   ladderOnly: false
 }, {
   name: "Memory",
@@ -388,7 +388,7 @@ const runewords = [{
   runes: ["Eth", "Lum"],
   itemType: "Shields",
   level: 37,
-  attributes: ["+1 To All Skills", "+10% Faster Cast Rate", "+20% Faster Block Rate", "+60-100% Enhanced Defense (varies)", "+10 To Energy", "Regenerate Mana 15%", "50% Extra Gold From Monsters", "20% Better Chance of Getting Magic Items", "+3 To Light Radius"],
+  attributes: ["+1 To All Skills", "+10% Faster Cast Rate", "+20% Faster Block Rate", "+(60-100)% Enhanced Defense", "+10 To Energy", "Regenerate Mana 15%", "50% Extra Gold From Monsters", "20% Better Chance of Getting Magic Items", "+3 To Light Radius"],
   ladderOnly: false
 }, {
   name: "Smoke",
@@ -451,7 +451,7 @@ const runewords = [{
   runes: ["Ral", "Tir", "Tal", "Sol"],
   itemType: "Polearms & Staves",
   level: 27,
-  attributes: ["Level 12-17 Meditation Aura When Equipped (varies)", "+35% Faster Cast Rate", "+200-260% Enhanced Damage (varies)", "+9 To Minimum Damage", "180-250% Bonus to Attack Rating (varies)", "Adds 5-30 Fire Damage", "+75 Poison Damage Over 5 Seconds", "+1-6 To Critical Strike (varies)", "+5 To All Attributes", "+2 To Mana After Each Kill", "23% Better Chance of Getting Magic Items"],
+  attributes: ["Level (12-17) Meditation Aura When Equipped", "+35% Faster Cast Rate", "+(200-260)% Enhanced Damage", "+9 To Minimum Damage", "(180-250)% Bonus to Attack Rating", "Adds 5-30 Fire Damage", "+75 Poison Damage Over 5 Seconds", "+(1-6) To Critical Strike", "+5 To All Attributes", "+2 To Mana After Each Kill", "23% Better Chance of Getting Magic Items"],
   ladderOnly: false
 }, {
   name: "Radiance",
@@ -465,7 +465,7 @@ const runewords = [{
   runes: ["Tal", "Thul", "Ort", "Amn"],
   itemType: "Shields & Swords",
   level: 25,
-  attributes: ["BOTH:", "+2 To All Skills", "+25-35% Faster Cast Rate (varies)", "+55% Faster Hit Recovery", "+250 Defense Vs. Missile", "+22 To Vitality", "+89-112 To Mana (varies)", "+3-8 Magic Absorb (varies)", "SHIELDS:", "Cold Resist +35%", "Lightning Resist +35%", "Poison Resist +35%", "Attacker Takes Damage of 14", "SWORDS:", "Adds 1-50 Lightning Damage", "Adds 3-14 Cold Damage (3 Sec,Normal)", "+75 Poison Damage Over 5 Seconds", "7% Life Stolen Per Hit"],
+  attributes: ["BOTH:", "+2 To All Skills", "+(25-35)% Faster Cast Rate", "+55% Faster Hit Recovery", "+250 Defense Vs. Missile", "+22 To Vitality", "+(89-112) To Mana", "+(3-8) Magic Absorb", "SHIELDS:", "Cold Resist +35%", "Lightning Resist +35%", "Poison Resist +35%", "Attacker Takes Damage of 14", "SWORDS:", "Adds 1-50 Lightning Damage", "Adds 3-14 Cold Damage (3 Sec,Normal)", "+75 Poison Damage Over 5 Seconds", "7% Life Stolen Per Hit"],
   ladderOnly: false
 }, {
   name: "King's Grace",
@@ -479,7 +479,7 @@ const runewords = [{
   runes: ["Tir", "Tal", "Amn"],
   itemType: "Missile Weapons",
   level: 25,
-  attributes: ["Level 15 Thorns Aura When Equipped", "+35% Increased Attack Speed", "+320-380% Damage To Demons (varies)", "+280% Damage To Undead", "+75 Poison Damage Over 5 Seconds", "7% Life Stolen Per Hit", "Prevent Monster Heal", "+5-10 To All Attributes (varies)", "+2 To Mana After Each Kill", "Reduces All Vendor Prices 15%"],
+  attributes: ["Level 15 Thorns Aura When Equipped", "+35% Increased Attack Speed", "+(320-380)% Damage To Demons", "+280% Damage To Undead", "+75 Poison Damage Over 5 Seconds", "7% Life Stolen Per Hit", "Prevent Monster Heal", "+(5-10) To All Attributes", "+2 To Mana After Each Kill", "Reduces All Vendor Prices 15%"],
   ladderOnly: false
 }, {
   name: "Strength",
@@ -549,139 +549,139 @@ const runewords = [{
   runes: ["Tal", "Ort", "Thul"],
   itemType: "Claws",
   level: 23,
-  attributes: ["+30% Faster Block Rate", "+40-80% Enchanced Damage (varies)", "10% Bonus to Attack Rating", "Adds 17-62 Fire Damage", "Adds 1-50 Lightning Damage", "Adds 3-14 Cold Damage", "+75 Poison Damage Over 5 Seconds", "+6 to Strength", "+6 to Dexterity", "All Resistances +15"],
+  attributes: ["+30% Faster Block Rate", "+(40-80)% Enchanced Damage", "10% Bonus to Attack Rating", "Adds 17-62 Fire Damage", "Adds 1-50 Lightning Damage", "Adds 3-14 Cold Damage", "+75 Poison Damage Over 5 Seconds", "+6 to Strength", "+6 to Dexterity", "All Resistances +15"],
   ladderOnly: true
 }, {
   name: "Bulwark",
   runes: ["Shael", "Io", "Sol"],
   itemType: "Helms",
   level: 35,
-  attributes: ["+20% Faster Hit Recovery", "+4-6% Life Stolen Per Hit", "+75-100% Enhanced Defense", "+10 to Vitality", "Increase Maximum Life 5%", "Replenish Life +30", "Damage Reduced by 7", "Physical Damage Received Reduced by 10-15%"],
+  attributes: ["+20% Faster Hit Recovery", "+(4-6)% Life Stolen Per Hit", "+(75-100)% Enhanced Defense", "+10 to Vitality", "Increase Maximum Life 5%", "Replenish Life +30", "Damage Reduced by 7", "Physical Damage Received Reduced by (10-15)%"],
   ladderOnly: true
 }, {
   name: "Cure",
   runes: ["Shael", "Io", "Tal"],
   itemType: "Helms",
   level: 35,
-  attributes: ["Level 1 Cleansing Aura when Equipped", "+20% Faster Hit Recovery", "+75-100% Enhanced Defense", "+10 to Vitality", "Increase Maximum Life 5%", "Posion Resist +40-60%", "Poison Length Reduced by 50%"],
+  attributes: ["Level 1 Cleansing Aura when Equipped", "+20% Faster Hit Recovery", "+(75-100)% Enhanced Defense", "+10 to Vitality", "Increase Maximum Life 5%", "Posion Resist +(40-60)%", "Poison Length Reduced by 50%"],
   ladderOnly: true
 }, {
   name: "Ground",
   runes: ["Shael", "Io", "Ort"],
   itemType: "Helms",
   level: 35,
-  attributes: ["+20% Faster Hit Recovery", "+75-100% Enhanced Defense", "+10 to Vitality", "Increase Maximum Life 5%", "Lightning Resist +40-60%", "Lightning Absorb +10-15%"],
+  attributes: ["+20% Faster Hit Recovery", "+(75-100)% Enhanced Defense", "+10 to Vitality", "Increase Maximum Life 5%", "Lightning Resist +(40-60)%", "Lightning Absorb +(10-15)%"],
   ladderOnly: true
 }, {
   name: "Hearth",
   runes: ["Shael", "Io", "Thul"],
   itemType: "Helms",
   level: 35,
-  attributes: ["+20% Faster Hit Recovery", "+75-100% Enhanced Defense", "+10 to Vitality", "Increase Maximum Life 5%", "Cold Resist +40-60%", "Cold Absorb +10-15%", "Cannot be Frozen"],
+  attributes: ["+20% Faster Hit Recovery", "+(75-100)% Enhanced Defense", "+10 to Vitality", "Increase Maximum Life 5%", "Cold Resist +(40-60)%", "Cold Absorb +(10-15)%", "Cannot be Frozen"],
   ladderOnly: true
 }, {
   name: "Temper",
   runes: ["Shael", "Io", "Ral"],
   itemType: "Helms",
   level: 35,
-  attributes: ["+20% Faster Hit Recovery", "+75-100% Enhanced Defense", "+10 to Vitality", "Increase Maximum Life 5%", "Fire Resist +40-60%", "Fire Absorb +10-15%"],
+  attributes: ["+20% Faster Hit Recovery", "+(75-100)% Enhanced Defense", "+10 to Vitality", "Increase Maximum Life 5%", "Fire Resist +(40-60)%", "Fire Absorb +(10-15)%"],
   ladderOnly: true
 }, {
   name: "Hustle",
   runes: ["Shael", "Ko", "Eld"],
   itemType: "Weapons & Body Armors",
   level: 39,
-  attributes: ["BOTH:", "+10 to Dexterity", "WEAPONS:", "5% Chance to Cast Level 1 Burst of Speed on Striking", "Level 1 Fanaticism Aura", "+30% Increased Attack Speed", "+180-200% Enhanced Damage", "+75% Damage to Undead", "+50 to Attack Rating against Undead", "BODY ARMORS:", "+65% Faster Run/Walk", "+40% Increased Attack Speed", "+20% Faster Hit Recovery", "+6 to Evade", "50% Slower Stamina Drain", "+All Resistances +10"],
+  attributes: ["BOTH:", "+10 to Dexterity", "WEAPONS:", "5% Chance to Cast Level 1 Burst of Speed on Striking", "Level 1 Fanaticism Aura", "+30% Increased Attack Speed", "+(180-200)% Enhanced Damage", "+75% Damage to Undead", "+50 to Attack Rating against Undead", "BODY ARMORS:", "+65% Faster Run/Walk", "+40% Increased Attack Speed", "+20% Faster Hit Recovery", "+6 to Evade", "50% Slower Stamina Drain", "+All Resistances +10"],
   ladderOnly: true
 }, {
   name: "Unbending Will",
   runes: ["Fal", "Io", "Ith", "Eld", "El", "Hel"],
   itemType: "Swords",
   level: 41,
-  attributes: ["18% Chance to Cast Level 18 Taunt On Striking", "+3 to Combat Skills (Barbarian Only)", "+20-30% Increased Attack Speed", "+300-350% Enhanced Damage", "+9 to Maximum Damage", "+50 to Attack Rating", "+75% Damage To Undead", "+50 Attack Rating Against Undead", "8-10% Life Stolen Per Hit", "Prevent Monster Heal", "+10 To Strength", "+10 To Vitality", "Damage Reduced by 8", "+1 To Light Radius", "Requirements -20%"],
+  attributes: ["18% Chance to Cast Level 18 Taunt On Striking", "+3 to Combat Skills (Barbarian Only)", "+(20-30)% Increased Attack Speed", "+(300-350)% Enhanced Damage", "+9 to Maximum Damage", "+50 to Attack Rating", "+75% Damage To Undead", "+50 Attack Rating Against Undead", "(8-10)% Life Stolen Per Hit", "Prevent Monster Heal", "+10 To Strength", "+10 To Vitality", "Damage Reduced by 8", "+1 To Light Radius", "Requirements -20%"],
   ladderOnly: true
 }, {
   name: "Wisdom",
   runes: ["Pul", "Ith", "Eld"],
   itemType: "Helms",
   level: 45,
-  attributes: ["+33% Piercing Attack", "+15-25% Bonus to Attack Rating", "4-8% Mana Stolen Per Hit", "+30% Enhanced Defense", "+10 Energy", "15% Slower Stamina Drain", "Cannot Be Frozen", "+5 Mana After Each Kill", "15% Damage Taken Goes to Mana"],
+  attributes: ["+33% Piercing Attack", "+(15-25)% Bonus to Attack Rating", "(4-8)% Mana Stolen Per Hit", "+30% Enhanced Defense", "+10 Energy", "15% Slower Stamina Drain", "Cannot Be Frozen", "+5 Mana After Each Kill", "15% Damage Taken Goes to Mana"],
   ladderOnly: true
 }, {
   name: "Mosaic",
   runes: ["Mal", "Gul", "Amn"],
   itemType: "Claws",
   level: 53,
-  attributes: ["+50% chance for finishing moves to not consume charges", "When a finisher is executed this way, it now refreshes the expiration timer of the stack", "+2 to Martial Arts (Assassin only)", "+20% Increased Attack Speed", "+200-250% Enhanced Damage", "+20% Bonus to Attack Rating", "7% Life Steal", "+8-15% to Cold Skill Damage", "+8-15% to Lightning Skill Damage", "+8-15% to Fire Skill Damage", "Prevent Monster Heal"],
+  attributes: ["+50% chance for finishing moves to not consume charges", "When a finisher is executed this way, it now refreshes the expiration timer of the stack", "+2 to Martial Arts (Assassin only)", "+20% Increased Attack Speed", "+(200-250)% Enhanced Damage", "+20% Bonus to Attack Rating", "7% Life Steal", "+(8-15)% to Cold Skill Damage", "+(8-15)% to Lightning Skill Damage", "+(8-15)% to Fire Skill Damage", "Prevent Monster Heal"],
   ladderOnly: true
 }, {
   name: "Flickering Flame",
   runes: ["Nef", "Pul", "Vex"],
   itemType: "Helms",
   level: 55,
-  attributes: [ "Level 4-8 Resist Fire Aura When Equipped", "+3 To Fire Skills", "-10-15% To Enemy Fire Resistance", "+30% Enhanced Defense", "+30 Defense vs. Missile", "+50-75 To Mana", "Half Freeze Duration", "+5% To Maximum Fire Resist", "Poison Length Reduced by 50%"],
+  attributes: [ "Level 4-8 Resist Fire Aura When Equipped", "+3 To Fire Skills", "-(10-15)% To Enemy Fire Resistance", "+30% Enhanced Defense", "+30 Defense vs. Missile", "+(50-75) To Mana", "Half Freeze Duration", "+5% To Maximum Fire Resist", "Poison Length Reduced by 50%"],
   ladderOnly: false
 }, {
   name: "Plague",
   runes: ["Cham", "Shael", "Um"],
   itemType: "Swords & Claws & Daggers",
   level: 67,
-  attributes: ["20% Chance To Cast Level 12 Lower Resist When Struck", "25% Chance to Cast Level 15 Poison Nova On Striking", "Level 13-17 Cleansing Aura When Equipped +1-2 To All Skills", "+20% Increased Attack Speed", "+220-320% Enhanced Damage", "-23% To Enemy Poison Resistance", "+0.3% (0-29.7) Deadly Strike (Based on Character Level)", "+25% Chance of Open Wounds", "Freezes Target +3"],
+  attributes: ["20% Chance To Cast Level 12 Lower Resist When Struck", "25% Chance to Cast Level 15 Poison Nova On Striking", "Level (13-17) Cleansing Aura When Equipped", "+(1-2) To All Skills", "+20% Increased Attack Speed", "+(220-320)% Enhanced Damage", "-23% To Enemy Poison Resistance", "+0.3% (0-29.7) Deadly Strike (Based on Character Level)", "+25% Chance of Open Wounds", "Freezes Target +3"],
   ladderOnly: true
 }, {
   name: "Mist",
   runes: ["Cham", "Shael", "Gul", "Thul", "Ith"],
   itemType: "Missile Weapons",
   level: 67,
-  attributes: ["Level 8-12 Concentration Aura When Equipped", "+3 To All Skills", "+20% Increased Attack Speed", "+100% Piercing Attack", "+325-375% Enhanced Damage", "+9 To Maximum Damage", "20% Bonus to Attack Rating", "Adds 3-14 Cold Damage", "Freezes Target +3", "+24 to Vitality", "All Resistances +40"],
+  attributes: ["Level (8-12) Concentration Aura When Equipped", "+3 To All Skills", "+20% Increased Attack Speed", "+100% Piercing Attack", "+(325-375)% Enhanced Damage", "+9 To Maximum Damage", "20% Bonus to Attack Rating", "Adds (3-14) Cold Damage", "Freezes Target +3", "+24 to Vitality", "All Resistances +40"],
   ladderOnly: true
 }, {
   name: "Metamorphosis",
   runes: ["Io", "Cham", "Fal"],
   itemType: "Helms",
   level: 67,
-  attributes: ["Werewolf strikes grant Mark for 180 seconds", "Mark of the Wolf:", "+30% Bonus to Attack Rating", "Increase Maximum Life 40%", " -- ", "Werebear strikes grant Mark for 180 seconds", "Mark of the Bear:", "+25% Attack Speed", "Physical Damage Received Reduced by 20%", " -- ", "+5 to Shape Shifting Skills (Druid only)", "+25% Chance of Crushing Blow", "+50-80% Enhanced Defense", "+10 to Strength", "+10 to Vitality", "All Resistances +10", "Cannot be Frozen"],
+  attributes: ["Werewolf strikes grant Mark for 180 seconds", "Mark of the Wolf:", "+30% Bonus to Attack Rating", "Increase Maximum Life 40%", " -- ", "Werebear strikes grant Mark for 180 seconds", "Mark of the Bear:", "+25% Attack Speed", "Physical Damage Received Reduced by 20%", " -- ", "+5 to Shape Shifting Skills (Druid only)", "+25% Chance of Crushing Blow", "+(50-80)% Enhanced Defense", "+10 to Strength", "+10 to Vitality", "All Resistances +10", "Cannot be Frozen"],
   ladderOnly: true
 }, {
   name: "Obsession",
   runes: ["Zod", "Ist", "Lem", "Lum", "Io", "Nef"],
   itemType: "Staves",
   level: 69,
-  attributes: ["Indestructible", "24% Chance to cast level 10 Weaken when struck", "+4 To All Skills", "+65% Faster Cast Rate", "+60% Faster Hit Recovery", "Knockback", "+10 To Vitality", "+10 To Energy", "Increase Maximum Life 15-25%", "Regenerate Mana 15-30%", "All Resistances +60-70", "75% Extra Gold from Monsters", "30% Better Chance of Getting Magic Items"],
+  attributes: ["Indestructible", "24% Chance to cast level 10 Weaken when struck", "+4 To All Skills", "+65% Faster Cast Rate", "+60% Faster Hit Recovery", "Knockback", "+10 To Vitality", "+10 To Energy", "Increase Maximum Life (15-25)%", "Regenerate Mana (15-30)%", "All Resistances +(60-70)", "75% Extra Gold from Monsters", "30% Better Chance of Getting Magic Items"],
   ladderOnly: true
 }, {
   name: "Authority [RotW]",
   runes: ["Hel", "Shael", "Ral"],
   itemType: "Armor",
   level: 29,
-  attributes: ["2% Chance to cast level 10 Psychic Ward when struck", "10% Chance to cast level 15 Miasma Chains on striking", "+2 to Warlock Skill Levels", "+40-60% Enhanced Damage", "Requirements -15%", "+20% Faster Hit Recovery", "Fire Resist +30%"],
+  attributes: ["2% Chance to cast level 10 Psychic Ward when struck", "10% Chance to cast level 15 Miasma Chains on striking", "+2 to Warlock Skill Levels", "+(40-60)% Enhanced Damage", "Requirements -15%", "+20% Faster Hit Recovery", "Fire Resist +30%"],
   ladderOnly: false
 }, {
   name: "Coven [RotW]",
   runes: ["Ist", "Ral", "Io"],
   itemType: "Helms",
   level: 51,
-  attributes: ["5% Chance to cast level 10 Sigil Lethargy when struck", "+1 to All Skills", "+20% Faster Cast Rate", "+30-50% Enhanced Defense", "+1-15 Magic Absorb", "+1-5 Life after each Kill", "26-40% Better Chance of Getting Magic Items", "Fire Resist +30%", "+10 to Vitality"],
+  attributes: ["5% Chance to cast level 10 Sigil Lethargy when struck", "+1 to All Skills", "+20% Faster Cast Rate", "+(30-50)% Enhanced Defense", "+(1-15) Magic Absorb", "+(1-5) Life after each Kill", "(26-40)% Better Chance of Getting Magic Items", "Fire Resist +30%", "+10 to Vitality"],
   ladderOnly: false
 }, {
   name: "Void [RotW]",
   runes: ["Thul", "Zod", "Ist"],
   itemType: "Daggers",
   level: 69,
-  attributes: ["+2 to All Skills", "+40% Faster Cast Rate", "+10-15% to Magic Skill Damage", "+1-3 to Abyss", "+8-12 to all Attributes", "Level 4 Decrepify (35/35 Charges)", "Adds 3-14 Cold Damage", "Indestructible", "30% Better Chance of Getting Magic Items"],
+  attributes: ["+2 to All Skills", "+40% Faster Cast Rate", "+(10-15)% to Magic Skill Damage", "+(1-3) to Abyss", "+(8-12) to all Attributes", "Level 4 Decrepify (35/35 Charges)", "Adds 3-14 Cold Damage", "Indestructible", "30% Better Chance of Getting Magic Items"],
   ladderOnly: false
 }, {
   name: "Vigilance [RotW]",
   runes: ["Dol", "Gul"],
   itemType: "Shields",
   level: 53,
-  attributes: ["5% Chance to cast level 10 Ring of Fire when struck", "+10% Faster Run/Walk", "+30% Faster Block Rate", "+20-40 to Life", "+20-40 to Mana", "All Resistances +25-35", "+75-100% Enhanced Defense", "Replenish Life +7", "+5% to Maximum Poison Resist"],
+  attributes: ["5% Chance to cast level 10 Ring of Fire when struck", "+10% Faster Run/Walk", "+30% Faster Block Rate", "+(20-40) to Life", "+(20-40) to Mana", "All Resistances +(25-35)", "+(75-100)% Enhanced Defense", "Replenish Life +7", "+5% to Maximum Poison Resist"],
   ladderOnly: false
 }, {
   name: "Ritual [RotW]",
   runes: ["Amn", "Shael", "Ohm"],
   itemType: "Daggers",
   level: 57,
-  attributes: ["13% Chance to cast level 1 Sigil Lethargy when struck", "+20% Increased Attack Speed", "+150-250% Damage to Demons", "100-260% Bonus to Attack Rating", "+3-5 Life after each Kill", "Slain Monsters Rest in Peace", "7% Life stolen per hit", "+20% Increased Attack Speed", "+250-320% Enhanced Damage"],
+  attributes: ["13% Chance to cast level 1 Sigil Lethargy when struck", "+20% Increased Attack Speed", "+(150-250)% Damage to Demons", "(100-260)% Bonus to Attack Rating", "+3-5 Life after each Kill", "Slain Monsters Rest in Peace", "7% Life stolen per hit", "+20% Increased Attack Speed", "+(250-320)% Enhanced Damage"],
   ladderOnly: false
 }].sort((a, b) => (b.level - a.level) || (a.name > b.name ? 1 : -1));
