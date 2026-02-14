@@ -95,7 +95,7 @@ h1, h2 {
 }
 
 @media (max-width: 640px) {
-  .available {
+  #available {
     position: unset;
     top: unset;
   }
