@@ -25,6 +25,7 @@ body {
 
 .title {
   background-color: var(--bg-dark);
+  z-index: 99;
   position: sticky;
   top: 0;
   max-width: 1440px;
@@ -108,7 +109,7 @@ h1, h2 {
   border-radius: 0.25em;
   height: fit-content;
   position: sticky;
-  top: 104px;
+  top: calc(min(100vh - 938px, 104px));
 }
 
 @media (max-width: 640px) {
@@ -173,4 +174,3 @@ h1, h2 {
 #results p {
   margin: 0.5em;
 }
-
