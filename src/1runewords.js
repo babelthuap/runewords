@@ -549,7 +549,7 @@ const runewords = [{
   runes: ["Tal", "Ort", "Thul"],
   itemType: "Claws",
   level: 23,
-  attributes: ["+30% Faster Block Rate", "+(40-80)% Enchanced Damage", "10% Bonus to Attack Rating", "Adds 17-62 Fire Damage", "Adds 1-50 Lightning Damage", "Adds 3-14 Cold Damage", "+75 Poison Damage Over 5 Seconds", "+6 to Strength", "+6 to Dexterity", "All Resistances +15"],
+  attributes: ["+30% Faster Block Rate", "+(40-80)% Enhanced Damage", "10% Bonus to Attack Rating", "Adds 17-62 Fire Damage", "Adds 1-50 Lightning Damage", "Adds 3-14 Cold Damage", "+75 Poison Damage Over 5 Seconds", "+6 to Strength", "+6 to Dexterity", "All Resistances +15"],
   ladderOnly: true
 }, {
   name: "Bulwark",
