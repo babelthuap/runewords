@@ -97,8 +97,8 @@ $(document).ready(function() {
       });
 
       let $name = $('<td>')
-        .append( $('<b>').text(runeword.name) ).append('<br>')
-        .append( $('<span>').append($runes) ).append('<br>')
+        .append( $('<h2>').text(runeword.name) )
+        .append( $('<span>').addClass('rune').append($runes) ).append('<br>')
         .append( $('<span>').text(runeword.itemType) ).append('<br>')
         .append( $('<span>').text('Character Level: ' + runeword.level) )
 
@@ -106,7 +106,7 @@ $(document).ready(function() {
         $name.append('<br>').append('<br>').append( $('<em>').text('LADDER ONLY') );
       }
 
-      let $attributes = $('<td>').append( $('<ul>')
+      let $attributes = $('<td>').addClass('stats').append( $('<ul>')
         .append(runeword.attributes.map(attr => $('<li>').text(attr)))
       );
 

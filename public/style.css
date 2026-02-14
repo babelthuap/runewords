@@ -1,17 +1,30 @@
+/* Color palette based on in-game Chronicle UI. */
+:root {
+  --title: #c7b377;
+  --text: #fff;
+  --link: #7d8d90;
+  --bg-dark: #0a090c;
+  --bg-light: #28292a;
+  --stat-text: #6e6eff;
+  --stat-highlight: #82c5ff;
+  --warning: #f8582b;
+}
+
 @font-face {
   font-family: "Exocet";
   src: url(EXOCET.ttf);
 }
 
 body {
-  background-color: beige;
+  background-color: var(--bg-dark);
+  color: var(--text);
   font-family: "Exocet", serif;
   margin: 0;
   padding: 0;
 }
 
 .title {
-  background-color: beige;
+  background-color: var(--bg-dark);
   position: sticky;
   top: 0;
   max-width: 1440px;
@@ -50,8 +63,7 @@ body {
 }
 
 a {
-  color: rgb(153, 51, 0);
-  text-decoration: none;
+  color: var(--link);
 }
 
 a:hover {
@@ -59,6 +71,7 @@ a:hover {
 }
 
 h1, h2 {
+  color: var(--title);
   font-variant: small-caps;
 }
 
@@ -78,7 +91,11 @@ h1, h2 {
 }
 
 .container h2 {
-  margin-top: 0em;
+  margin-top: 0;
+}
+
+#results h2 {
+  margin-bottom: 12px;
 }
 
 #available, #possible {
@@ -87,7 +104,7 @@ h1, h2 {
 }
 
 #available {
-  background-color: rgba(0, 0, 0, 0.15);
+  background-color: var(--bg-light);
   border-radius: 0.25em;
   height: fit-content;
   position: sticky;
@@ -105,23 +122,35 @@ h1, h2 {
   font-family: "Exocet", serif;
   margin-left: 0.5em;
   width: 3em;
+  background-color: var(--bg-dark);
+  color: var(--text);
 }
 
 #clear {
   font-family: "Exocet", serif;
   margin-top: 0.25em;
+  background-color: var(--link);
+  color: var(--text);
 }
 
 #possible {
   max-width: 44em;
 }
 
+.rune {
+  color: var(--title);
+}
+
 .ladder-only td:first-of-type em:last-of-type {
-  color: blue;
+  color: var(--stat-highlight);
 }
 
 .missing {
-  color: red;
+  color: var(--warning);
+}
+
+.stats {
+  color: var(--stat-text);
 }
 
 #results td:nth-of-type(1) {
