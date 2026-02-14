@@ -1,6 +1,8 @@
 $(document).ready(function() {
   'use strict';
 
+  const RANGE_REGEX = /(\(\d+-\d+\))/;
+
   let horadricCube = new HoradricCube();
 
   let availableRunes;
@@ -107,7 +109,7 @@ $(document).ready(function() {
       }
 
       let $attributes = $('<td>').addClass('stats').append( $('<ul>')
-        .append(runeword.attributes.map(attr => $('<li>').text(attr)))
+        .append(runeword.attributes.map(attr => $('<li>').html(highlightStats(attr))))
       );
 
       return $('<tr>')
@@ -127,6 +129,16 @@ $(document).ready(function() {
     } else {
       $('#red-note').hide();
     }
+  }
+
+  function highlightStats(attr) {
+    return attr.split(RANGE_REGEX).map(part => {
+      if (RANGE_REGEX.test(part)) {
+        return `<span class="range">${part}</span>`;
+      } else {
+        return part;
+      }
+    }).join('');
   }
 
 });
