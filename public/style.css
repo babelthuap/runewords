@@ -32,7 +32,7 @@ body {
 .header a {
   font-style: italic;
   position: absolute;
-  top: 8px;
+  margin: 8px;
 }
 
 @media (max-width: 640px) {
