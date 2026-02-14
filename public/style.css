@@ -153,6 +153,10 @@ h1, h2 {
   color: var(--stat-text);
 }
 
+.stats .range {
+  color: var(--stat-highlight);
+}
+
 #results td:nth-of-type(1) {
   min-width: 8em;
   text-align: center;
@@ -169,3 +173,4 @@ h1, h2 {
 #results p {
   margin: 0.5em;
 }
+
