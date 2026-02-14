@@ -660,7 +660,7 @@ const runewords = [{
   name: "Coven [Warlock expansion]",
   runes: ["Ist", "Ral", "Io"],
   itemType: "Helms",
-  level: 63,
+  level: 51,
   attributes: ["5% Chance to cast level 10 Sigil Lethargy when struck", "+1 to All Skills", "+20% Faster Cast Rate", "+30-50% Enhanced Defense", "+1-15 Magic Absorb", "+1-5 Life after each Kill", "26-40% Better Chance of Getting Magic Items", "Fire Resist +30%", "+10 to Vitality"],
   ladderOnly: false
 }, {
