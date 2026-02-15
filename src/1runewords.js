@@ -619,7 +619,7 @@ const runewords = [{
   runes: ["Nef", "Pul", "Vex"],
   itemType: "Helms",
   level: 55,
-  attributes: [ "Level 4-8 Resist Fire Aura When Equipped", "+3 To Fire Skills", "-(10-15)% To Enemy Fire Resistance", "+30% Enhanced Defense", "+30 Defense vs. Missile", "+(50-75) To Mana", "Half Freeze Duration", "+5% To Maximum Fire Resist", "Poison Length Reduced by 50%"],
+  attributes: [ "Level (4-8) Resist Fire Aura When Equipped", "+3 To Fire Skills", "-(10-15)% To Enemy Fire Resistance", "+30% Enhanced Defense", "+30 Defense vs. Missile", "+(50-75) To Mana", "Half Freeze Duration", "+5% To Maximum Fire Resist", "Poison Length Reduced by 50%"],
   ladderOnly: false
 }, {
   name: "Plague",
