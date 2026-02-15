@@ -26,6 +26,15 @@
     <div id="possible">
       <h2 class="header">Possible Runewords</h2>
       <p id="red-note"><em><b>NOTE:</b> <span class="missing">Red</span> runes are runes you don't currently have, but which you can make using the <a href="https://d2runewizard.com/runes">Horadric Cube</a>. If a runeword appears below, it's guaranteed that you can make all of the necessary runes using your current runes. This doesn't take into account the gems you need to upgrade higher-level runes.</em></p>
+      <div class="sort">
+        <span>Sort:</span>
+        <select id="sortby">
+          <option value="high" selected="">Highest level</option>
+          <option value="low">Lowest level</option>
+          <option value="az">Alphabetical</option>
+          <option value="rand">Random</option>
+        </select>
+      </div>
       <table id="results" border="4" cellspacing="3" cellpadding="8"></table>
     </div>
   </div>
