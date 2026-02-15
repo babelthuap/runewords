@@ -102,7 +102,7 @@ $(document).ready(function() {
         .append( $('<h2>').text(runeword.name) )
         .append( $('<span>').addClass('rune').append($runes) ).append('<br>')
         .append( $('<span>').text(runeword.itemType) ).append('<br>')
-        .append( $('<span>').text('Character Level: ' + runeword.level) )
+        .append( $('<span>').text('Level: ' + runeword.level) )
 
       if (runeword.ladderOnly) {
         $name.append('<br>').append('<br>').append( $('<em>').text('LADDER ONLY') );
@@ -141,4 +141,37 @@ $(document).ready(function() {
     }).join('');
   }
 
+  // listener on sort dropdown
+  $('#sortby').on('input', function() {
+    console.log($(this).val());
+    switch ($(this).val()) {
+      case 'high':
+        runewords.sort((a, b) => (b.level - a.level) || (a.name > b.name ? 1 : -1));
+        break;
+      case 'low':
+        runewords.sort((a, b) => (a.level - b.level) || (a.name > b.name ? 1 : -1));
+        break;
+      case 'az':
+        runewords.sort((a, b) => a.name > b.name ? 1 : -1);
+        break;
+      case 'rand':
+        shuffle(runewords);
+        break;
+    }
+    updateResults(availableRunes);
+  });
+
+  function shuffle(arr) {
+    for (let i = arr.length - 1; i > 0; --i) {
+      let j = rand(i + 1);
+      let temp = arr[j];
+      arr[j] = arr[i];
+      arr[i] = temp;
+    }
+    return arr;
+  };
+
+  function rand(n) {
+    return Math.floor(Math.random() * n);
+  }
 });
