@@ -154,6 +154,12 @@ $(document).ready(function() {
       case 'low':
         runewords.sort((a, b) => (a.level - b.level) || (a.name > b.name ? 1 : -1));
         break;
+      case 'most':
+        runewords.sort((a, b) => b.runes.length - a.runes.length);
+        break;
+      case 'least':
+        runewords.sort((a, b) => a.runes.length - b.runes.length);
+        break;
       case 'az':
         runewords.sort((a, b) => a.name > b.name ? 1 : -1);
         break;
