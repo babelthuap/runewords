@@ -134,6 +134,19 @@ h1, h2 {
   color: var(--text);
 }
 
+.sort {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+#sortby {
+  background-color: var(--bg-light);
+  color: var(--text);
+  font-family: "Exocet", serif;
+  padding: 2px 4px;
+  border-radius: 0.25em;
+}
+
 #possible {
   max-width: 44em;
 }
