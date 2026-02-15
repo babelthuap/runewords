@@ -124,6 +124,11 @@ $(document).ready(function() {
     if ($possible.length === 0) {
       $possible = $('<em>').text('- none -');
     }
+    if ($possible.length > 1) {
+      $('.sort').show();
+    } else {
+      $('.sort').hide();
+    }
 
     $('#results').empty().append($possible);
 
@@ -146,7 +151,6 @@ $(document).ready(function() {
 
   // listener on sort dropdown
   $('#sortby').on('input', function() {
-    console.log($(this).val());
     switch ($(this).val()) {
       case 'high':
         runewords.sort((a, b) => (b.level - a.level) || (a.name > b.name ? 1 : -1));
