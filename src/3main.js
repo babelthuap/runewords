@@ -6,13 +6,16 @@ $(document).ready(function() {
   let horadricCube = new HoradricCube();
 
   let availableRunes;
-  if (localStorage.availableRunes) {
+  const params = new URLSearchParams(location.search);
+  if (localStorage.availableRunes && !(params.get('overwrite') === 'true')) {
     availableRunes = JSON.parse(localStorage.availableRunes);
     replaceRunesParam(horadricCube.serializeRunes(availableRunes));
   } else {
-    availableRunes =
-      horadricCube.deserializeRunes(new URLSearchParams(location.search).get('runes'));
+    availableRunes = horadricCube.deserializeRunes(params.get('runes'));
   }
+  const url = new URL(window.location.href);
+  url.searchParams.delete('overwrite');
+  window.history.replaceState(null, '', url.toString());
 
   /*
    * canMakeRuneword: Returns true iff the runeword can be made with the
