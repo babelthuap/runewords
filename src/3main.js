@@ -89,6 +89,7 @@ $(document).ready(function() {
   });
 
   function updateResults(availableRunes) {
+    console.time('updateResults');
     let missingSome = false;
 
     let $possible = possibleRunewords(availableRunes).map(runeword => {
@@ -137,6 +138,7 @@ $(document).ready(function() {
     } else {
       $('#red-note').hide();
     }
+    console.timeEnd('updateResults');
   }
 
   function highlightStats(attr) {
