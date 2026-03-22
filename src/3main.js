@@ -111,6 +111,9 @@ $(document).ready(function() {
       if (runeword.ladderOnly) {
         $name.append('<br>').append('<br>').append( $('<em>').text('LADDER ONLY') );
       }
+      if (runeword.nonLadderOnly) {
+        $name.append('<br>').append('<br>').append( $('<em>').text('NON-LADDER ONLY') );
+      }
 
       let $attributes = $('<td>').addClass('stats').append( $('<ul>')
         .append(runeword.attributes.map(attr => $('<li>').html(highlightStats(attr))))

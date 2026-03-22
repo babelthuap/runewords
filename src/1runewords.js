@@ -345,7 +345,7 @@ const runewords = [
       '20% Deadly Strike', 'Prevent Monster Heal', '+2 To Mana After Each Kill',
       '+(10-15) Life After Each Kill'
     ],
-    ladderOnly: true
+    ladderOnly: false
   },
   {
     name: 'Fortitude',
@@ -1121,7 +1121,7 @@ const runewords = [
       '+75 Poison Damage Over 5 Seconds', '+6 to Strength', '+6 to Dexterity',
       'All Resistances +15'
     ],
-    ladderOnly: true
+    ladderOnly: false
   },
   {
     name: 'Bulwark',
@@ -1186,19 +1186,27 @@ const runewords = [
     ladderOnly: true
   },
   {
-    name: 'Hustle',
+    name: 'Hysteria',
     runes: ['Shael', 'Ko', 'Eld'],
-    itemType: 'Weapons & Body Armors',
+    itemType: 'Armor',
     level: 39,
     attributes: [
-      'BOTH:', '+10 to Dexterity',
-      'WEAPONS:', '5% Chance to Cast Level 1 Burst of Speed on Striking',
+      '+10 to Dexterity', '+65% Faster Run/Walk', '+40% Increased Attack Speed',
+      '+20% Faster Hit Recovery', '+6 to Evade', '50% Slower Stamina Drain',
+      'All Resistances +10'
+    ],
+    ladderOnly: true
+  },
+  {
+    name: 'Mania',
+    runes: ['Shael', 'Ko', 'Eld'],
+    itemType: 'Weapons',
+    level: 39,
+    attributes: [
+      '+10 to Dexterity', '5% Chance to Cast Level 1 Burst of Speed on Striking',
       'Level 1 Fanaticism Aura', '+30% Increased Attack Speed',
       '+(180-200)% Enhanced Damage', '+75% Damage to Undead',
-      '+50 to Attack Rating against Undead',
-      'BODY ARMORS:', '+65% Faster Run/Walk', '+40% Increased Attack Speed',
-      '+20% Faster Hit Recovery', '+6 to Evade', '50% Slower Stamina Drain',
-      '+All Resistances +10'
+      '+50 to Attack Rating against Undead'
     ],
     ladderOnly: true
   },
@@ -1216,7 +1224,7 @@ const runewords = [
       'Prevent Monster Heal', '+10 To Strength', '+10 To Vitality',
       'Damage Reduced by 8', '+1 To Light Radius', 'Requirements -20%'
     ],
-    ladderOnly: true
+    ladderOnly: false
   },
   {
     name: 'Wisdom',
@@ -1229,7 +1237,7 @@ const runewords = [
       '15% Slower Stamina Drain', 'Cannot Be Frozen', '+5 Mana After Each Kill',
       '15% Damage Taken Goes to Mana'
     ],
-    ladderOnly: true
+    ladderOnly: false
   },
   {
     name: 'Mosaic',
@@ -1245,7 +1253,8 @@ const runewords = [
       '+(8-15)% to Lightning Skill Damage', '+(8-15)% to Fire Skill Damage',
       'Prevent Monster Heal'
     ],
-    ladderOnly: true
+    ladderOnly: false,
+    nonLadderOnly: true
   },
   {
     name: 'Flickering Flame',
@@ -1274,7 +1283,7 @@ const runewords = [
       '+0.3% (0-29.7) Deadly Strike (Based on Character Level)',
       '+25% Chance of Open Wounds', 'Freezes Target +3'
     ],
-    ladderOnly: true
+    ladderOnly: false
   },
   {
     name: 'Mist',
@@ -1288,7 +1297,7 @@ const runewords = [
       '20% Bonus to Attack Rating', 'Adds (3-14) Cold Damage',
       'Freezes Target +3', '+24 to Vitality', 'All Resistances +40'
     ],
-    ladderOnly: true
+    ladderOnly: false
   },
   {
     name: 'Metamorphosis',
@@ -1320,7 +1329,7 @@ const runewords = [
       'All Resistances +(60-70)', '75% Extra Gold from Monsters',
       '30% Better Chance of Getting Magic Items'
     ],
-    ladderOnly: true
+    ladderOnly: false
   },
   {
     name: 'Authority [RotW]',
