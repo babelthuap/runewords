@@ -159,6 +159,10 @@ h1, h2 {
   color: var(--stat-highlight);
 }
 
+.non-ladder-only td:first-of-type em:last-of-type {
+  color: var(--warning);
+}
+
 .missing {
   color: var(--warning);
 }

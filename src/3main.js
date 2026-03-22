@@ -122,7 +122,8 @@ $(document).ready(function() {
       return $('<tr>')
         .append($name)
         .append($attributes)
-        .addClass(runeword.ladderOnly ? 'ladder-only' : '');
+        .addClass(runeword.ladderOnly ? 'ladder-only' : '')
+        .addClass(runeword.nonLadderOnly ? 'non-ladder-only' : '');
     });
 
     if ($possible.length === 0) {
