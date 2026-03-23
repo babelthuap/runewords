@@ -521,7 +521,7 @@ const runewords = [
     name: 'Oath',
     runes: ['Shael', 'Pul', 'Mal', 'Lum'],
     itemType: 'Axes, Maces & Swords',
-    level: 59,
+    level: 49,
     attributes: [
       'Indestructible', '30% Chance To Cast Level 20 Bone Spirit On Striking',
       '+50% Increased Attack Speed', '+(210-340)% Enhanced Damage',
