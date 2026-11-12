@@ -3,6 +3,7 @@ const runewords = [
     name: 'Breath of the Dying',
     runes: ['Vex', 'Hel', 'El', 'Eld', 'Zod', 'Eth'],
     itemType: 'All Weapons',
+    categories: ['All Weapons'],
     level: 69,
     attributes: [
       '50% Chance To Cast Level 20 Poison Nova When You Kill An Enemy',
@@ -19,6 +20,7 @@ const runewords = [
     name: 'Pride',
     runes: ['Cham', 'Sur', 'Io', 'Lo'],
     itemType: 'Polearms',
+    categories: ['Polearms'],
     level: 67,
     attributes: [
       '25% Chance To Cast Level 17 Fire Wall When Struck',
@@ -35,6 +37,7 @@ const runewords = [
     name: 'Hand of Justice',
     runes: ['Sur', 'Cham', 'Amn', 'Lo'],
     itemType: 'All Weapons',
+    categories: ['All Weapons'],
     level: 67,
     attributes: [
       '100% Chance To Cast Level 36 Blaze When You Level-Up',
@@ -50,6 +53,7 @@ const runewords = [
     name: 'Eternity',
     runes: ['Amn', 'Ber', 'Ist', 'Sol', 'Sur'],
     itemType: 'All Melee Weapons',
+    categories: ['Melee Weapons'],
     level: 63,
     attributes: [
       'Indestructible', '+(260-310)% Enhanced Damage', '+9 To Minimum Damage',
@@ -64,6 +68,7 @@ const runewords = [
     name: 'Doom',
     runes: ['Hel', 'Ohm', 'Um', 'Lo', 'Cham'],
     itemType: 'Axes, Hammers & Polearms',
+    categories: ['Axes', 'Hammers', 'Polearms'],
     level: 67,
     attributes: [
       '5% Chance To Cast Level 18 Volcano On Striking',
@@ -79,6 +84,7 @@ const runewords = [
     name: 'Last Wish',
     runes: ['Jah', 'Mal', 'Jah', 'Sur', 'Jah', 'Ber'],
     itemType: 'Axes, Hammers & Swords',
+    categories: ['Axes', 'Hammers', 'Swords'],
     level: 65,
     attributes: [
       '6% Chance To Cast Level 11 Fade When Struck',
@@ -95,6 +101,7 @@ const runewords = [
     name: 'Destruction',
     runes: ['Vex', 'Lo', 'Ber', 'Jah', 'Ko'],
     itemType: 'Polearms & Swords',
+    categories: ['Polearms', 'Swords'],
     level: 65,
     attributes: [
       '23% Chance To Cast Level 12 Volcano On Striking',
@@ -111,6 +118,7 @@ const runewords = [
     name: 'Enigma',
     runes: ['Jah', 'Ith', 'Ber'],
     itemType: 'Armor',
+    categories: ['Armor'],
     level: 65,
     attributes: [
       '+2 To All Skills', '+45% Faster Run/Walk', '+1 To Teleport',
@@ -126,6 +134,7 @@ const runewords = [
     name: 'Phoenix',
     runes: ['Vex', 'Vex', 'Lo', 'Jah'],
     itemType: 'Weapons & Shields',
+    categories: ['All Weapons', 'Shields'],
     level: 65,
     attributes: [
       'BOTH:', '100% Chance To Cast level 40 Blaze When You Level-up',
@@ -143,6 +152,7 @@ const runewords = [
     name: 'Brand',
     runes: ['Jah', 'Lo', 'Mal', 'Gul'],
     itemType: 'Missile Weapons',
+    categories: ['Missile Weapons'],
     level: 65,
     attributes: [
       '35% Chance To Cast Level 14 Amplify Damage When Struck',
@@ -158,6 +168,7 @@ const runewords = [
     name: 'Faith',
     runes: ['Ohm', 'Jah', 'Lem', 'Eld'],
     itemType: 'Missile Weapons',
+    categories: ['Missile Weapons'],
     level: 65,
     attributes: [
       'Level (12-15) Fanaticism Aura When Equipped', '+(1-2) To All Skills',
@@ -173,6 +184,7 @@ const runewords = [
     name: 'Famine',
     runes: ['Fal', 'Ohm', 'Ort', 'Jah'],
     itemType: 'Axes & Hammers',
+    categories: ['Axes', 'Hammers'],
     level: 65,
     attributes: [
       '+30% Increased Attack Speed', '+(320-370)% Enhanced Damage',
@@ -187,6 +199,7 @@ const runewords = [
     name: 'Fury',
     runes: ['Jah', 'Gul', 'Eth'],
     itemType: 'All Melee Weapons',
+    categories: ['Melee Weapons'],
     level: 65,
     attributes: [
       '40% Increased Attack Speed', '+209% Enhanced Damage',
@@ -201,6 +214,7 @@ const runewords = [
     name: 'Dream',
     runes: ['Io', 'Jah', 'Pul'],
     itemType: 'Headgear, Shields',
+    categories: ['Helms', 'Shields'],
     level: 65,
     attributes: [
       'BOTH:', '10% Chance To Cast Level 15 Confuse When Struck',
@@ -217,6 +231,7 @@ const runewords = [
     name: 'Ice',
     runes: ['Amn', 'Shael', 'Jah', 'Lo'],
     itemType: 'Missile Weapons',
+    categories: ['Missile Weapons'],
     level: 65,
     attributes: [
       '100% Chance To Cast Level 40 Blizzard When You Level-up',
@@ -233,6 +248,7 @@ const runewords = [
     name: 'Infinity',
     runes: ['Ber', 'Mal', 'Ber', 'Ist'],
     itemType: 'Polearms',
+    categories: ['Polearms'],
     level: 63,
     attributes: [
       '50% Chance To Cast Level 20 Chain Lightning When You Kill An Enemy',
@@ -249,6 +265,7 @@ const runewords = [
     name: 'Chains of Honor',
     runes: ['Dol', 'Um', 'Ber', 'Ist'],
     itemType: 'Armor',
+    categories: ['Armor'],
     level: 63,
     attributes: [
       '+2 To All Skills', '+200% Damage To Demons', '+100% Damage To Undead',
@@ -262,6 +279,7 @@ const runewords = [
     name: 'Beast',
     runes: ['Ber', 'Tir', 'Um', 'Mal', 'Lum'],
     itemType: 'Axes, Hammers & Scepters',
+    categories: ['Axes', 'Hammers', 'Scepters'],
     level: 63,
     attributes: [
       'Level 9 Fanaticism Aura When Equipped', '+40% Increased Attack Speed',
@@ -276,6 +294,7 @@ const runewords = [
     name: 'Wrath',
     runes: ['Pul', 'Lum', 'Ber', 'Mal'],
     itemType: 'Missile Weapons',
+    categories: ['Missile Weapons'],
     level: 63,
     attributes: [
       '30% Chance To Cast Level 1 Decrepify On Striking',
@@ -291,6 +310,7 @@ const runewords = [
     name: 'Dragon',
     runes: ['Sur', 'Lo', 'Sol'],
     itemType: 'Armor, Shields',
+    categories: ['Armor', 'Shields'],
     level: 61,
     attributes: [
       'BOTH:', '20% Chance to Cast Level 18 Venom When Struck',
@@ -307,6 +327,7 @@ const runewords = [
     name: 'Bramble',
     runes: ['Ral', 'Ohm', 'Sur', 'Eth'],
     itemType: 'Armor',
+    categories: ['Armor'],
     level: 61,
     attributes: [
       'Level (15-21) Thorns Aura When Equipped', '+50% Faster Hit Recovery',
@@ -321,6 +342,7 @@ const runewords = [
     name: 'Wind',
     runes: ['Sur', 'El'],
     itemType: 'Melee Weapons',
+    categories: ['Melee Weapons'],
     level: 61,
     attributes: [
       '10% Chance To Cast Level 9 Tornado On Striking', '+20% Faster Run/Walk',
@@ -335,6 +357,7 @@ const runewords = [
     name: 'Grief',
     runes: ['Eth', 'Tir', 'Lo', 'Mal', 'Ral'],
     itemType: 'Swords & Axes',
+    categories: ['Swords', 'Axes'],
     level: 59,
     attributes: [
       '35% Chance To Cast Level 15 Venom On Striking',
@@ -351,6 +374,7 @@ const runewords = [
     name: 'Fortitude',
     runes: ['El', 'Sol', 'Dol', 'Lo'],
     itemType: 'Weapons & Armor',
+    categories: ['All Weapons', 'Armor'],
     level: 59,
     attributes: [
       'BOTH:', '20% Chance To Cast Level 15 Chilling Armor when Struck',
@@ -370,6 +394,7 @@ const runewords = [
     name: 'Exile',
     runes: ['Vex', 'Ohm', 'Ist', 'Dol'],
     itemType: 'Shields',
+    categories: ['Shields'],
     level: 57,
     attributes: [
       '15% Chance To Cast Level 5 Life Tap On Striking',
@@ -386,6 +411,7 @@ const runewords = [
     name: 'Call to Arms',
     runes: ['Amn', 'Ral', 'Mal', 'Ist', 'Ohm'],
     itemType: 'Weapons',
+    categories: ['All Weapons'],
     level: 57,
     attributes: [
       '+1 To All Skills', '+40% Increased Attack Speed',
@@ -400,6 +426,7 @@ const runewords = [
     name: 'Chaos',
     runes: ['Fal', 'Ohm', 'Um'],
     itemType: 'Claws',
+    categories: ['Claws'],
     level: 57,
     attributes: [
       '9% Chance To Cast Level 11 Frozen Orb On Striking',
@@ -414,6 +441,7 @@ const runewords = [
     name: 'Death',
     runes: ['Hel', 'El', 'Vex', 'Ort', 'Gul'],
     itemType: 'Swords & Axes',
+    categories: ['Swords', 'Axes'],
     level: 55,
     attributes: [
       'Indestructible',
@@ -432,6 +460,7 @@ const runewords = [
     name: 'Silence',
     runes: ['Dol', 'Eld', 'Hel', 'Ist', 'Tir', 'Vex'],
     itemType: 'Weapons',
+    categories: ['All Weapons'],
     level: 55,
     attributes: [
       '+2 to All Skills', '+20% Increased Attack Speed',
@@ -448,6 +477,7 @@ const runewords = [
     name: 'Heart of the Oak',
     runes: ['Ko', 'Vex', 'Pul', 'Thul'],
     itemType: 'Staves & Maces',
+    categories: ['Staves', 'Maces'],
     level: 55,
     attributes: [
       '+3 To All Skills', '+40% Faster Cast Rate', '+75% Damage To Demons',
@@ -462,6 +492,7 @@ const runewords = [
     name: 'Kingslayer',
     runes: ['Mal', 'Um', 'Gul', 'Fal'],
     itemType: 'Swords & Axes',
+    categories: ['Swords', 'Axes'],
     level: 53,
     attributes: [
       '+30% Increased Attack Speed', '+(230-270)% Enhanced Damage',
@@ -476,6 +507,7 @@ const runewords = [
     name: 'Rift',
     runes: ['Hel', 'Ko', 'Lem', 'Gul'],
     itemType: 'Polearms & Scepters',
+    categories: ['Polearms', 'Scepters'],
     level: 53,
     attributes: [
       '20% Chance To Cast Level 16 Tornado On Striking',
@@ -492,6 +524,7 @@ const runewords = [
     name: 'Principle (Paladin)',
     runes: ['Ral', 'Gul', 'Eld'],
     itemType: 'Armor',
+    categories: ['Armor'],
     level: 55,
     attributes: [
       '100% Chance To Cast Level 5 Holy Bolt On Striking',
@@ -505,6 +538,7 @@ const runewords = [
     name: 'Delirium',
     runes: ['Lem', 'Ist', 'Io'],
     itemType: 'Headgear (all types)',
+    categories: ['Helms'],
     level: 51,
     attributes: [
       '1% Chance To Cast lvl 50 Delirium When Struck (morphs your character into a Bone Fetish for about 1 minute; once morphed, you can do normal attacks in the form of a headbutt)',
@@ -521,6 +555,7 @@ const runewords = [
     name: 'Oath',
     runes: ['Shael', 'Pul', 'Mal', 'Lum'],
     itemType: 'Axes, Maces & Swords',
+    categories: ['Axes', 'Maces', 'Swords'],
     level: 49,
     attributes: [
       'Indestructible', '30% Chance To Cast Level 20 Bone Spirit On Striking',
@@ -536,6 +571,7 @@ const runewords = [
     name: 'Sanctuary',
     runes: ['Ko', 'Ko', 'Mal'],
     itemType: 'Shields',
+    categories: ['Shields'],
     level: 49,
     attributes: [
       '+20% Faster Hit Recovery', '+20% Faster Block Rate',
@@ -550,6 +586,7 @@ const runewords = [
     name: 'Venom',
     runes: ['Tal', 'Dol', 'Mal'],
     itemType: 'All Weapons',
+    categories: ['All Weapons'],
     level: 49,
     attributes: [
       'Ignore Target\'s Defense', '+273 Poison Damage Over 6 Seconds',
@@ -563,6 +600,7 @@ const runewords = [
     name: 'Rain (Druid)',
     runes: ['Ort', 'Mal', 'Ith'],
     itemType: 'Armor',
+    categories: ['Armor'],
     level: 49,
     attributes: [
       '5% Chance To Cast Level 15 Cyclone Armor When Struck',
@@ -576,6 +614,7 @@ const runewords = [
     name: 'Prudence',
     runes: ['Mal', 'Tir'],
     itemType: 'Armor',
+    categories: ['Armor'],
     level: 49,
     attributes: [
       '+25% Faster Hit Recovery', '+(140-170)% Enhanced Defense',
@@ -589,6 +628,7 @@ const runewords = [
     name: 'Bone',
     runes: ['Sol', 'Um', 'Um'],
     itemType: 'Armor',
+    categories: ['Armor'],
     level: 47,
     attributes: [
       '15% Chance To Cast level 10 Bone Armor When Struck',
@@ -602,6 +642,7 @@ const runewords = [
     name: 'Gloom',
     runes: ['Fal', 'Um', 'Pul'],
     itemType: 'Armor',
+    categories: ['Armor'],
     level: 47,
     attributes: [
       '15% Chance To Cast Level 3 Dim Vision When Struck',
@@ -615,6 +656,7 @@ const runewords = [
     name: 'Stone',
     runes: ['Shael', 'Um', 'Pul', 'Lum'],
     itemType: 'Armor',
+    categories: ['Armor'],
     level: 47,
     attributes: [
       '+60% Faster Hit Recovery', '+(250-290)% Enhanced Defense',
@@ -628,6 +670,7 @@ const runewords = [
     name: 'Duress',
     runes: ['Shael', 'Um', 'Thul'],
     itemType: 'Armor',
+    categories: ['Armor'],
     level: 47,
     attributes: [
       '40% faster hit Recovery', '+(10-20)% Enhanced Damage',
@@ -642,6 +685,7 @@ const runewords = [
     name: 'Crescent Moon',
     runes: ['Shael', 'Um', 'Tir'],
     itemType: 'Axes, Polearms & Swords',
+    categories: ['Axes', 'Polearms', 'Swords'],
     level: 47,
     attributes: [
       '10% Chance To Cast Level 17 Chain Lightning On Striking',
@@ -657,6 +701,7 @@ const runewords = [
     name: 'Enlightenment (Sorceress)',
     runes: ['Pul', 'Ral', 'Sol'],
     itemType: 'Armor',
+    categories: ['Armor'],
     level: 45,
     attributes: [
       '5% Chance To Cast Level 15 Blaze When Struck',
@@ -670,6 +715,7 @@ const runewords = [
     name: 'Lawbringer',
     runes: ['Amn', 'Lem', 'Ko'],
     itemType: 'Hammers, Scepters & Swords',
+    categories: ['Hammers', 'Scepters', 'Swords'],
     level: 43,
     attributes: [
       '20% Chance To Cast Level 15 Decrepify On Striking',
@@ -685,6 +731,7 @@ const runewords = [
     name: 'Wealth',
     runes: ['Lem', 'Ko', 'Tir'],
     itemType: 'Armor',
+    categories: ['Armor'],
     level: 43,
     attributes: [
       '+10 to Dexterity', '+2 to Mana After Each Kill',
@@ -697,6 +744,7 @@ const runewords = [
     name: 'Voice of Reason',
     runes: ['Lem', 'Ko', 'El', 'Eld'],
     itemType: 'Maces & Swords',
+    categories: ['Maces', 'Swords'],
     level: 43,
     attributes: [
       '15% Chance To Cast Level 13 Frozen Orb On Striking',
@@ -713,6 +761,7 @@ const runewords = [
     name: 'Passion',
     runes: ['Dol', 'Ort', 'Eld', 'Lem'],
     itemType: 'All Weapons',
+    categories: ['All Weapons'],
     level: 43,
     attributes: [
       '+25% Increased Attack Speed', '+(160-210)% Enhanced Damage',
@@ -728,6 +777,7 @@ const runewords = [
     name: 'Treachery (Assassin)',
     runes: ['Shael', 'Thul', 'Lem'],
     itemType: 'Armor',
+    categories: ['Armor'],
     level: 43,
     attributes: [
       '5% Chance To Cast Level 15 Fade When Struck',
@@ -741,6 +791,7 @@ const runewords = [
     name: 'Obedience',
     runes: ['Hel', 'Ko', 'Thul', 'Eth', 'Fal'],
     itemType: 'Polearms',
+    categories: ['Polearms'],
     level: 41,
     attributes: [
       '30% Chance To Cast Level 21 Enchant When You Kill An Enemy',
@@ -757,6 +808,7 @@ const runewords = [
     name: 'Lionheart',
     runes: ['Hel', 'Lum', 'Fal'],
     itemType: 'Armor',
+    categories: ['Armor'],
     level: 41,
     attributes: [
       '+20% Enhanced Damage', '+25 To Strength', '+15 To Dexterity',
@@ -769,6 +821,7 @@ const runewords = [
     name: 'Melody',
     runes: ['Shael', 'Ko', 'Nef'],
     itemType: 'Missile Weapons',
+    categories: ['Missile Weapons'],
     level: 39,
     attributes: [
       '+3 To Bow and Crossbow Skills (Amazon Only)',
@@ -783,6 +836,7 @@ const runewords = [
     name: 'Harmony',
     runes: ['Tir', 'Ith', 'Sol', 'Ko'],
     itemType: 'Missile Weapons',
+    categories: ['Missile Weapons'],
     level: 39,
     attributes: [
       'Level 10 Vigor Aura When Equipped', '+(200-275)% Enhanced Damage',
@@ -798,6 +852,7 @@ const runewords = [
     name: 'Memory',
     runes: ['Lum', 'Io', 'Sol', 'Eth'],
     itemType: 'Staves',
+    categories: ['Staves'],
     level: 37,
     attributes: [
       '+3 To Sorceress Skill Levels', '+33% Faster Cast Rate',
@@ -813,6 +868,7 @@ const runewords = [
     name: 'Splendor',
     runes: ['Eth', 'Lum'],
     itemType: 'Shields',
+    categories: ['Shields'],
     level: 37,
     attributes: [
       '+1 To All Skills', '+10% Faster Cast Rate', '+20% Faster Block Rate',
@@ -826,6 +882,7 @@ const runewords = [
     name: 'Smoke',
     runes: ['Nef', 'Lum'],
     itemType: 'Armor',
+    categories: ['Armor'],
     level: 37,
     attributes: [
       '+20% Faster Hit Recovery', '+75% Enhanced Defense',
@@ -838,6 +895,7 @@ const runewords = [
     name: 'White',
     runes: ['Dol', 'Io'],
     itemType: 'Wands',
+    categories: ['Wands'],
     level: 35,
     attributes: [
       '+3 to Poison and Bone Skills (Necromancer Only)',
@@ -852,6 +910,7 @@ const runewords = [
     name: 'Black',
     runes: ['Thul', 'Io', 'Nef'],
     itemType: 'Clubs, Hammers, Maces',
+    categories: ['Clubs', 'Hammers', 'Maces'],
     level: 35,
     attributes: [
       '+15% Increased Attack Speed', '+120% Enhanced Damage',
@@ -865,6 +924,7 @@ const runewords = [
     name: 'Myth (Barbarian)',
     runes: ['Hel', 'Amn', 'Nef'],
     itemType: 'Armor',
+    categories: ['Armor'],
     level: 25,
     attributes: [
       '3% Chance To Cast Level 1 Howl When Struck',
@@ -878,6 +938,7 @@ const runewords = [
     name: 'Peace (Amazon)',
     runes: ['Shael', 'Thul', 'Amn'],
     itemType: 'Armor',
+    categories: ['Armor'],
     level: 29,
     attributes: [
       '4% Chance To Cast Level 5 Slow Missiles When Struck',
@@ -891,6 +952,7 @@ const runewords = [
     name: 'Rhyme',
     runes: ['Shael', 'Eth'],
     itemType: 'Shields',
+    categories: ['Shields'],
     level: 29,
     attributes: [
       '+40% Faster Block Rate', '20% Increased Chance of Blocking',
@@ -903,6 +965,7 @@ const runewords = [
     name: 'Honor',
     runes: ['Amn', 'El', 'Ith', 'Tir', 'Sol'],
     itemType: 'All Melee Weapons',
+    categories: ['Melee Weapons'],
     level: 27,
     attributes: [
       '+1 to all skills', '+160% Enhanced Damage', '+9 to Minimum Damage',
@@ -916,6 +979,7 @@ const runewords = [
     name: 'Lore',
     runes: ['Ort', 'Sol'],
     itemType: 'Headgear',
+    categories: ['Helms'],
     level: 27,
     attributes: [
       '+1 to All Skills', '+10 to Energy', 'Lightning Resist +30%',
@@ -927,6 +991,7 @@ const runewords = [
     name: 'Insight',
     runes: ['Ral', 'Tir', 'Tal', 'Sol'],
     itemType: 'Polearms & Staves',
+    categories: ['Polearms', 'Staves'],
     level: 27,
     attributes: [
       'Level (12-17) Meditation Aura When Equipped', '+35% Faster Cast Rate',
@@ -942,6 +1007,7 @@ const runewords = [
     name: 'Radiance',
     runes: ['Nef', 'Sol', 'Ith'],
     itemType: 'Headgear',
+    categories: ['Helms'],
     level: 27,
     attributes: [
       '+75% Enhanced Defense', '+30 Defense vs. Missiles', '+10 to Vitality',
@@ -955,6 +1021,7 @@ const runewords = [
     name: 'Spirit',
     runes: ['Tal', 'Thul', 'Ort', 'Amn'],
     itemType: 'Shields & Swords',
+    categories: ['Shields', 'Swords'],
     level: 25,
     attributes: [
       'BOTH:', '+2 To All Skills', '+(25-35)% Faster Cast Rate',
@@ -971,6 +1038,7 @@ const runewords = [
     name: 'King\'s Grace',
     runes: ['Amn', 'Ral', 'Thul'],
     itemType: 'Swords & Scepters',
+    categories: ['Swords', 'Scepters'],
     level: 25,
     attributes: [
       '+100% Enhanced Damage', '+150 to Attack Rating',
@@ -984,6 +1052,7 @@ const runewords = [
     name: 'Edge',
     runes: ['Tir', 'Tal', 'Amn'],
     itemType: 'Missile Weapons',
+    categories: ['Missile Weapons'],
     level: 25,
     attributes: [
       'Level 15 Thorns Aura When Equipped', '+35% Increased Attack Speed',
@@ -998,6 +1067,7 @@ const runewords = [
     name: 'Strength',
     runes: ['Amn', 'Tir'],
     itemType: 'Melee Weapons',
+    categories: ['Melee Weapons'],
     level: 25,
     attributes: [
       '+35% Enhanced Damage', '7% Life stolen per hit',
@@ -1010,6 +1080,7 @@ const runewords = [
     name: 'Holy Thunder',
     runes: ['Eth', 'Ral', 'Ort', 'Tal'],
     itemType: 'Scepters',
+    categories: ['Scepters'],
     level: 23,
     attributes: [
       '+60% Enhanced Damage', '+10 to Maximum Damage', '-25% Target Defense',
@@ -1024,6 +1095,7 @@ const runewords = [
     name: 'Ancient\'s Pledge',
     runes: ['Ral', 'Ort', 'Tal'],
     itemType: 'Shields',
+    categories: ['Shields'],
     level: 21,
     attributes: [
       '+50% Enhanced Defense', 'Cold Resist +43%', 'Lightning Resist +48%',
@@ -1035,6 +1107,7 @@ const runewords = [
     name: 'Zephyr',
     runes: ['Ort', 'Eth'],
     itemType: 'Missile Weapons',
+    categories: ['Missile Weapons'],
     level: 21,
     attributes: [
       '7% Chance to Cast Level 1 Twister When Struck', '+25% Faster Run/Walk',
@@ -1048,6 +1121,7 @@ const runewords = [
     name: 'Leaf',
     runes: ['Tir', 'Ral'],
     itemType: 'Staves',
+    categories: ['Staves'],
     level: 19,
     attributes: [
       '+3 to Fire Skills', 'Adds 5-30 Fire Damage',
@@ -1062,6 +1136,7 @@ const runewords = [
     name: 'Stealth',
     runes: ['Tal', 'Eth'],
     itemType: 'Armor',
+    categories: ['Armor'],
     level: 17,
     attributes: [
       '+25% Faster Run/Walk', '+25% Faster Casting Rate',
@@ -1074,6 +1149,7 @@ const runewords = [
     name: 'Malice',
     runes: ['Ith', 'El', 'Eth'],
     itemType: 'All Melee Weapons',
+    categories: ['Melee Weapons'],
     level: 15,
     attributes: [
       '+33% Enhanced Damage', '+9 to Maximum Damage', '-25% Target Defense',
@@ -1087,6 +1163,7 @@ const runewords = [
     name: 'Nadir',
     runes: ['Nef', 'Tir'],
     itemType: 'Headgear (all types)',
+    categories: ['Helms'],
     level: 13,
     attributes: [
       '+50% Enhanced Defense', '+10 Defense', '+30 Defense vs. Missile',
@@ -1100,6 +1177,7 @@ const runewords = [
     name: 'Steel',
     runes: ['Tir', 'El'],
     itemType: 'Swords, Axes, Maces',
+    categories: ['Swords', 'Axes', 'Maces'],
     level: 13,
     attributes: [
       '+25% Increased Attack Speed', '+20% Enhanced Damage',
@@ -1113,6 +1191,7 @@ const runewords = [
     name: 'Pattern',
     runes: ['Tal', 'Ort', 'Thul'],
     itemType: 'Claws',
+    categories: ['Claws'],
     level: 23,
     attributes: [
       '+30% Faster Block Rate', '+(40-80)% Enhanced Damage',
@@ -1127,6 +1206,7 @@ const runewords = [
     name: 'Bulwark',
     runes: ['Shael', 'Io', 'Sol'],
     itemType: 'Helms',
+    categories: ['Helms'],
     level: 35,
     attributes: [
       '+20% Faster Hit Recovery', '+(4-6)% Life Stolen Per Hit',
@@ -1140,6 +1220,7 @@ const runewords = [
     name: 'Cure',
     runes: ['Shael', 'Io', 'Tal'],
     itemType: 'Helms',
+    categories: ['Helms'],
     level: 35,
     attributes: [
       'Level 1 Cleansing Aura when Equipped', '+20% Faster Hit Recovery',
@@ -1153,6 +1234,7 @@ const runewords = [
     name: 'Ground',
     runes: ['Shael', 'Io', 'Ort'],
     itemType: 'Helms',
+    categories: ['Helms'],
     level: 35,
     attributes: [
       '+20% Faster Hit Recovery', '+(75-100)% Enhanced Defense',
@@ -1165,6 +1247,7 @@ const runewords = [
     name: 'Hearth',
     runes: ['Shael', 'Io', 'Thul'],
     itemType: 'Helms',
+    categories: ['Helms'],
     level: 35,
     attributes: [
       '+20% Faster Hit Recovery', '+(75-100)% Enhanced Defense',
@@ -1177,6 +1260,7 @@ const runewords = [
     name: 'Temper',
     runes: ['Shael', 'Io', 'Ral'],
     itemType: 'Helms',
+    categories: ['Helms'],
     level: 35,
     attributes: [
       '+20% Faster Hit Recovery', '+(75-100)% Enhanced Defense',
@@ -1189,6 +1273,7 @@ const runewords = [
     name: 'Hysteria',
     runes: ['Shael', 'Ko', 'Eld'],
     itemType: 'Armor',
+    categories: ['Armor'],
     level: 39,
     attributes: [
       '+10 to Dexterity', '+65% Faster Run/Walk', '+40% Increased Attack Speed',
@@ -1201,6 +1286,7 @@ const runewords = [
     name: 'Mania',
     runes: ['Shael', 'Ko', 'Eld'],
     itemType: 'Weapons',
+    categories: ['All Weapons'],
     level: 39,
     attributes: [
       '+10 to Dexterity', '5% Chance to Cast Level 1 Burst of Speed on Striking',
@@ -1214,6 +1300,7 @@ const runewords = [
     name: 'Unbending Will',
     runes: ['Fal', 'Io', 'Ith', 'Eld', 'El', 'Hel'],
     itemType: 'Swords',
+    categories: ['Swords'],
     level: 41,
     attributes: [
       '18% Chance to Cast Level 18 Taunt On Striking',
@@ -1230,6 +1317,7 @@ const runewords = [
     name: 'Wisdom',
     runes: ['Pul', 'Ith', 'Eld'],
     itemType: 'Helms',
+    categories: ['Helms'],
     level: 45,
     attributes: [
       '+33% Piercing Attack', '+(15-25)% Bonus to Attack Rating',
@@ -1243,6 +1331,7 @@ const runewords = [
     name: 'Mosaic',
     runes: ['Mal', 'Gul', 'Amn'],
     itemType: 'Claws',
+    categories: ['Claws'],
     level: 53,
     attributes: [
       '+50% chance for finishing moves to not consume charges',
@@ -1260,6 +1349,7 @@ const runewords = [
     name: 'Flickering Flame',
     runes: ['Nef', 'Pul', 'Vex'],
     itemType: 'Helms',
+    categories: ['Helms'],
     level: 55,
     attributes: [
       'Level (4-8) Resist Fire Aura When Equipped', '+3 To Fire Skills',
@@ -1273,6 +1363,7 @@ const runewords = [
     name: 'Plague',
     runes: ['Cham', 'Shael', 'Um'],
     itemType: 'Swords & Claws & Daggers',
+    categories: ['Swords', 'Claws', 'Daggers'],
     level: 67,
     attributes: [
       '20% Chance To Cast Level 12 Lower Resist When Struck',
@@ -1289,6 +1380,7 @@ const runewords = [
     name: 'Mist',
     runes: ['Cham', 'Shael', 'Gul', 'Thul', 'Ith'],
     itemType: 'Missile Weapons',
+    categories: ['Missile Weapons'],
     level: 67,
     attributes: [
       'Level (8-12) Concentration Aura When Equipped', '+3 To All Skills',
@@ -1303,6 +1395,7 @@ const runewords = [
     name: 'Metamorphosis',
     runes: ['Io', 'Cham', 'Fal'],
     itemType: 'Helms',
+    categories: ['Helms'],
     level: 67,
     attributes: [
       'Werewolf strikes grant Mark for 180 seconds', 'Mark of the Wolf:',
@@ -1320,6 +1413,7 @@ const runewords = [
     name: 'Obsession',
     runes: ['Zod', 'Ist', 'Lem', 'Lum', 'Io', 'Nef'],
     itemType: 'Staves',
+    categories: ['Staves'],
     level: 69,
     attributes: [
       'Indestructible', '24% Chance to cast level 10 Weaken when struck',
@@ -1335,6 +1429,7 @@ const runewords = [
     name: 'Authority [RotW]',
     runes: ['Hel', 'Shael', 'Ral'],
     itemType: 'Armor',
+    categories: ['Armor'],
     level: 29,
     attributes: [
       '2% Chance to cast level 10 Psychic Ward when struck',
@@ -1348,6 +1443,7 @@ const runewords = [
     name: 'Coven [RotW]',
     runes: ['Ist', 'Ral', 'Io'],
     itemType: 'Helms',
+    categories: ['Helms'],
     level: 51,
     attributes: [
       '5% Chance to cast level 10 Sigil Lethargy when struck',
@@ -1362,6 +1458,7 @@ const runewords = [
     name: 'Void [RotW]',
     runes: ['Thul', 'Zod', 'Ist'],
     itemType: 'Daggers',
+    categories: ['Daggers'],
     level: 69,
     attributes: [
       '+2 to All Skills', '+40% Faster Cast Rate',
@@ -1376,6 +1473,7 @@ const runewords = [
     name: 'Vigilance [RotW]',
     runes: ['Dol', 'Gul'],
     itemType: 'Shields',
+    categories: ['Shields'],
     level: 53,
     attributes: [
       '5% Chance to cast level 10 Ring of Fire when struck',
@@ -1390,6 +1488,7 @@ const runewords = [
     name: 'Ritual [RotW]',
     runes: ['Amn', 'Shael', 'Ohm'],
     itemType: 'Daggers',
+    categories: ['Daggers'],
     level: 57,
     attributes: [
       '13% Chance to cast level 1 Sigil Lethargy when struck',

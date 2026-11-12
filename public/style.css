@@ -107,16 +107,29 @@ h1, h2 {
 #available {
   background-color: var(--bg-light);
   border-radius: 0.25em;
-  height: fit-content;
+  width: 280px;
+  box-sizing: border-box;
+  flex-shrink: 0;
   position: sticky;
-  top: calc(min(100vh - 938px, 104px));
+  top: 1em;
+  max-height: calc(100vh - 2em);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--link) transparent;
 }
 
 @media (max-width: 640px) {
   #available {
     position: unset;
     top: unset;
+    max-height: unset;
+    overflow-y: visible;
+    width: auto;
   }
+}
+
+#inputs {
+  margin: 0 auto;
 }
 
 #inputs input {
@@ -129,14 +142,36 @@ h1, h2 {
 
 #clear {
   font-family: "Exocet", serif;
-  margin-top: 0.25em;
+  margin-top: 0.5em;
   background-color: var(--link);
   color: var(--text);
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 4px;
+  border: none;
+  border-radius: 0.25em;
+  cursor: pointer;
+}
+
+#clear:hover {
+  filter: brightness(1.15);
 }
 
 .sort {
   font-weight: bold;
   margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+#results-count {
+  margin-left: auto;
+  font-weight: normal;
+  font-size: 0.9em;
+  color: var(--link);
 }
 
 #sortby {
@@ -145,6 +180,198 @@ h1, h2 {
   font-family: "Exocet", serif;
   padding: 2px 4px;
   border-radius: 0.25em;
+}
+
+/* Filter & Categorization Panel */
+.filter-panel {
+  background-color: var(--bg-dark);
+  border: 1px solid #3d3e40;
+  border-radius: 0.25em;
+  padding: 0.75em;
+  margin-top: 1em;
+}
+
+.filter-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 8px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #3d3e40;
+}
+
+.filter-title {
+  color: var(--title);
+  font-weight: bold;
+  font-variant: small-caps;
+}
+
+.filter-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  font-size: 0.85em;
+  width: 100%;
+}
+
+.filter-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  user-select: none;
+  color: var(--text);
+}
+
+.filter-toggle input {
+  cursor: pointer;
+  accent-color: var(--title);
+}
+
+#clear-filters {
+  font-family: "Exocet", serif;
+  font-size: 0.9em;
+  padding: 3px 8px;
+  background-color: var(--warning);
+  color: var(--text);
+  border: none;
+  border-radius: 0.25em;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 2px;
+}
+
+#clear-filters:hover {
+  opacity: 0.9;
+}
+
+.filter-group-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 8px;
+}
+
+.filter-group-label {
+  color: var(--link);
+  font-size: 0.85em;
+  padding-top: 0;
+}
+
+.filter-group-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.filter-chip {
+  font-family: "Exocet", serif;
+  font-size: 0.82em;
+  background-color: var(--bg-dark);
+  color: var(--text);
+  border: 1px solid #4a4b4d;
+  border-radius: 0.25em;
+  padding: 3px 8px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: border-color 0.15s, background-color 0.15s, color 0.15s;
+}
+
+.filter-chip:hover {
+  border-color: var(--title);
+  color: var(--title);
+}
+
+.filter-chip.active {
+  background-color: var(--title);
+  color: var(--bg-dark);
+  border-color: var(--title);
+  font-weight: bold;
+}
+
+.filter-chip.zero-count:not(.active) {
+  opacity: 0.45;
+}
+
+.chip-count {
+  font-size: 0.85em;
+  opacity: 0.85;
+}
+
+.filter-chip.active .chip-count {
+  opacity: 1;
+}
+
+/* Category tags on runeword cards */
+.category-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+  margin: 6px 0;
+}
+
+.category-tag {
+  font-size: 0.78em;
+  background-color: var(--bg-light);
+  color: var(--title);
+  border: 1px solid #554c33;
+  border-radius: 0.25em;
+  padding: 1px 6px;
+  cursor: pointer;
+  transition: background-color 0.15s, color 0.15s;
+}
+
+.category-tag:hover,
+.category-tag.active {
+  background-color: var(--title);
+  color: var(--bg-dark);
+}
+
+/* Category Group Headers in Results Table */
+#results {
+  width: 100%;
+}
+
+.category-group-header td {
+  background-color: var(--bg-light);
+  color: var(--title);
+  text-align: left !important;
+  cursor: pointer;
+  user-select: none;
+  padding: 6px 10px;
+}
+
+.category-group-header:hover td {
+  background-color: #323436;
+}
+
+.category-group-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.category-group-title h3 {
+  margin: 0;
+  color: var(--title);
+  font-variant: small-caps;
+  font-size: 1.15em;
+}
+
+.group-count {
+  color: var(--link);
+  font-size: 0.9em;
+}
+
+.collapse-icon {
+  font-size: 0.8em;
+  width: 1em;
+  display: inline-block;
 }
 
 #possible {
