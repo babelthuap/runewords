@@ -23,6 +23,24 @@
       <h2 class="header">Available Runes</h2>
       <table id="inputs"></table>
       <button id="clear">CLEAR</button>
+
+      <div id="filters" class="filter-panel">
+        <div class="filter-header">
+          <span class="filter-title">Filter &amp; Categorize:</span>
+          <div class="filter-controls">
+            <label class="filter-toggle" title="Smart Diablo 2 matching: e.g. 'Melee Weapons' includes Swords/Axes/Staves, and specific weapons like 'Staves' also include 'All Weapons' &amp; 'Melee Weapons'">
+              <input type="checkbox" id="smart-match" checked>
+              <span>Smart D2 Match</span>
+            </label>
+            <label class="filter-toggle" title="Group the results table into sections by item category">
+              <input type="checkbox" id="group-by-category" checked>
+              <span>Group by Category</span>
+            </label>
+            <button id="clear-filters" type="button" style="display: none;">Clear Filters</button>
+          </div>
+        </div>
+        <div id="filter-chips"></div>
+      </div>
     </div>
     <div id="possible">
       <h2 class="header">Possible Runewords</h2>
@@ -37,6 +55,7 @@
           <option value="az">Alphabetical</option>
           <option value="rand">Random</option>
         </select>
+        <span id="results-count"></span>
       </div>
       <table id="results" border="4" cellspacing="3" cellpadding="8"></table>
     </div>
