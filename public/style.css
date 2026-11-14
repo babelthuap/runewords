@@ -99,7 +99,7 @@ h1, h2 {
   margin-bottom: 12px;
 }
 
-#available, #possible {
+#available, #possible, #filters {
   margin: 1em;
   padding: 1em;
 }
@@ -107,9 +107,18 @@ h1, h2 {
 #available {
   background-color: var(--bg-light);
   border-radius: 0.25em;
+  height: fit-content;
+  position: sticky;
+  top: calc(min(100vh - 938px, 104px));
+}
+
+#filters {
+  background-color: var(--bg-light);
+  border-radius: 0.25em;
   width: 280px;
   box-sizing: border-box;
   flex-shrink: 0;
+  height: fit-content;
   position: sticky;
   top: 1em;
   max-height: calc(100vh - 2em);
@@ -119,7 +128,7 @@ h1, h2 {
 }
 
 @media (max-width: 640px) {
-  #available {
+  #available, #filters {
     position: unset;
     top: unset;
     max-height: unset;
@@ -180,15 +189,6 @@ h1, h2 {
   font-family: "Exocet", serif;
   padding: 2px 4px;
   border-radius: 0.25em;
-}
-
-/* Filter & Categorization Panel */
-.filter-panel {
-  background-color: var(--bg-dark);
-  border: 1px solid #3d3e40;
-  border-radius: 0.25em;
-  padding: 0.75em;
-  margin-top: 1em;
 }
 
 .filter-header {
