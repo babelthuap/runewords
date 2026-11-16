@@ -1,6 +1,6 @@
-$(document).ready(function() {
-  'use strict';
+'use strict';
 
+document.addEventListener('DOMContentLoaded', () => {
   const RANGE_REGEX = /(\(\d+-\d+\))/;
 
   const MELEE_SUBTYPES = [
@@ -37,10 +37,22 @@ $(document).ready(function() {
     ? localStorage.groupByCategory === 'true'
     : true;
 
-  $('#smart-match').prop('checked', smartMatch);
-  $('#group-by-category').prop('checked', groupByCategory);
+  const smartMatchCheckbox = document.getElementById('smart-match');
+  const groupByCategoryCheckbox = document.getElementById('group-by-category');
+  const clearFiltersBtn = document.getElementById('clear-filters');
+  const clearBtn = document.getElementById('clear');
+  const inputsTable = document.getElementById('inputs');
+  const resultsTable = document.getElementById('results');
+  const resultsCountSpan = document.getElementById('results-count');
+  const filterChipsContainer = document.getElementById('filter-chips');
+  const redNote = document.getElementById('red-note');
+  const sortContainer = document.querySelector('.sort');
+  const sortSelect = document.getElementById('sortby');
 
-  let horadricCube = new HoradricCube();
+  smartMatchCheckbox.checked = smartMatch;
+  groupByCategoryCheckbox.checked = groupByCategory;
+
+  const horadricCube = new HoradricCube();
 
   let availableRunes;
   const params = new URLSearchParams(location.search);
@@ -134,58 +146,80 @@ $(document).ready(function() {
   }
 
   function renderFilterChips(craftableRunewords) {
-    const $container = $('#filter-chips').empty();
+    filterChipsContainer.textContent = '';
 
     CATEGORY_GROUPS.forEach(group => {
-      const $row = $('<div>').addClass('filter-group-row');
-      $row.append($('<span>').addClass('filter-group-label').text(group.label));
+      const row = document.createElement('div');
+      row.className = 'filter-group-row';
 
-      const $chips = $('<div>').addClass('filter-group-chips');
+      const label = document.createElement('span');
+      label.className = 'filter-group-label';
+      label.textContent = group.label;
+      row.appendChild(label);
+
+      const chips = document.createElement('div');
+      chips.className = 'filter-group-chips';
+
       group.categories.forEach(cat => {
         const count = craftableRunewords.filter(rw => matchesCategory(rw, cat, smartMatch)).length;
         const isActive = selectedCategories.has(cat);
 
-        const $chip = $('<button>')
-          .attr('type', 'button')
-          .addClass('filter-chip')
-          .toggleClass('active', isActive)
-          .toggleClass('zero-count', count === 0 && !isActive)
-          .attr('data-category', cat)
-          .append($('<span>').text(cat))
-          .append($('<span>').addClass('chip-count').text(`(${count})`));
+        const chip = document.createElement('button');
+        chip.type = 'button';
+        chip.className = 'filter-chip' +
+          (isActive ? ' active' : '') +
+          (count === 0 && !isActive ? ' zero-count' : '');
+        chip.dataset.category = cat;
 
-        $chips.append($chip);
+        const catSpan = document.createElement('span');
+        catSpan.textContent = cat;
+        chip.appendChild(catSpan);
+
+        const countSpan = document.createElement('span');
+        countSpan.className = 'chip-count';
+        countSpan.textContent = `(${count})`;
+        chip.appendChild(countSpan);
+
+        chips.appendChild(chip);
       });
 
-      $row.append($chips);
-      $container.append($row);
+      row.appendChild(chips);
+      filterChipsContainer.appendChild(row);
     });
 
-    if (selectedCategories.size > 0) {
-      $('#clear-filters').show();
-    } else {
-      $('#clear-filters').hide();
-    }
+    clearFiltersBtn.style.display = selectedCategories.size > 0 ? '' : 'none';
   }
 
   // create inputs and initialize values
   function initializeInputs(availableRunes) {
-    $('#inputs').empty().append(RUNES.map(rune => {
-      let $input = $('<input>')
-        .attr('type', 'number')
-        .attr('min', '0')
-        .attr('value', availableRunes[rune] || 0);
+    inputsTable.textContent = '';
+    const fragment = document.createDocumentFragment();
 
-      return $('<tr>')
-        .append( $('<td>').text(rune) )
-        .append( $('<td>').append($input) );
-    }));
+    RUNES.forEach(rune => {
+      const tr = document.createElement('tr');
+
+      const tdRune = document.createElement('td');
+      tdRune.textContent = rune;
+      tr.appendChild(tdRune);
+
+      const tdInput = document.createElement('td');
+      const input = document.createElement('input');
+      input.type = 'number';
+      input.min = '0';
+      input.value = availableRunes[rune] || 0;
+      tdInput.appendChild(input);
+      tr.appendChild(tdInput);
+
+      fragment.appendChild(tr);
+    });
+
+    inputsTable.appendChild(fragment);
     updateResults(availableRunes);
   }
 
   initializeInputs(availableRunes);
 
-  $('#clear').click(function() {
+  clearBtn.addEventListener('click', () => {
     availableRunes = {};
     initializeInputs(availableRunes);
     delete localStorage.availableRunes;
@@ -203,24 +237,32 @@ $(document).ready(function() {
   }
 
   // listeners on inputs
-  $('#inputs').on('input', 'input', function() {
-    let rune = $(this).closest('td').prev().text();
-    let num = Number($(this).val()) || 0;
-    if (num == 0) {
-      delete availableRunes[rune];
-    } else {
-      availableRunes[rune] = num;
+  inputsTable.addEventListener('input', (e) => {
+    if (e.target && e.target.tagName === 'INPUT') {
+      const input = e.target;
+      const tdInput = input.closest('td');
+      const rune = tdInput ? tdInput.previousElementSibling.textContent.trim() : null;
+      if (!rune) return;
+
+      const num = Number(input.value) || 0;
+      if (num === 0) {
+        delete availableRunes[rune];
+      } else {
+        availableRunes[rune] = num;
+      }
+
+      localStorage.availableRunes = JSON.stringify(availableRunes);
+      replaceRunesParam(horadricCube.serializeRunes(availableRunes));
+
+      updateResults(availableRunes);
     }
-
-    localStorage.availableRunes = JSON.stringify(availableRunes);
-    replaceRunesParam(horadricCube.serializeRunes(availableRunes));
-
-    updateResults(availableRunes);
   });
 
   // listeners on filter controls
-  $('#filter-chips').on('click', '.filter-chip', function() {
-    const cat = $(this).attr('data-category');
+  filterChipsContainer.addEventListener('click', (e) => {
+    const chip = e.target.closest('.filter-chip');
+    if (!chip) return;
+    const cat = chip.dataset.category;
     if (selectedCategories.has(cat)) {
       selectedCategories.delete(cat);
     } else {
@@ -229,102 +271,138 @@ $(document).ready(function() {
     updateResults(availableRunes);
   });
 
-  $('#results').on('click', '.category-tag', function() {
-    const cat = $(this).attr('data-category');
-    if (selectedCategories.has(cat)) {
-      selectedCategories.delete(cat);
-    } else {
-      selectedCategories.add(cat);
+  resultsTable.addEventListener('click', (e) => {
+    const tag = e.target.closest('.category-tag');
+    if (tag) {
+      const cat = tag.dataset.category;
+      if (selectedCategories.has(cat)) {
+        selectedCategories.delete(cat);
+      } else {
+        selectedCategories.add(cat);
+      }
+      updateResults(availableRunes);
+      return;
     }
-    updateResults(availableRunes);
+
+    const header = e.target.closest('.category-group-header');
+    if (header) {
+      const cat = header.dataset.groupCategory;
+      if (collapsedGroups.has(cat)) {
+        collapsedGroups.delete(cat);
+      } else {
+        collapsedGroups.add(cat);
+      }
+      updateResults(availableRunes);
+    }
   });
 
-  $('#results').on('click', '.category-group-header', function() {
-    const cat = $(this).attr('data-group-category');
-    if (collapsedGroups.has(cat)) {
-      collapsedGroups.delete(cat);
-    } else {
-      collapsedGroups.add(cat);
-    }
-    updateResults(availableRunes);
-  });
-
-  $('#clear-filters').click(function() {
+  clearFiltersBtn.addEventListener('click', () => {
     selectedCategories.clear();
     updateResults(availableRunes);
   });
 
-  $('#smart-match').on('change', function() {
-    smartMatch = $(this).is(':checked');
+  smartMatchCheckbox.addEventListener('change', () => {
+    smartMatch = smartMatchCheckbox.checked;
     localStorage.smartMatch = smartMatch;
     updateResults(availableRunes);
   });
 
-  $('#group-by-category').on('change', function() {
-    groupByCategory = $(this).is(':checked');
+  groupByCategoryCheckbox.addEventListener('change', () => {
+    groupByCategory = groupByCategoryCheckbox.checked;
     localStorage.groupByCategory = groupByCategory;
     updateResults(availableRunes);
   });
 
   function buildRunewordRow(runeword, availableRunes, markMissing) {
-    let $runes = runeword.runes.map(rune => {
-      let $rune = $('<span>').text(rune + ' ');
-      if (!availableRunes[rune]) {
-        markMissing();
-        $rune.addClass('missing');
-      }
-      return $rune;
-    });
-
     const cats = getRunewordCategories(runeword);
-    const $tags = $('<div>').addClass('category-tags');
-    cats.forEach(cat => {
-      $tags.append(
-        $('<span>')
-          .addClass('category-tag')
-          .toggleClass('active', selectedCategories.has(cat))
-          .attr('data-category', cat)
-          .attr('title', `Filter by ${cat} (${runeword.itemType})`)
-          .text(cat)
-      );
-    });
 
-    let $name = $('<td>')
-      .append( $('<h2>').text(runeword.name) )
-      .append( $('<span>').addClass('rune').append($runes) ).append('<br>')
-      .append( $tags )
-      .append( $('<span>').text('Level: ' + runeword.level) );
-
+    const tr = document.createElement('tr');
     if (runeword.ladderOnly) {
-      $name.append('<br>').append('<br>').append( $('<em>').text('LADDER ONLY') );
+      tr.classList.add('ladder-only');
     }
     if (runeword.nonLadderOnly) {
-      $name.append('<br>').append('<br>').append( $('<em>').text('NON-LADDER ONLY') );
+      tr.classList.add('non-ladder-only');
     }
 
-    let $attributes = $('<td>')
-      .addClass('stats')
-      .append(renderAttributes(runeword.attributes));
+    const tdName = document.createElement('td');
 
-    return $('<tr>')
-      .append($name)
-      .append($attributes)
-      .addClass(runeword.ladderOnly ? 'ladder-only' : '')
-      .addClass(runeword.nonLadderOnly ? 'non-ladder-only' : '');
+    const h2 = document.createElement('h2');
+    h2.textContent = runeword.name;
+    tdName.appendChild(h2);
+
+    const runeSpanWrapper = document.createElement('span');
+    runeSpanWrapper.className = 'rune';
+    runeword.runes.forEach(rune => {
+      const runeSpan = document.createElement('span');
+      runeSpan.textContent = rune + ' ';
+      if (!availableRunes[rune]) {
+        markMissing();
+        runeSpan.classList.add('missing');
+      }
+      runeSpanWrapper.appendChild(runeSpan);
+    });
+    tdName.appendChild(runeSpanWrapper);
+    tdName.appendChild(document.createElement('br'));
+
+    const tagsDiv = document.createElement('div');
+    tagsDiv.className = 'category-tags';
+    cats.forEach(cat => {
+      const tag = document.createElement('span');
+      tag.className = 'category-tag' + (selectedCategories.has(cat) ? ' active' : '');
+      tag.dataset.category = cat;
+      tag.title = `Filter by ${cat} (${runeword.itemType})`;
+      tag.textContent = cat;
+      tagsDiv.appendChild(tag);
+    });
+    tdName.appendChild(tagsDiv);
+
+    const levelSpan = document.createElement('span');
+    levelSpan.textContent = 'Level: ' + runeword.level;
+    tdName.appendChild(levelSpan);
+
+    if (runeword.ladderOnly) {
+      tdName.appendChild(document.createElement('br'));
+      tdName.appendChild(document.createElement('br'));
+      const em = document.createElement('em');
+      em.textContent = 'LADDER ONLY';
+      tdName.appendChild(em);
+    }
+    if (runeword.nonLadderOnly) {
+      tdName.appendChild(document.createElement('br'));
+      tdName.appendChild(document.createElement('br'));
+      const em = document.createElement('em');
+      em.textContent = 'NON-LADDER ONLY';
+      tdName.appendChild(em);
+    }
+
+    const tdAttributes = document.createElement('td');
+    tdAttributes.className = 'stats';
+    tdAttributes.appendChild(renderAttributes(runeword.attributes));
+
+    tr.appendChild(tdName);
+    tr.appendChild(tdAttributes);
+
+    return tr;
   }
 
   function renderAttributes(attributes) {
     if (!attributes.some(Array.isArray)) {
-      return $('<ul>').append(
-        attributes.map(attr => $('<li>').html(highlightStats(attr)))
-      );
+      const ul = document.createElement('ul');
+      attributes.forEach(attr => {
+        const li = document.createElement('li');
+        li.innerHTML = highlightStats(attr);
+        ul.appendChild(li);
+      });
+      return ul;
     }
-    const container = $('<div>');
+    const container = document.createElement('div');
     for (const attr of attributes) {
       if (Array.isArray(attr)) {
-        container.append(renderAttributes(attr));
+        container.appendChild(renderAttributes(attr));
       } else {
-        container.append($('<div>').html(highlightStats(attr)));
+        const div = document.createElement('div');
+        div.innerHTML = highlightStats(attr);
+        container.appendChild(div);
       }
     }
     return container;
@@ -345,29 +423,32 @@ $(document).ready(function() {
 
     if (craftable.length > 0) {
       if (activeFilterList.length > 0) {
-        $('#results-count').text(`Showing ${filtered.length} of ${craftable.length} runewords`);
+        resultsCountSpan.textContent = `Showing ${filtered.length} of ${craftable.length} runewords`;
       } else {
-        $('#results-count').text(`${craftable.length} runeword${craftable.length === 1 ? '' : 's'}`);
+        resultsCountSpan.textContent = `${craftable.length} runeword${craftable.length === 1 ? '' : 's'}`;
       }
     } else {
-      $('#results-count').text('');
+      resultsCountSpan.textContent = '';
     }
 
     if (craftable.length > 1) {
-      $('.sort').show();
+      sortContainer.style.display = '';
     } else {
-      $('.sort').hide();
+      sortContainer.style.display = 'none';
     }
 
-    let $rows = [];
+    resultsTable.textContent = '';
 
     if (filtered.length === 0) {
       const msg = craftable.length === 0
         ? '- none -'
         : '- no runewords match the selected category filter(s) -';
-      $rows = $('<em>').text(msg);
+      const em = document.createElement('em');
+      em.textContent = msg;
+      resultsTable.appendChild(em);
     } else if (groupByCategory) {
       const groupCategories = activeFilterList.length > 0 ? activeFilterList : ALL_CATEGORIES;
+      const fragment = document.createDocumentFragment();
 
       groupCategories.forEach(cat => {
         const groupItems = activeFilterList.length > 0
@@ -377,36 +458,51 @@ $(document).ready(function() {
         if (groupItems.length === 0) return;
 
         const isCollapsed = collapsedGroups.has(cat);
-        const $headerTitle = $('<div>')
-          .addClass('category-group-title')
-          .append($('<span>').addClass('collapse-icon').text(isCollapsed ? '▶' : '▼'))
-          .append($('<h3>').text(cat))
-          .append($('<span>').addClass('group-count').text(`(${groupItems.length})`));
 
-        const $headerRow = $('<tr>')
-          .addClass('category-group-header')
-          .attr('data-group-category', cat)
-          .append($('<td>').attr('colspan', '2').append($headerTitle));
+        const headerRow = document.createElement('tr');
+        headerRow.className = 'category-group-header';
+        headerRow.dataset.groupCategory = cat;
 
-        $rows.push($headerRow);
+        const headerTd = document.createElement('td');
+        headerTd.colSpan = 2;
+
+        const headerTitle = document.createElement('div');
+        headerTitle.className = 'category-group-title';
+
+        const collapseIcon = document.createElement('span');
+        collapseIcon.className = 'collapse-icon';
+        collapseIcon.textContent = isCollapsed ? '▶' : '▼';
+        headerTitle.appendChild(collapseIcon);
+
+        const h3 = document.createElement('h3');
+        h3.textContent = cat;
+        headerTitle.appendChild(h3);
+
+        const groupCount = document.createElement('span');
+        groupCount.className = 'group-count';
+        groupCount.textContent = `(${groupItems.length})`;
+        headerTitle.appendChild(groupCount);
+
+        headerTd.appendChild(headerTitle);
+        headerRow.appendChild(headerTd);
+        fragment.appendChild(headerRow);
 
         if (!isCollapsed) {
           groupItems.forEach(rw => {
-            $rows.push(buildRunewordRow(rw, availableRunes, markMissing));
+            fragment.appendChild(buildRunewordRow(rw, availableRunes, markMissing));
           });
         }
       });
+      resultsTable.appendChild(fragment);
     } else {
-      $rows = filtered.map(rw => buildRunewordRow(rw, availableRunes, markMissing));
+      const fragment = document.createDocumentFragment();
+      filtered.forEach(rw => {
+        fragment.appendChild(buildRunewordRow(rw, availableRunes, markMissing));
+      });
+      resultsTable.appendChild(fragment);
     }
 
-    $('#results').empty().append($rows);
-
-    if (missingSome) {
-      $('#red-note').show();
-    } else {
-      $('#red-note').hide();
-    }
+    redNote.style.display = missingSome ? '' : 'none';
     console.timeEnd('updateResults');
   }
 
@@ -421,8 +517,8 @@ $(document).ready(function() {
   }
 
   // listener on sort dropdown
-  $('#sortby').on('input', function() {
-    switch ($(this).val()) {
+  sortSelect.addEventListener('input', () => {
+    switch (sortSelect.value) {
       case 'high':
         runewords.sort((a, b) => (b.level - a.level) || (a.name > b.name ? 1 : -1));
         break;
@@ -453,7 +549,7 @@ $(document).ready(function() {
       arr[i] = temp;
     }
     return arr;
-  };
+  }
 
   function rand(n) {
     return Math.floor(Math.random() * n);
