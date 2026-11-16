@@ -1,6 +1,22 @@
 'use strict';
 
+/**
+ * Main application logic for Diablo II Runeword Explorer.
+ *
+ * Handles:
+ *  - State management (available runes, category filters, view preferences)
+ *  - URL query parameter and localStorage persistence
+ *  - Item categorization and smart weapon-class hierarchy matching
+ *  - Runeword craftability evaluation (via HoradricCube)
+ *  - DOM rendering (inputs table, filter chips, grouped/ungrouped results)
+ *  - Sorting and event handling
+ */
+
 document.addEventListener('DOMContentLoaded', () => {
+  // ===========================================================================
+  // Constants & Category Configuration
+  // ===========================================================================
+
   const RANGE_REGEX = /(\(\d+-\d+\))/;
 
   const MELEE_SUBTYPES = [
@@ -19,14 +35,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const ALL_CATEGORIES =
       CATEGORY_GROUPS.reduce((acc, group) => acc.concat(group.categories), []);
 
-  let selectedCategories = new Set();
-  let collapsedGroups = new Set();
-  let smartMatch = localStorage.smartMatch !== undefined ?
-      localStorage.smartMatch === 'true' :
-      true;
-  let groupByCategory = localStorage.groupByCategory !== undefined ?
-      localStorage.groupByCategory === 'true' :
-      true;
+  // ===========================================================================
+  // DOM Elements
+  // ===========================================================================
 
   const smartMatchCheckbox = document.getElementById('smart-match');
   const groupByCategoryCheckbox = document.getElementById('group-by-category');
@@ -40,12 +51,27 @@ document.addEventListener('DOMContentLoaded', () => {
   const sortContainer = document.querySelector('.sort');
   const sortSelect = document.getElementById('sortby');
 
-  smartMatchCheckbox.checked = smartMatch;
-  groupByCategoryCheckbox.checked = groupByCategory;
+  // ===========================================================================
+  // Application State & Persistence
+  // ===========================================================================
 
   const horadricCube = new HoradricCube();
   const attributesHtmlMemo = new Map();
 
+  let selectedCategories = new Set();
+  let collapsedGroups = new Set();
+
+  let smartMatch = localStorage.smartMatch !== undefined ?
+      localStorage.smartMatch === 'true' :
+      true;
+  let groupByCategory = localStorage.groupByCategory !== undefined ?
+      localStorage.groupByCategory === 'true' :
+      true;
+
+  smartMatchCheckbox.checked = smartMatch;
+  groupByCategoryCheckbox.checked = groupByCategory;
+
+  // Initialize available runes from localStorage or URL query parameters
   let availableRunes;
   const params = new URLSearchParams(location.search);
   if (localStorage.availableRunes && !(params.get('overwrite') === 'true')) {
@@ -54,10 +80,39 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     availableRunes = horadricCube.deserializeRunes(params.get('runes'));
   }
-  const url = new URL(window.location.href);
-  url.searchParams.delete('overwrite');
-  window.history.replaceState(null, '', url.toString());
 
+  // Clean up 'overwrite' query parameter from URL bar if present
+  const initialUrl = new URL(window.location.href);
+  initialUrl.searchParams.delete('overwrite');
+  window.history.replaceState(null, '', initialUrl.toString());
+
+  // ===========================================================================
+  // URL & Storage Synchronization Helpers
+  // ===========================================================================
+
+  /**
+   * Updates the `?runes=` parameter in the browser's address bar without
+   * reloading.
+   */
+  function replaceRunesParam(value) {
+    const url = new URL(window.location.href);
+    if (value) {
+      url.searchParams.set('runes', value);
+    } else {
+      url.searchParams.delete('runes');
+    }
+    window.history.replaceState(null, '', url.toString());
+  }
+
+  // ===========================================================================
+  // Category Matching & Normalization
+  // ===========================================================================
+
+  /**
+   * Returns normalized category list for a runeword.
+   * Parses legacy itemType string if categories array is not defined on the
+   * object.
+   */
   function getRunewordCategories(runeword) {
     if (Array.isArray(runeword.categories) && runeword.categories.length > 0) {
       return runeword.categories;
@@ -67,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
                       .map(s => s.trim())
                       .filter(Boolean);
     const normalized = [];
-    parts.forEach(part => {
+    for (const part of parts) {
       let cat = part;
       if (part === 'All Melee Weapons' || part === 'Melee Weapons') {
         cat = 'Melee Weapons';
@@ -81,10 +136,21 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!normalized.includes(cat)) {
         normalized.push(cat);
       }
-    });
+    }
     return normalized;
   }
 
+  /**
+   * Checks whether a runeword matches a specific category.
+   *
+   * When smartMatch is enabled, hierarchical inheritance is applied:
+   *   - "All Weapons" matches any weapon type (melee, missile, specific
+   * subtype).
+   *   - "Melee Weapons" matches general melee or any specific melee subtype
+   * (e.g. Swords, Axes).
+   *   - Specific subtypes (e.g. "Swords") match if the runeword accepts Swords,
+   * All Melee, or All Weapons.
+   */
   function matchesCategory(runeword, category, useSmartMatch) {
     const cats = getRunewordCategories(runeword);
     if (!useSmartMatch) {
@@ -117,29 +183,43 @@ document.addEventListener('DOMContentLoaded', () => {
     return cats.includes(category);
   }
 
-  /*
-   * canMakeRuneword: Returns true iff the runeword can be made with the
-   * runes available, otherwise false.
-   *   @runeword - the word object to be formed, containing a 'runes' array
-   *   'this' - an object representing the runes available
+  // ===========================================================================
+  // Craftability & Filtering Logic
+  // ===========================================================================
+
+  /**
+   * Evaluates if a runeword can be made with available runes, accounting
+   * for cube transmutes (upgrades).
+   * Bound to available rune counts (`this`).
    */
   function canMakeRuneword(runeword) {
-    let counts = {};
-    runeword.runes.forEach(
-        rune => counts[rune] = counts[rune] ? counts[rune] + 1 : 1);
+    const counts = {};
+    for (const rune of runeword.runes) {
+      counts[rune] = counts[rune] ? counts[rune] + 1 : 1;
+    }
 
     return Object.keys(counts).every(rune => this[rune] >= counts[rune]) ||
         horadricCube.canUpgradeToMakeWord(this, counts);
   }
 
+  /**
+   * Filters the global runewords list down to craftable ones.
+   */
   function possibleRunewords(available) {
     return runewords.filter(canMakeRuneword.bind(available));
   }
 
+  // ===========================================================================
+  // DOM Rendering: Filter Chips
+  // ===========================================================================
+
+  /**
+   * Renders the category filter buttons with matching item counts.
+   */
   function renderFilterChips(craftableRunewords) {
     filterChipsContainer.textContent = '';
 
-    CATEGORY_GROUPS.forEach(group => {
+    for (const group of CATEGORY_GROUPS) {
       const row = document.createElement('div');
       row.className = 'filter-group-row';
 
@@ -151,7 +231,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const chips = document.createElement('div');
       chips.className = 'filter-group-chips';
 
-      group.categories.forEach(cat => {
+      for (const cat of group.categories) {
         const count = craftableRunewords
                           .filter(rw => matchesCategory(rw, cat, smartMatch))
                           .length;
@@ -173,21 +253,27 @@ document.addEventListener('DOMContentLoaded', () => {
         chip.appendChild(countSpan);
 
         chips.appendChild(chip);
-      });
+      }
 
       row.appendChild(chips);
       filterChipsContainer.appendChild(row);
-    });
+    }
 
     clearFiltersBtn.style.display = selectedCategories.size > 0 ? '' : 'none';
   }
 
-  // create inputs and initialize values
+  // ===========================================================================
+  // DOM Rendering: Inputs Table
+  // ===========================================================================
+
+  /**
+   * Builds the numeric input fields for all runes and initializes their values.
+   */
   function initializeInputs(availableRunes) {
     inputsTable.textContent = '';
     const fragment = document.createDocumentFragment();
 
-    RUNES.forEach(rune => {
+    for (const rune of RUNES) {
       const tr = document.createElement('tr');
 
       const tdRune = document.createElement('td');
@@ -203,109 +289,77 @@ document.addEventListener('DOMContentLoaded', () => {
       tr.appendChild(tdInput);
 
       fragment.appendChild(tr);
-    });
+    }
 
     inputsTable.appendChild(fragment);
     updateResults(availableRunes);
   }
 
-  initializeInputs(availableRunes);
+  // ===========================================================================
+  // DOM Rendering: Runeword Rows & Attributes
+  // ===========================================================================
 
-  clearBtn.addEventListener('click', () => {
-    availableRunes = {};
-    initializeInputs(availableRunes);
-    delete localStorage.availableRunes;
-    replaceRunesParam('');
-  });
-
-  function replaceRunesParam(value) {
-    const url = new URL(window.location.href);
-    if (value) {
-      url.searchParams.set('runes', value);
-    } else {
-      url.searchParams.delete('runes');
-    }
-    window.history.replaceState(null, '', url.toString());
+  /**
+   * Highlights numeric stat ranges like "(10-20)" in attribute descriptions.
+   */
+  function highlightStats(attr) {
+    return attr.split(RANGE_REGEX)
+        .map(part => {
+          if (RANGE_REGEX.test(part)) {
+            return `<span class="range">${part}</span>`;
+          } else {
+            return part;
+          }
+        })
+        .join('');
   }
 
-  // listeners on inputs
-  inputsTable.addEventListener('input', (e) => {
-    if (e.target && e.target.tagName === 'INPUT') {
-      const input = e.target;
-      const tdInput = input.closest('td');
-      const rune =
-          tdInput ? tdInput.previousElementSibling.textContent.trim() : null;
-      if (!rune) return;
-
-      const num = Number(input.value) || 0;
-      if (num === 0) {
-        delete availableRunes[rune];
-      } else {
-        availableRunes[rune] = num;
+  /**
+   * Recursively converts runeword attribute structures (strings or nested
+   * arrays) into DOM elements.
+   */
+  function renderAttributesHtml(attributes) {
+    // Render simple flat list
+    if (!attributes.some(Array.isArray)) {
+      const ul = document.createElement('ul');
+      for (const attr of attributes) {
+        const li = document.createElement('li');
+        li.innerHTML = highlightStats(attr);
+        ul.appendChild(li);
       }
-
-      localStorage.availableRunes = JSON.stringify(availableRunes);
-      replaceRunesParam(horadricCube.serializeRunes(availableRunes));
-
-      updateResults(availableRunes);
+      return ul;
     }
-  });
 
-  // listeners on filter controls
-  filterChipsContainer.addEventListener('click', (e) => {
-    const chip = e.target.closest('.filter-chip');
-    if (!chip) return;
-    const cat = chip.dataset.category;
-    if (selectedCategories.has(cat)) {
-      selectedCategories.delete(cat);
-    } else {
-      selectedCategories.add(cat);
-    }
-    updateResults(availableRunes);
-  });
-
-  resultsTable.addEventListener('click', (e) => {
-    const tag = e.target.closest('.category-tag');
-    if (tag) {
-      const cat = tag.dataset.category;
-      if (selectedCategories.has(cat)) {
-        selectedCategories.delete(cat);
+    // Render nested lists
+    const container = document.createElement('div');
+    for (const attr of attributes) {
+      if (Array.isArray(attr)) {
+        container.appendChild(renderAttributesHtml(attr));
       } else {
-        selectedCategories.add(cat);
+        const div = document.createElement('div');
+        div.innerHTML = highlightStats(attr);
+        container.appendChild(div);
       }
-      updateResults(availableRunes);
-      return;
     }
+    return container;
+  }
 
-    const header = e.target.closest('.category-group-header');
-    if (header) {
-      const cat = header.dataset.groupCategory;
-      if (collapsedGroups.has(cat)) {
-        collapsedGroups.delete(cat);
-      } else {
-        collapsedGroups.add(cat);
-      }
-      updateResults(availableRunes);
+  /**
+   * Returns rendered attribute DOM nodes, using a cache to avoid re-rendering
+   * static stats.
+   */
+  function renderAttributes(runeword) {
+    if (attributesHtmlMemo.has(runeword)) {
+      return attributesHtmlMemo.get(runeword);
     }
-  });
+    const html = renderAttributesHtml(runeword.attributes);
+    attributesHtmlMemo.set(runeword, html);
+    return html;
+  }
 
-  clearFiltersBtn.addEventListener('click', () => {
-    selectedCategories.clear();
-    updateResults(availableRunes);
-  });
-
-  smartMatchCheckbox.addEventListener('change', () => {
-    smartMatch = smartMatchCheckbox.checked;
-    localStorage.smartMatch = smartMatch;
-    updateResults(availableRunes);
-  });
-
-  groupByCategoryCheckbox.addEventListener('change', () => {
-    groupByCategory = groupByCategoryCheckbox.checked;
-    localStorage.groupByCategory = groupByCategory;
-    updateResults(availableRunes);
-  });
-
+  /**
+   * Constructs the table row for a single runeword.
+   */
   function buildRunewordRow(runeword, availableRunes, markMissing) {
     const cats = getRunewordCategories(runeword);
 
@@ -325,7 +379,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const runeSpanWrapper = document.createElement('span');
     runeSpanWrapper.className = 'rune';
-    runeword.runes.forEach(rune => {
+    for (const rune of runeword.runes) {
       const runeSpan = document.createElement('span');
       runeSpan.textContent = rune + ' ';
       if (!availableRunes[rune]) {
@@ -333,13 +387,13 @@ document.addEventListener('DOMContentLoaded', () => {
         runeSpan.classList.add('missing');
       }
       runeSpanWrapper.appendChild(runeSpan);
-    });
+    }
     tdName.appendChild(runeSpanWrapper);
     tdName.appendChild(document.createElement('br'));
 
     const tagsDiv = document.createElement('div');
     tagsDiv.className = 'category-tags';
-    cats.forEach(cat => {
+    for (const cat of cats) {
       const tag = document.createElement('span');
       tag.className =
           'category-tag' + (selectedCategories.has(cat) ? ' active' : '');
@@ -347,7 +401,7 @@ document.addEventListener('DOMContentLoaded', () => {
       tag.title = `Filter by ${cat} (${runeword.itemType})`;
       tag.textContent = cat;
       tagsDiv.appendChild(tag);
-    });
+    }
     tdName.appendChild(tagsDiv);
 
     const levelSpan = document.createElement('span');
@@ -379,41 +433,13 @@ document.addEventListener('DOMContentLoaded', () => {
     return tr;
   }
 
-  function renderAttributes(runeword) {
-    if (attributesHtmlMemo.has(runeword)) {
-      return attributesHtmlMemo.get(runeword);
-    }
-    const html = renderAttributesHtml(runeword.attributes);
-    attributesHtmlMemo.set(runeword, html);
-    return html;
-  }
+  // ===========================================================================
+  // Results Orchestration & Grouping
+  // ===========================================================================
 
-  function renderAttributesHtml(attributes) {
-    // Render simple list
-    if (!attributes.some(Array.isArray)) {
-      const ul = document.createElement('ul');
-      attributes.forEach(attr => {
-        const li = document.createElement('li');
-        li.innerHTML = highlightStats(attr);
-        ul.appendChild(li);
-      });
-      return ul;
-    }
-
-    // Render nested lists
-    const container = document.createElement('div');
-    for (const attr of attributes) {
-      if (Array.isArray(attr)) {
-        container.appendChild(renderAttributesHtml(attr));
-      } else {
-        const div = document.createElement('div');
-        div.innerHTML = highlightStats(attr);
-        container.appendChild(div);
-      }
-    }
-    return container;
-  }
-
+  /**
+   * Recalculates craftable and filtered runewords and renders results.
+   */
   function updateResults(availableRunes) {
     console.time('updateResults');
     let missingSome = false;
@@ -432,6 +458,7 @@ document.addEventListener('DOMContentLoaded', () => {
             rw => activeFilterList.some(
                 cat => matchesCategory(rw, cat, smartMatch)));
 
+    // Update results count indicator
     if (craftable.length > 0) {
       if (activeFilterList.length > 0) {
         resultsCountSpan.textContent =
@@ -444,6 +471,7 @@ document.addEventListener('DOMContentLoaded', () => {
       resultsCountSpan.textContent = '';
     }
 
+    // Toggle sort controls visibility
     if (craftable.length > 1) {
       sortContainer.style.display = '';
     } else {
@@ -460,16 +488,17 @@ document.addEventListener('DOMContentLoaded', () => {
       em.textContent = msg;
       resultsTable.appendChild(em);
     } else if (groupByCategory) {
+      // Render grouped by category section
       const groupCategories =
           activeFilterList.length > 0 ? activeFilterList : ALL_CATEGORIES;
       const fragment = document.createDocumentFragment();
 
-      groupCategories.forEach(cat => {
+      for (const cat of groupCategories) {
         const groupItems = activeFilterList.length > 0 ?
             filtered.filter(rw => matchesCategory(rw, cat, smartMatch)) :
             filtered.filter(rw => getRunewordCategories(rw).includes(cat));
 
-        if (groupItems.length === 0) return;
+        if (groupItems.length === 0) continue;
 
         const isCollapsed = collapsedGroups.has(cat);
 
@@ -502,18 +531,19 @@ document.addEventListener('DOMContentLoaded', () => {
         fragment.appendChild(headerRow);
 
         if (!isCollapsed) {
-          groupItems.forEach(rw => {
+          for (const rw of groupItems) {
             fragment.appendChild(
                 buildRunewordRow(rw, availableRunes, markMissing));
-          });
+          }
         }
-      });
+      }
       resultsTable.appendChild(fragment);
     } else {
+      // Render flat list
       const fragment = document.createDocumentFragment();
-      filtered.forEach(rw => {
+      for (const rw of filtered) {
         fragment.appendChild(buildRunewordRow(rw, availableRunes, markMissing));
-      });
+      }
       resultsTable.appendChild(fragment);
     }
 
@@ -521,19 +551,125 @@ document.addEventListener('DOMContentLoaded', () => {
     console.timeEnd('updateResults');
   }
 
-  function highlightStats(attr) {
-    return attr.split(RANGE_REGEX)
-        .map(part => {
-          if (RANGE_REGEX.test(part)) {
-            return `<span class="range">${part}</span>`;
-          } else {
-            return part;
-          }
-        })
-        .join('');
+  // ===========================================================================
+  // Utility & Sorting Functions
+  // ===========================================================================
+
+  function rand(n) {
+    return Math.floor(Math.random() * n);
   }
 
-  // listener on sort dropdown
+  function shuffle(arr) {
+    for (let i = arr.length - 1; i > 0; --i) {
+      let j = rand(i + 1);
+      let temp = arr[j];
+      arr[j] = arr[i];
+      arr[i] = temp;
+    }
+    return arr;
+  }
+
+  // ===========================================================================
+  // Event Listeners: Clear Actions
+  // ===========================================================================
+
+  clearBtn.addEventListener('click', () => {
+    availableRunes = {};
+    initializeInputs(availableRunes);
+    delete localStorage.availableRunes;
+    replaceRunesParam('');
+  });
+
+  clearFiltersBtn.addEventListener('click', () => {
+    selectedCategories.clear();
+    updateResults(availableRunes);
+  });
+
+  // ===========================================================================
+  // Event Listeners: Inputs & Preferences
+  // ===========================================================================
+
+  inputsTable.addEventListener('input', (e) => {
+    if (e.target && e.target.tagName === 'INPUT') {
+      const input = e.target;
+      const tdInput = input.closest('td');
+      const rune =
+          tdInput ? tdInput.previousElementSibling.textContent.trim() : null;
+      if (!rune) return;
+
+      const num = Number(input.value) || 0;
+      if (num === 0) {
+        delete availableRunes[rune];
+      } else {
+        availableRunes[rune] = num;
+      }
+
+      localStorage.availableRunes = JSON.stringify(availableRunes);
+      replaceRunesParam(horadricCube.serializeRunes(availableRunes));
+
+      updateResults(availableRunes);
+    }
+  });
+
+  smartMatchCheckbox.addEventListener('change', () => {
+    smartMatch = smartMatchCheckbox.checked;
+    localStorage.smartMatch = smartMatch;
+    updateResults(availableRunes);
+  });
+
+  groupByCategoryCheckbox.addEventListener('change', () => {
+    groupByCategory = groupByCategoryCheckbox.checked;
+    localStorage.groupByCategory = groupByCategory;
+    updateResults(availableRunes);
+  });
+
+  // ===========================================================================
+  // Event Listeners: Filter Chips & Results Table Interactions
+  // ===========================================================================
+
+  filterChipsContainer.addEventListener('click', (e) => {
+    const chip = e.target.closest('.filter-chip');
+    if (!chip) return;
+    const cat = chip.dataset.category;
+    if (selectedCategories.has(cat)) {
+      selectedCategories.delete(cat);
+    } else {
+      selectedCategories.add(cat);
+    }
+    updateResults(availableRunes);
+  });
+
+  resultsTable.addEventListener('click', (e) => {
+    // Clicking a category tag on a runeword toggles filter selection
+    const tag = e.target.closest('.category-tag');
+    if (tag) {
+      const cat = tag.dataset.category;
+      if (selectedCategories.has(cat)) {
+        selectedCategories.delete(cat);
+      } else {
+        selectedCategories.add(cat);
+      }
+      updateResults(availableRunes);
+      return;
+    }
+
+    // Clicking a category group header toggles section collapse
+    const header = e.target.closest('.category-group-header');
+    if (header) {
+      const cat = header.dataset.groupCategory;
+      if (collapsedGroups.has(cat)) {
+        collapsedGroups.delete(cat);
+      } else {
+        collapsedGroups.add(cat);
+      }
+      updateResults(availableRunes);
+    }
+  });
+
+  // ===========================================================================
+  // Event Listeners: Sorting
+  // ===========================================================================
+
   sortSelect.addEventListener('input', () => {
     switch (sortSelect.value) {
       case 'high':
@@ -560,17 +696,9 @@ document.addEventListener('DOMContentLoaded', () => {
     updateResults(availableRunes);
   });
 
-  function shuffle(arr) {
-    for (let i = arr.length - 1; i > 0; --i) {
-      let j = rand(i + 1);
-      let temp = arr[j];
-      arr[j] = arr[i];
-      arr[i] = temp;
-    }
-    return arr;
-  }
+  // ===========================================================================
+  // Initial Page Load
+  // ===========================================================================
 
-  function rand(n) {
-    return Math.floor(Math.random() * n);
-  }
+  initializeInputs(availableRunes);
 });
