@@ -56,7 +56,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // ===========================================================================
 
   const horadricCube = new HoradricCube();
-  const attributesHtmlMemo = new Map();
 
   let selectedCategories = new Set();
   let collapsedGroups = new Set();
@@ -318,7 +317,7 @@ document.addEventListener('DOMContentLoaded', () => {
    * Recursively converts runeword attribute structures (strings or nested
    * arrays) into DOM elements.
    */
-  function renderAttributesHtml(attributes) {
+  function renderAttributes(attributes) {
     // Render simple flat list
     if (!attributes.some(Array.isArray)) {
       const ul = document.createElement('ul');
@@ -334,7 +333,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const container = document.createElement('div');
     for (const attr of attributes) {
       if (Array.isArray(attr)) {
-        container.appendChild(renderAttributesHtml(attr));
+        container.appendChild(renderAttributes(attr));
       } else {
         const div = document.createElement('div');
         div.innerHTML = highlightStats(attr);
@@ -342,19 +341,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
     return container;
-  }
-
-  /**
-   * Returns rendered attribute DOM nodes, using a cache to avoid re-rendering
-   * static stats.
-   */
-  function renderAttributes(runeword) {
-    if (attributesHtmlMemo.has(runeword)) {
-      return attributesHtmlMemo.get(runeword);
-    }
-    const html = renderAttributesHtml(runeword.attributes);
-    attributesHtmlMemo.set(runeword, html);
-    return html;
   }
 
   /**
@@ -425,7 +411,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const tdAttributes = document.createElement('td');
     tdAttributes.className = 'stats';
-    tdAttributes.appendChild(renderAttributes(runeword));
+    tdAttributes.appendChild(renderAttributes(runeword.attributes));
 
     tr.appendChild(tdName);
     tr.appendChild(tdAttributes);
