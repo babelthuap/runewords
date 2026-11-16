@@ -120,7 +120,7 @@ h1, h2 {
   flex-shrink: 0;
   height: fit-content;
   position: sticky;
-  top: 1em;
+  top: 104px;
   max-height: calc(100vh - 2em);
   overflow-y: auto;
   scrollbar-width: thin;
