@@ -411,6 +411,10 @@ h1, h2 {
   margin: 0em;
 }
 
+#results .stats > ul {
+  padding-inline-start: 1em;
+}
+
 #results h3 {
   margin: 0em;
 }

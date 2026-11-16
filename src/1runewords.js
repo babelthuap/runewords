@@ -137,14 +137,24 @@ const runewords = [
     categories: ['All Weapons', 'Shields'],
     level: 65,
     attributes: [
-      'BOTH:', '100% Chance To Cast level 40 Blaze When You Level-up',
-      '40% Chance To Cast Level 22 Firestorm On Striking',
-      'Level (10-15) Redemption Aura When Equipped',
-      '+(350-400)% Enhanced Damage', '-28% To Enemy Fire Resistance',
-      '+(350-400) Defense Vs. Missile', '+(15-21) Fire Absorb',
-      'WEAPONS:', 'Ignores Target\'s Defense', '14% Mana Stolen Per Hit',
-      '20% Deadly Strike', 'SHIELDS:', '+50 To Life',
-      '+5% To Maximum Lightning Resist', '+10% To Maximum Fire Resist'
+      'BOTH:',
+      [
+        '100% Chance To Cast level 40 Blaze When You Level-up',
+        '40% Chance To Cast Level 22 Firestorm On Striking',
+        'Level (10-15) Redemption Aura When Equipped',
+        '+(350-400)% Enhanced Damage', '-28% To Enemy Fire Resistance',
+        '+(350-400) Defense Vs. Missile', '+(15-21) Fire Absorb'
+      ],
+      'WEAPONS:',
+      [
+        'Ignores Target\'s Defense', '14% Mana Stolen Per Hit',
+        '20% Deadly Strike'
+      ],
+      'SHIELDS:',
+      [
+        '+50 To Life', '+5% To Maximum Lightning Resist',
+        '+10% To Maximum Fire Resist'
+      ]
     ],
     ladderOnly: false
   },
@@ -217,13 +227,17 @@ const runewords = [
     categories: ['Helms', 'Shields'],
     level: 65,
     attributes: [
-      'BOTH:', '10% Chance To Cast Level 15 Confuse When Struck',
-      'Level 15 Holy Shock Aura When Equipped', '+(20-30)% Faster Hit Recovery',
-      '+30% Enhanced Defense', '+(150-220) Defense', '+10 To Vitality',
-      '+(0.625*Clvl) To Mana (Based On Character Level)',
-      'All Resistances +(5-20)',
-      '(12-25)% Better Chance of Getting Magic Items',
-      'HEADGEAR:', 'Increase Maximum Life 5%', 'SHIELDS:', '+50 To Life'
+      'BOTH:',
+      [
+        '10% Chance To Cast Level 15 Confuse When Struck',
+        'Level 15 Holy Shock Aura When Equipped',
+        '+(20-30)% Faster Hit Recovery', '+30% Enhanced Defense',
+        '+(150-220) Defense', '+10 To Vitality',
+        '+(0.625*Clvl) To Mana (Based On Character Level)',
+        'All Resistances +(5-20)',
+        '(12-25)% Better Chance of Getting Magic Items'
+      ],
+      'HEADGEAR:', ['Increase Maximum Life 5%'], 'SHIELDS:', ['+50 To Life']
     ],
     ladderOnly: false
   },
@@ -313,13 +327,16 @@ const runewords = [
     categories: ['Armor', 'Shields'],
     level: 61,
     attributes: [
-      'BOTH:', '20% Chance to Cast Level 18 Venom When Struck',
-      '12% Chance To Cast Level 15 Hydra On Striking',
-      'Level 14 Holy Fire Aura When Equipped', '+360 Defense',
-      '+230 Defense Vs. Missile', '+(3-5) To All Attributes',
-      '+(0.375*Clvl) To Strength (Based on Character Level)',
-      '+5% To Maximum Lightning Resist', 'Damage Reduced by 7',
-      'ARMOR:', 'Increase Maximum Mana 5%', 'SHIELDS:', '+50 To Mana'
+      'BOTH:',
+      [
+        '20% Chance to Cast Level 18 Venom When Struck',
+        '12% Chance To Cast Level 15 Hydra On Striking',
+        'Level 14 Holy Fire Aura When Equipped', '+360 Defense',
+        '+230 Defense Vs. Missile', '+(3-5) To All Attributes',
+        '+(0.375*Clvl) To Strength (Based on Character Level)',
+        '+5% To Maximum Lightning Resist', 'Damage Reduced by 7'
+      ],
+      'ARMOR:', ['Increase Maximum Mana 5%'], 'SHIELDS:', ['+50 To Mana']
     ],
     ladderOnly: false
   },
@@ -377,16 +394,25 @@ const runewords = [
     categories: ['All Weapons', 'Armor'],
     level: 59,
     attributes: [
-      'BOTH:', '20% Chance To Cast Level 15 Chilling Armor when Struck',
-      '+25% Faster Cast Rate', '+300% Enhanced Damage',
-      '+200% Enhanced Defense',
-      '+((8-12)*0.125*Clvl) To Life (Based on Character Level)',
-      'All Resistances +(25-30)', '12% Damage Taken Goes To Mana',
-      '+1 To Light Radius', 'WEAPONS:', '+9 To Minimum Damage',
-      '+50 To Attack Rating', '20% Deadly Strike',
-      'Hit Causes Monster To Flee 25%', 'ARMOR:', '+15 Defense',
-      'Replenish Life +7', '+5% To Maximum Lightning Resist',
-      'Damage Reduced By 7'
+      'BOTH:',
+      [
+        '20% Chance To Cast Level 15 Chilling Armor when Struck',
+        '+25% Faster Cast Rate', '+300% Enhanced Damage',
+        '+200% Enhanced Defense',
+        '+((8-12)*0.125*Clvl) To Life (Based on Character Level)',
+        'All Resistances +(25-30)', '12% Damage Taken Goes To Mana',
+        '+1 To Light Radius'
+      ],
+      'WEAPONS:',
+      [
+        '+9 To Minimum Damage', '+50 To Attack Rating', '20% Deadly Strike',
+        'Hit Causes Monster To Flee 25%'
+      ],
+      'ARMOR:',
+      [
+        '+15 Defense', 'Replenish Life +7', '+5% To Maximum Lightning Resist',
+        'Damage Reduced By 7'
+      ]
     ],
     ladderOnly: false
   },
@@ -1024,13 +1050,22 @@ const runewords = [
     categories: ['Shields', 'Swords'],
     level: 25,
     attributes: [
-      'BOTH:', '+2 To All Skills', '+(25-35)% Faster Cast Rate',
-      '+55% Faster Hit Recovery', '+250 Defense Vs. Missile', '+22 To Vitality',
-      '+(89-112) To Mana', '+(3-8) Magic Absorb', 'SHIELDS:',
-      'Cold Resist +35%', 'Lightning Resist +35%', 'Poison Resist +35%',
-      'Attacker Takes Damage of 14', 'SWORDS:', 'Adds 1-50 Lightning Damage',
-      'Adds 3-14 Cold Damage (3 Sec,Normal)',
-      '+75 Poison Damage Over 5 Seconds', '7% Life Stolen Per Hit'
+      'BOTH:',
+      [
+        '+2 To All Skills', '+(25-35)% Faster Cast Rate',
+        '+55% Faster Hit Recovery', '+250 Defense Vs. Missile',
+        '+22 To Vitality', '+(89-112) To Mana', '+(3-8) Magic Absorb'
+      ],
+      'SHIELDS:',
+      [
+        'Cold Resist +35%', 'Lightning Resist +35%', 'Poison Resist +35%',
+        'Attacker Takes Damage of 14'
+      ],
+      'SWORDS:',
+      [
+        'Adds 1-50 Lightning Damage', 'Adds 3-14 Cold Damage (3 Sec,Normal)',
+        '+75 Poison Damage Over 5 Seconds', '7% Life Stolen Per Hit'
+      ],
     ],
     ladderOnly: false
   },
@@ -1289,7 +1324,8 @@ const runewords = [
     categories: ['All Weapons'],
     level: 39,
     attributes: [
-      '+10 to Dexterity', '5% Chance to Cast Level 1 Burst of Speed on Striking',
+      '+10 to Dexterity',
+      '5% Chance to Cast Level 1 Burst of Speed on Striking',
       'Level 1 Fanaticism Aura', '+30% Increased Attack Speed',
       '+(180-200)% Enhanced Damage', '+75% Damage to Undead',
       '+50 to Attack Rating against Undead'

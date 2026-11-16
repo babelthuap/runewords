@@ -302,15 +302,32 @@ $(document).ready(function() {
       $name.append('<br>').append('<br>').append( $('<em>').text('NON-LADDER ONLY') );
     }
 
-    let $attributes = $('<td>').addClass('stats').append( $('<ul>')
-      .append(runeword.attributes.map(attr => $('<li>').html(highlightStats(attr))))
-    );
+    let $attributes = $('<td>')
+      .addClass('stats')
+      .append(renderAttributes(runeword.attributes));
 
     return $('<tr>')
       .append($name)
       .append($attributes)
       .addClass(runeword.ladderOnly ? 'ladder-only' : '')
       .addClass(runeword.nonLadderOnly ? 'non-ladder-only' : '');
+  }
+
+  function renderAttributes(attributes) {
+    if (!attributes.some(Array.isArray)) {
+      return $('<ul>').append(
+        attributes.map(attr => $('<li>').html(highlightStats(attr)))
+      );
+    }
+    const container = $('<div>');
+    for (const attr of attributes) {
+      if (Array.isArray(attr)) {
+        container.append(renderAttributes(attr));
+      } else {
+        container.append($('<div>').html(highlightStats(attr)));
+      }
+    }
+    return container;
   }
 
   function updateResults(availableRunes) {
