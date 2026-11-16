@@ -52,15 +52,29 @@ const runewords = [
   {
     name: 'Eternity',
     runes: ['Amn', 'Ber', 'Ist', 'Sol', 'Sur'],
-    itemType: 'All Melee Weapons',
-    categories: ['Melee Weapons'],
+    itemType: 'All Melee and Missile Weapons',
+    categories: ['Melee Weapons', 'Missile Weapons'],
     level: 63,
     attributes: [
-      'Indestructible', '+(260-310)% Enhanced Damage', '+9 To Minimum Damage',
-      '7% Life Stolen Per Hit', '20% Chance of Crushing Blow',
-      'Hit Blinds Target', 'Slows Target By 33%', 'Replenish Mana 16%',
-      'Cannot Be Frozen', '30% Better Chance Of Getting Magic Items',
-      'Level 8 Revive (88 Charges)'
+      'Before Patch 3.4:',
+      [
+        '⚠️ ONLY MELEE WEAPONS ⚠️', 'Indestructible',
+        '+(260-310)% Enhanced Damage', '+9 To Minimum Damage',
+        '7% Life Stolen Per Hit', '20% Chance of Crushing Blow',
+        'Hit Blinds Target', 'Slows Target By 33%', 'Replenish Mana 16%',
+        'Cannot Be Frozen', '30% Better Chance Of Getting Magic Items',
+        'Level 8 Revive (88 Charges)'
+      ],
+      'Patch 3.4 (Online Ladder and Offline):',
+      [
+        'Indestructible', '+30% Increased Attack Speed',
+        '+(300-390)% Enhanced Damage',
+        '+(3-297) To Maximum Damage (Based on Character Level)',
+        '7% Life Stolen Per Hit', '20% Chance of Crushing Blow',
+        'Hit Blinds Target', 'Slows Target By 33%', 'Replenish Mana 16%',
+        'Cannot Be Frozen', '30% Better Chance Of Getting Magic Items',
+        '+5 To Revive (O skill)'
+      ]
     ],
     ladderOnly: false
   },
