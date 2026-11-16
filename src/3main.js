@@ -4,38 +4,29 @@ document.addEventListener('DOMContentLoaded', () => {
   const RANGE_REGEX = /(\(\d+-\d+\))/;
 
   const MELEE_SUBTYPES = [
-    'Axes', 'Claws', 'Clubs', 'Daggers', 'Hammers',
-    'Maces', 'Polearms', 'Scepters', 'Staves', 'Swords', 'Wands'
+    'Axes', 'Claws', 'Clubs', 'Daggers', 'Hammers', 'Maces', 'Polearms',
+    'Scepters', 'Staves', 'Swords', 'Wands'
   ];
 
   const CATEGORY_GROUPS = [
-    {
-      label: 'Armor & Offhand:',
-      categories: ['Helms', 'Armor', 'Shields']
-    },
-    {
+    {label: 'Armor & Offhand:', categories: ['Helms', 'Armor', 'Shields']}, {
       label: 'Weapon Classes:',
       categories: ['All Weapons', 'Melee Weapons', 'Missile Weapons']
     },
-    {
-      label: 'Weapon Types:',
-      categories: MELEE_SUBTYPES
-    }
+    {label: 'Weapon Types:', categories: MELEE_SUBTYPES}
   ];
 
-  const ALL_CATEGORIES = CATEGORY_GROUPS.reduce(
-    (acc, group) => acc.concat(group.categories),
-    []
-  );
+  const ALL_CATEGORIES =
+      CATEGORY_GROUPS.reduce((acc, group) => acc.concat(group.categories), []);
 
   let selectedCategories = new Set();
   let collapsedGroups = new Set();
-  let smartMatch = localStorage.smartMatch !== undefined
-    ? localStorage.smartMatch === 'true'
-    : true;
-  let groupByCategory = localStorage.groupByCategory !== undefined
-    ? localStorage.groupByCategory === 'true'
-    : true;
+  let smartMatch = localStorage.smartMatch !== undefined ?
+      localStorage.smartMatch === 'true' :
+      true;
+  let groupByCategory = localStorage.groupByCategory !== undefined ?
+      localStorage.groupByCategory === 'true' :
+      true;
 
   const smartMatchCheckbox = document.getElementById('smart-match');
   const groupByCategoryCheckbox = document.getElementById('group-by-category');
@@ -53,6 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
   groupByCategoryCheckbox.checked = groupByCategory;
 
   const horadricCube = new HoradricCube();
+  const attributesHtmlMemo = new Map();
 
   let availableRunes;
   const params = new URLSearchParams(location.search);
@@ -70,7 +62,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (Array.isArray(runeword.categories) && runeword.categories.length > 0) {
       return runeword.categories;
     }
-    const parts = (runeword.itemType || '').split(/[,&]/).map(s => s.trim()).filter(Boolean);
+    const parts = (runeword.itemType || '')
+                      .split(/[,&]/)
+                      .map(s => s.trim())
+                      .filter(Boolean);
     const normalized = [];
     parts.forEach(part => {
       let cat = part;
@@ -78,7 +73,9 @@ document.addEventListener('DOMContentLoaded', () => {
         cat = 'Melee Weapons';
       } else if (part === 'All Weapons' || part === 'Weapons') {
         cat = 'All Weapons';
-      } else if (part === 'Headgear' || part === 'Headgear (all types)' || part === 'Helms') {
+      } else if (
+          part === 'Headgear' || part === 'Headgear (all types)' ||
+          part === 'Helms') {
         cat = 'Helms';
       }
       if (!normalized.includes(cat)) {
@@ -94,33 +91,28 @@ document.addEventListener('DOMContentLoaded', () => {
       return cats.includes(category);
     }
 
-    if (category === 'Helms' || category === 'Armor' || category === 'Shields') {
+    if (category === 'Helms' || category === 'Armor' ||
+        category === 'Shields') {
       return cats.includes(category);
     }
     if (category === 'All Weapons') {
       return (
-        cats.includes('All Weapons') ||
-        cats.includes('Melee Weapons') ||
-        cats.includes('Missile Weapons') ||
-        cats.some(c => MELEE_SUBTYPES.includes(c))
-      );
+          cats.includes('All Weapons') || cats.includes('Melee Weapons') ||
+          cats.includes('Missile Weapons') ||
+          cats.some(c => MELEE_SUBTYPES.includes(c)));
     }
     if (category === 'Melee Weapons') {
       return (
-        cats.includes('Melee Weapons') ||
-        cats.includes('All Weapons') ||
-        cats.some(c => MELEE_SUBTYPES.includes(c))
-      );
+          cats.includes('Melee Weapons') || cats.includes('All Weapons') ||
+          cats.some(c => MELEE_SUBTYPES.includes(c)));
     }
     if (category === 'Missile Weapons') {
       return cats.includes('Missile Weapons') || cats.includes('All Weapons');
     }
     if (MELEE_SUBTYPES.includes(category)) {
       return (
-        cats.includes(category) ||
-        cats.includes('Melee Weapons') ||
-        cats.includes('All Weapons')
-      );
+          cats.includes(category) || cats.includes('Melee Weapons') ||
+          cats.includes('All Weapons'));
     }
     return cats.includes(category);
   }
@@ -133,16 +125,15 @@ document.addEventListener('DOMContentLoaded', () => {
    */
   function canMakeRuneword(runeword) {
     let counts = {};
-    runeword.runes.forEach(rune =>
-      counts[rune] = counts[rune] ? counts[rune] + 1 : 1
-    );
+    runeword.runes.forEach(
+        rune => counts[rune] = counts[rune] ? counts[rune] + 1 : 1);
 
     return Object.keys(counts).every(rune => this[rune] >= counts[rune]) ||
-           horadricCube.canUpgradeToMakeWord(this, counts);
+        horadricCube.canUpgradeToMakeWord(this, counts);
   }
 
   function possibleRunewords(available) {
-    return runewords.filter( canMakeRuneword.bind(available) );
+    return runewords.filter(canMakeRuneword.bind(available));
   }
 
   function renderFilterChips(craftableRunewords) {
@@ -161,14 +152,15 @@ document.addEventListener('DOMContentLoaded', () => {
       chips.className = 'filter-group-chips';
 
       group.categories.forEach(cat => {
-        const count = craftableRunewords.filter(rw => matchesCategory(rw, cat, smartMatch)).length;
+        const count = craftableRunewords
+                          .filter(rw => matchesCategory(rw, cat, smartMatch))
+                          .length;
         const isActive = selectedCategories.has(cat);
 
         const chip = document.createElement('button');
         chip.type = 'button';
-        chip.className = 'filter-chip' +
-          (isActive ? ' active' : '') +
-          (count === 0 && !isActive ? ' zero-count' : '');
+        chip.className = 'filter-chip' + (isActive ? ' active' : '') +
+            (count === 0 && !isActive ? ' zero-count' : '');
         chip.dataset.category = cat;
 
         const catSpan = document.createElement('span');
@@ -241,7 +233,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.target && e.target.tagName === 'INPUT') {
       const input = e.target;
       const tdInput = input.closest('td');
-      const rune = tdInput ? tdInput.previousElementSibling.textContent.trim() : null;
+      const rune =
+          tdInput ? tdInput.previousElementSibling.textContent.trim() : null;
       if (!rune) return;
 
       const num = Number(input.value) || 0;
@@ -348,7 +341,8 @@ document.addEventListener('DOMContentLoaded', () => {
     tagsDiv.className = 'category-tags';
     cats.forEach(cat => {
       const tag = document.createElement('span');
-      tag.className = 'category-tag' + (selectedCategories.has(cat) ? ' active' : '');
+      tag.className =
+          'category-tag' + (selectedCategories.has(cat) ? ' active' : '');
       tag.dataset.category = cat;
       tag.title = `Filter by ${cat} (${runeword.itemType})`;
       tag.textContent = cat;
@@ -377,7 +371,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const tdAttributes = document.createElement('td');
     tdAttributes.className = 'stats';
-    tdAttributes.appendChild(renderAttributes(runeword.attributes));
+    tdAttributes.appendChild(renderAttributes(runeword));
 
     tr.appendChild(tdName);
     tr.appendChild(tdAttributes);
@@ -385,7 +379,17 @@ document.addEventListener('DOMContentLoaded', () => {
     return tr;
   }
 
-  function renderAttributes(attributes) {
+  function renderAttributes(runeword) {
+    if (attributesHtmlMemo.has(runeword)) {
+      return attributesHtmlMemo.get(runeword);
+    }
+    const html = renderAttributesHtml(runeword.attributes);
+    attributesHtmlMemo.set(runeword, html);
+    return html;
+  }
+
+  function renderAttributesHtml(attributes) {
+    // Render simple list
     if (!attributes.some(Array.isArray)) {
       const ul = document.createElement('ul');
       attributes.forEach(attr => {
@@ -395,10 +399,12 @@ document.addEventListener('DOMContentLoaded', () => {
       });
       return ul;
     }
+
+    // Render nested lists
     const container = document.createElement('div');
     for (const attr of attributes) {
       if (Array.isArray(attr)) {
-        container.appendChild(renderAttributes(attr));
+        container.appendChild(renderAttributesHtml(attr));
       } else {
         const div = document.createElement('div');
         div.innerHTML = highlightStats(attr);
@@ -411,21 +417,28 @@ document.addEventListener('DOMContentLoaded', () => {
   function updateResults(availableRunes) {
     console.time('updateResults');
     let missingSome = false;
-    const markMissing = () => { missingSome = true; };
+    const markMissing = () => {
+      missingSome = true;
+    };
 
     const craftable = possibleRunewords(availableRunes);
     renderFilterChips(craftable);
 
-    const activeFilterList = ALL_CATEGORIES.filter(cat => selectedCategories.has(cat));
-    const filtered = activeFilterList.length === 0
-      ? craftable
-      : craftable.filter(rw => activeFilterList.some(cat => matchesCategory(rw, cat, smartMatch)));
+    const activeFilterList =
+        ALL_CATEGORIES.filter(cat => selectedCategories.has(cat));
+    const filtered = activeFilterList.length === 0 ?
+        craftable :
+        craftable.filter(
+            rw => activeFilterList.some(
+                cat => matchesCategory(rw, cat, smartMatch)));
 
     if (craftable.length > 0) {
       if (activeFilterList.length > 0) {
-        resultsCountSpan.textContent = `Showing ${filtered.length} of ${craftable.length} runewords`;
+        resultsCountSpan.textContent =
+            `Showing ${filtered.length} of ${craftable.length} runewords`;
       } else {
-        resultsCountSpan.textContent = `${craftable.length} runeword${craftable.length === 1 ? '' : 's'}`;
+        resultsCountSpan.textContent =
+            `${craftable.length} runeword${craftable.length === 1 ? '' : 's'}`;
       }
     } else {
       resultsCountSpan.textContent = '';
@@ -440,20 +453,21 @@ document.addEventListener('DOMContentLoaded', () => {
     resultsTable.textContent = '';
 
     if (filtered.length === 0) {
-      const msg = craftable.length === 0
-        ? '- none -'
-        : '- no runewords match the selected category filter(s) -';
+      const msg = craftable.length === 0 ?
+          '- none -' :
+          '- no runewords match the selected category filter(s) -';
       const em = document.createElement('em');
       em.textContent = msg;
       resultsTable.appendChild(em);
     } else if (groupByCategory) {
-      const groupCategories = activeFilterList.length > 0 ? activeFilterList : ALL_CATEGORIES;
+      const groupCategories =
+          activeFilterList.length > 0 ? activeFilterList : ALL_CATEGORIES;
       const fragment = document.createDocumentFragment();
 
       groupCategories.forEach(cat => {
-        const groupItems = activeFilterList.length > 0
-          ? filtered.filter(rw => matchesCategory(rw, cat, smartMatch))
-          : filtered.filter(rw => getRunewordCategories(rw).includes(cat));
+        const groupItems = activeFilterList.length > 0 ?
+            filtered.filter(rw => matchesCategory(rw, cat, smartMatch)) :
+            filtered.filter(rw => getRunewordCategories(rw).includes(cat));
 
         if (groupItems.length === 0) return;
 
@@ -489,7 +503,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (!isCollapsed) {
           groupItems.forEach(rw => {
-            fragment.appendChild(buildRunewordRow(rw, availableRunes, markMissing));
+            fragment.appendChild(
+                buildRunewordRow(rw, availableRunes, markMissing));
           });
         }
       });
@@ -507,23 +522,27 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function highlightStats(attr) {
-    return attr.split(RANGE_REGEX).map(part => {
-      if (RANGE_REGEX.test(part)) {
-        return `<span class="range">${part}</span>`;
-      } else {
-        return part;
-      }
-    }).join('');
+    return attr.split(RANGE_REGEX)
+        .map(part => {
+          if (RANGE_REGEX.test(part)) {
+            return `<span class="range">${part}</span>`;
+          } else {
+            return part;
+          }
+        })
+        .join('');
   }
 
   // listener on sort dropdown
   sortSelect.addEventListener('input', () => {
     switch (sortSelect.value) {
       case 'high':
-        runewords.sort((a, b) => (b.level - a.level) || (a.name > b.name ? 1 : -1));
+        runewords.sort(
+            (a, b) => (b.level - a.level) || (a.name > b.name ? 1 : -1));
         break;
       case 'low':
-        runewords.sort((a, b) => (a.level - b.level) || (a.name > b.name ? 1 : -1));
+        runewords.sort(
+            (a, b) => (a.level - b.level) || (a.name > b.name ? 1 : -1));
         break;
       case 'most':
         runewords.sort((a, b) => b.runes.length - a.runes.length);
